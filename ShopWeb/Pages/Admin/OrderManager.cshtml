@@ -1,0 +1,291 @@
+﻿@page
+@model ShopWeb.Pages.Admin.OrderManagerModel
+@{
+    Layout = "_AdminLayout";
+}
+
+@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+
+<!-- Main -->
+<div class="container">
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <h2>Pending Orders</h2>
+            </div>
+            <table id="myTable1" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Order Date</th>
+                        <th>Shipped Date</th>
+                        <th>Freight</th>
+                        <th>Ship Address</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.PendingOrders)
+                    {
+                        <tr>
+                            <td>@order.OrderId</td>
+                            <td>@order.CustomerName</td>
+                            <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                            <td>@(order.ShippedDate.HasValue ? order.ShippedDate.Value.ToString("yyyy-MM-dd") : "Not Shipped")</td>
+                            <td>@order.Freight?.ToString("C")</td>
+                            <td>@order.ShipAddress</td>
+                            <td>@Html.Translate("StatusPending")</td>
+                            <td>
+                                <form asp-page-handler="ChangeStatus" method="post">
+                                    <input type="hidden" name="orderId" value="@order.OrderId" />
+                                    <button type="submit" class="btn btn-primary">@Html.Translate("Mark as Delivered")</button>
+                                </form>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" onclick="deleteOrder(@order.OrderId)" class="delete">
+                                    <span class="material-symbols-outlined" title="delete">delete</span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+    <br>
+    <!-- Received Orders -->
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <h2>Received Orders</h2>
+            </div>
+            <table id="myTable2" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Order Date</th>
+                        <th>Shipped Date</th>
+                        <th>Freight</th>
+                        <th>Ship Address</th>
+                        <th>Status</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.ReceivedOrders)
+                    {
+                        <tr>
+                            <td>@order.OrderId</td>
+                            <td>@order.CustomerName</td>
+                            <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                            <td>@(order.ShippedDate.HasValue ? order.ShippedDate.Value.ToString("yyyy-MM-dd") : "Not Shipped")</td>
+                            <td>@order.Freight?.ToString("C")</td>
+                            <td>@order.ShipAddress</td>
+                            <td>@Html.Translate("StatusReceived")</td>
+                            <td>
+                                <a href="javascript:void(0);" onclick="deleteOrder(@order.OrderId)" class="delete">
+                                    <span class="material-symbols-outlined" title="delete">delete</span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+    <br>
+    <!-- Cancelled Orders -->
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <h2>Cancelled Orders</h2>
+            </div>
+            <table id="myTable3" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Order Date</th>
+                        <th>Shipped Date</th>
+                        <th>Freight</th>
+                        <th>Ship Address</th>
+                        <th>Status</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.CancelledOrders)
+                    {
+                        <tr>
+                            <td>@order.OrderId</td>
+                            <td>@order.CustomerName</td>
+                            <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                            <td>@(order.ShippedDate.HasValue ? order.ShippedDate.Value.ToString("yyyy-MM-dd") : "Not Shipped")</td>
+                            <td>@order.Freight?.ToString("C")</td>
+                            <td>@order.ShipAddress</td>
+                            <td>@Html.Translate("StatusCancelled")</td>
+                            <td>
+                                <a href="javascript:void(0);" onclick="deleteOrder(@order.OrderId)" class="delete">
+                                    <span class="material-symbols-outlined" title="delete">delete</span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+    <br>
+    <!-- Dispute, Refund Requests and Refund Disputes -->
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <h2>Dispute and Refund Orders</h2>
+            </div>
+            <table id="myTable4" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Order Date</th>
+                        <th>Shipped Date</th>
+                        <th>Freight</th>
+                        <th>Ship Address</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.DisputeRefundOrders)
+                    {
+                        <tr>
+                            <td>@order.OrderId</td>
+                            <td>@order.CustomerName</td>
+                            <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                            <td>@(order.ShippedDate.HasValue ? order.ShippedDate.Value.ToString("yyyy-MM-dd") : "Not Shipped")</td>
+                            <td>@order.Freight?.ToString("C")</td>
+                            <td>@order.ShipAddress</td>
+                            <td style="color: @(order.Status == 4 ? "orange"
+            : order.Status == 5 ? "purple"
+            : order.Status == 3 ? "blue"
+            : "red")">
+                                @if (order.Status == 3)
+                                {
+                                    @Html.Translate("StatusReturned")
+                                }
+                                else if (order.Status == 4)
+                                {
+                                    @Html.Translate("StatusDisputed")
+                                }
+                                else if (order.Status == 5)
+                                {
+                                    @Html.Translate("StatusRefundRequested")
+                                }
+                                else if (order.Status == 6)
+                                {
+                                    @Html.Translate("StatusRefundDisputed")
+                                }
+                            </td>
+                            <td>
+                                <!-- Admin can change status when it's pending -->
+                                @if (order.Status == 0)
+                                {
+                                    <form asp-page-handler="ChangeStatus" method="post" style="display:inline-block; margin-right: 5px;">
+                                        <input type="hidden" name="orderId" value="@order.OrderId" />
+                                        <input type="hidden" name="currentStatus" value="@order.Status" />
+                                        <button type="submit" class="btn btn-primary">
+                                            @Html.Translate("Mark as Delivered")
+                                        </button>
+                                    </form>
+                                }
+                                else if (order.Status == 3)
+                                {
+                                    <form asp-page-handler="ApproveRefund" method="post" style="display:inline-block; margin-right: 5px;">
+                                        <input type="hidden" name="orderId" value="@order.OrderId" />
+                                        <button type="submit" class="btn btn-warning">
+                                            @Html.Translate("Approve Refund")
+                                        </button>
+                                    </form>
+                                }
+                                else if (order.Status == 4)
+                                {
+                                    <form asp-page-handler="ResolveDispute" method="post" style="display:inline-block; margin-right: 5px;">
+                                        <input type="hidden" name="orderId" value="@order.OrderId" />
+                                        <button type="submit" class="btn btn-danger">
+                                            @Html.Translate("Resolve Dispute")
+                                        </button>
+                                    </form>
+                                }
+
+                                
+
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" onclick="deleteOrder(@order.OrderId)" class="delete">
+                                    <span class="material-symbols-outlined" title="delete">delete</span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function deleteOrder(orderId) {
+        if (confirm("Are you sure you want to delete this order?")) {
+            window.location.href = `/Admin/OrderManager?handler=DeleteOrder&id=${orderId}`;
+        }
+    }
+</script>
+
+<style>
+    .table-title {
+        margin-bottom: 20px;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .justify-content-between {
+        justify-content: space-between;
+    }
+
+    .align-items-center {
+        align-items: center;
+    }
+
+    .input-group {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .btn-primary {
+        margin-left: 10px;
+    }
+
+    .btn-outline-secondary {
+        border-color: #ddd;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #ddd;
+        }
+</style>

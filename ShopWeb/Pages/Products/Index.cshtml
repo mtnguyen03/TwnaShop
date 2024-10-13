@@ -1,0 +1,144 @@
+﻿@page
+@model ShopWeb.Pages.Products.IndexModel
+@{
+    ViewData["Title"] = "Products";
+}
+
+<section id="stats" class="stats section dark-background">
+    <!-- You can add some statistics here if needed -->
+</section>
+
+
+
+<section id="menu" class="menu section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Our Menu</h2>
+        <p><span>Check Our</span> <span class="description-title">BoardFusion Menu</span></p>
+    </div>
+
+    <div class="container">
+        <form method="get" class="d-flex justify-content-center mb-4">
+            <input type="text" id="txtSearch" name="searchString" class="form-control w-50" placeholder="Search for products" value="@Model.SearchString">
+            <button type="submit" class="btn btn-primary ms-2">Search</button>
+        </form>
+
+
+
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
+                    <h4>Starters</h4>
+                </a>
+            </li>
+            <!-- Add more tabs here if needed -->
+        </ul>
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+            <div class="tab-pane fade active show" id="menu-starters">
+                <div class="tab-header text-center">
+                    <p>Menu</p>
+                    <h3>Starters</h3>
+                </div>
+
+                <div class="row gy-5">
+                    @foreach (var product in Model.PagedProducts)
+                    {
+                        <div class="col-lg-4 menu-item">
+                            <div class="card h-100">
+                                <a href="@product.ProductImage" class="glightbox">
+                                    <img src="@product.ProductImage" class="card-img-top img-fluid" alt="" loading="lazy">
+                                </a>
+                                <div class="card-body">
+                                    <h4 class="card-title">@product.ProductName</h4>
+                                    <p class="card-text">
+                                        <strong>Unit:</strong> @product.QuantityPerUnit
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Price:</strong> @product.UnitPrice.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))
+                                    </p>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <form method="post" asp-page-handler="AddToCart">
+                                        <input type="hidden" name="productId" value="@product.ProductId" />
+                                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <!-- Jump to page form -->
+                                <form class="d-inline-block ml-3" asp-page-handler="Index" method="get">
+                                    <input type="number" name="pageIndex" min="1" max="@Model.TotalPages" class="form-control d-inline-block" style="width: 80px;" placeholder="Page" />
+                                    <input type="hidden" name="searchString" value="@Model.SearchString" />
+                                    <button type="submit" class="btn btn-primary">Go</button>
+                                </form>
+                            </li>
+
+                            <!-- Add space between elements -->
+                            <li class="page-item mx-3"></li> <!-- Empty li to create space -->
+                            @if (Model.PageIndex > 1)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" asp-page-handler="Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-searchString="@Model.SearchString" aria-label="Previous">
+                                        <span aria-hidden="true">←</span>
+                                    </a>
+                                </li>
+                            }
+
+                            @if (Model.TotalPages > 1)
+                            {
+                                <li class="page-item @(Model.PageIndex == 1 ? "active" : "")">
+                                    <a class="page-link" asp-page-handler="Index" asp-route-pageIndex="1" asp-route-searchString="@Model.SearchString">1</a>
+                                </li>
+
+                                @if (Model.PageIndex > 4)
+                                {
+                                    <li class="page-item disabled">
+                                        <span class="page-link">...</span>
+                                    </li>
+                                }
+
+                                var startPage = Math.Max(2, Model.PageIndex - 2);
+                                var endPage = Math.Min(Model.TotalPages - 1, Model.PageIndex + 2);
+
+                                for (var i = startPage; i <= endPage; i++)
+                                {
+                                    <li class="page-item @(Model.PageIndex == i ? "active" : "")">
+                                        <a class="page-link" asp-page-handler="Index" asp-route-pageIndex="@i" asp-route-searchString="@Model.SearchString">@i</a>
+                                    </li>
+                                }
+
+                                @if (Model.PageIndex < Model.TotalPages - 3)
+                                {
+                                    <li class="page-item disabled">
+                                        <span class="page-link">...</span>
+                                    </li>
+                                }
+
+                                <li class="page-item @(Model.PageIndex == Model.TotalPages ? "active" : "")">
+                                    <a class="page-link" asp-page-handler="Index" asp-route-pageIndex="@Model.TotalPages" asp-route-searchString="@Model.SearchString">@Model.TotalPages</a>
+                                </li>
+                            }
+
+                            @if (Model.PageIndex < Model.TotalPages)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" asp-page-handler="Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-searchString="@Model.SearchString" aria-label="Next">
+                                        <span aria-hidden="true">→</span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

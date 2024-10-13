@@ -1,0 +1,49 @@
+﻿@page
+@model ShopWeb.Pages.Payment.FailedModel
+@{
+}
+
+@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+
+@{
+    var currentPath = "/Payment/Failed";
+
+    var home = "/";
+    home = home.Replace(currentPath, "");
+
+}
+
+
+<style>
+    .centered-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+        .centered-content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .centered-content h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+</style>
+
+<div class="centered-content">
+    <div class="no-style">
+        <p>@Html.Translate("PaymentFailed")</p>
+        <p><a href="@home">@Html.Translate("backHome")</a></p>
+    </div>
+    <img src="https://easyfashion.com.bd/wp-content/uploads/2021/04/payment-failed-min.gif">
+
+
+</div>

@@ -1,0 +1,52 @@
+﻿@page
+@model ShopWeb.Pages.Payment.SuccessModel
+
+@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+
+@{
+    var currentPath = "/Payment/Succes";
+
+    var home = "/";
+    home = home.Replace(currentPath, "");
+
+}
+
+<style>
+    .centered-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+        .centered-content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .centered-content h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+</style>
+
+<div class="centered-content">
+    <div class="no-style">
+        <p>@Html.Translate("Payment_Success")</p>
+        <h3>
+            @Html.Translate("Payment_Success1")
+            </br>
+            @Html.Translate("Payment_Success2")
+            
+        </h3>
+
+        <p><a href="@home">@Html.Translate("backHome")</a></p>
+    </div>
+    <img src="https://cdn.dribbble.com/users/39201/screenshots/3694057/media/2a1b062114a8244102f67deeb89395fa.gif">
+
+</div>

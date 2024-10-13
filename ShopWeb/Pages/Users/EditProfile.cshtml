@@ -1,0 +1,222 @@
+﻿@page
+@model ShopWeb.Pages.Users.EditProfileModel
+@{
+    ViewData["Title"] = "Profile Settings";
+    Layout = "";
+}
+
+@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+
+@{
+    var currentPath = "/Users/EditProfile";
+
+    var home = "/";
+    home = home.Replace(currentPath, "");
+
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: rgb(99, 39, 120)
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #BA68C8
+        }
+
+        .profile-button {
+            box-shadow: none;
+            border: none
+        }
+
+            .profile-button:hover {
+                background: #682773
+            }
+
+            .profile-button:focus {
+                background: #682773;
+                box-shadow: none
+            }
+
+            .profile-button:active {
+                background: #682773;
+                box-shadow: none
+            }
+
+        .back:hover {
+            color: #682773;
+            cursor: pointer
+        }
+
+        .labels {
+            font-size: 11px
+        }
+
+        .add-experience:hover {
+            background: #BA68C8;
+            color: #fff;
+            cursor: pointer;
+            border: solid 1px #BA68C8
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150" height="150" style="object-fit: cover;"
+                         src="@(!string.IsNullOrEmpty(Model.UserAccount.Photo) ? Model.UserAccount.Photo : Url.Content("~/img/user.png"))"
+                         alt="User profile picture" />
+
+                    <span class="font-weight-bold">@Model.UserAccount.FullName</span>
+                    <span class="text-black-50">@Model.UserAccount.Email</span>
+                    <span> </span>
+                </div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">@Html.Translate("ProfileSettings")</h4>
+                    </div>
+                    <form id="profileForm" method="post">
+                        <input type="hidden" asp-for="UserAccount.Photo" />
+                        <input type="hidden" asp-for="UserAccount.AccountID" />
+                        <input type="hidden" asp-for="UserAccount.Type" />
+                        <input type="hidden" asp-for="UserAccount.Password" />
+                        <input type="hidden" asp-for="UserAccount.Status" />
+                        <input type="hidden" asp-for="UserAccount.UserName" />
+                        <input type="hidden" asp-for="UserAccount.Type" />
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <label class="labels">@Html.Translate("FullName")</label>
+                                <input type="text" class="form-control" asp-for="UserAccount.FullName" placeholder="@Html.Translate("FullNamePlaceholder")">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <label class="labels">@Html.Translate("MobileNumber")</label>
+                                <input type="text" class="form-control" asp-for="UserAccount.Phone" placeholder="@Html.Translate("PhonePlaceholder")">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="province">@Html.Translate("ProvinceCity"):</label>
+                                <select id="province" class="form-control">
+                                    <option value="">@Html.Translate("SelectProvinceCity")</option>
+                                    <!-- Options populated via JavaScript -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="district">@Html.Translate("District"):</label>
+                                <select id="district" class="form-control">
+                                    <option value="">@Html.Translate("SelectDistrict")</option>
+                                    <!-- Options populated via JavaScript -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ward">@Html.Translate("Ward"):</label>
+                                <select id="ward" class="form-control">
+                                    <option value="">@Html.Translate("SelectWard")</option>
+                                    <!-- Options populated via JavaScript -->
+                                </select>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="labels">@Html.Translate("AddressDetails")</label>
+                                <input type="text" id="inputadd" class="form-control" asp-for="UserAccount.Address" placeholder="@Html.Translate("AddressPlaceholder")">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="labels">@Html.Translate("Email")</label>
+                                <input type="email" class="form-control" asp-for="UserAccount.Email" placeholder="@Html.Translate("EmailPlaceholder")">
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-primary profile-button" type="submit">@Html.Translate("SaveProfile")</button>
+                            <a href="@home">@Html.Translate("ReturnHome")</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.validator.addMethod("pattern", function (value, element, param) {
+                return this.optional(element) || param.test(value);
+            }, "Invalid input format.");
+
+            $("#profileForm").validate({
+                rules: {
+                    'UserAccount.FullName': {
+                        required: true,
+                        pattern: /^[\p{L}\s]+$/u
+                    },
+                    'UserAccount.Phone': {
+                        required: true,
+                        digits: true,
+                        minlength: 10,
+                        maxlength: 10
+                    },
+                    'UserAccount.Email': {
+                        required: true,
+                        email: true
+                    },
+                    'UserAccount.Address': {
+                        required: true,
+                        minlength: 5
+                    }
+                },
+                messages: {
+                    'UserAccount.FullName': {
+                        required: "@Html.Translate("name1")",
+                        pattern: "@Html.Translate("name2")"
+                    },
+                    'UserAccount.Phone': {
+                        required: "@Html.Translate("phone1")",
+                        digits: "@Html.Translate("phone2")",
+                        minlength: "@Html.Translate("phone3")",
+                        maxlength: "@Html.Translate("phone4")"
+                    },
+                    'UserAccount.Email': {
+                        required: "@Html.Translate("email1")",
+                        email: "@Html.Translate("email2")"
+                    },
+                    'UserAccount.Address': {
+                        required: "@Html.Translate("addressPrf")",
+                        minlength: "@Html.Translate("addressPrf1")"
+                    }
+                },
+                errorClass: "text-danger",
+                validClass: "text-success",
+                errorElement: "span"
+            });
+        });
+    </script>
+    <script src="~/js/local.js"></script>
+    <script src="~/js/rmads.js"></script>
+</body>
+</html>

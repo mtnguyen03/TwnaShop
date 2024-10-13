@@ -1,0 +1,243 @@
+﻿@page
+@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+
+@model ShopWeb.Pages.Products.DetailsModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+@if (!string.IsNullOrEmpty(TempData["SuccessMessage"] as string))
+{
+    <div class="alert alert-success">
+        @Html.Translate(TempData["SuccessMessage"].ToString())
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(TempData["ErrorMessage"] as string))
+{
+    <div class="alert alert-danger">
+        @Html.Translate(TempData["ErrorMessage"].ToString())
+    </div>
+}
+
+
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="main-img">
+                <a href="https://i.ibb.co/qgxrJ8N/chinh01.png" class="glightbox">
+                    <img class="img-fluid"
+                         src="https://i.ibb.co/qgxrJ8N/chinh01.png"
+                         srcset="https://i.ibb.co/qgxrJ8N/chinh01.webp"
+                         alt="ProductS"
+                         loading="lazy"
+                         style="border-radius:15px;">
+                </a>
+                <div class="row my-3 previews">
+                    <div class="col-md-3">
+                        <a href="https://i.ibb.co/xj5YJ69/1.png" class="glightbox">
+                            <img class="w-100"
+                                 src="https://i.ibb.co/xj5YJ69/1.png"
+                                 srcset="https://i.ibb.co/xj5YJ69/1.webp"
+                                 alt="Sale"
+                                 loading="lazy"
+                                 style="border-radius:5px; padding-bottom:2px">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://i.ibb.co/jZmNQwz/2.png" class="glightbox">
+                            <img class="w-100"
+                                 src="https://i.ibb.co/jZmNQwz/2.png"
+                                 srcset="https://i.ibb.co/jZmNQwz/2.webp"
+                                 alt="Sale"
+                                 loading="lazy"
+                                 style="border-radius:5px; padding-bottom:2px">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://i.ibb.co/HH0Tv3M/3.png" class="glightbox">
+                            <img class="w-100"
+                                 src="https://i.ibb.co/HH0Tv3M/3.png"
+                                 srcset="https://i.ibb.co/HH0Tv3M/3.webp"
+                                 alt="Sale"
+                                 loading="lazy"
+                                 style="border-radius:5px; padding-bottom:2px">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://i.ibb.co/KhRFyJd/4.png" class="glightbox">
+                            <img class="w-100"
+                                 src="https://i.ibb.co/KhRFyJd/4.png"
+                                 srcset="https://i.ibb.co/KhRFyJd/4.webp"
+                                 alt="Sale"
+                                 loading="lazy"
+                                 style="border-radius:5px; padding-bottom:2px">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://i.ibb.co/bJ8bdQK/5.png" class="glightbox">
+                            <img class="w-100"
+                                 src="https://i.ibb.co/bJ8bdQK/5.png"
+                                 srcset="https://i.ibb.co/bJ8bdQK/5.webp"
+                                 alt="Sale"
+                                 loading="lazy"
+                                 style="border-radius:5px;">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://i.ibb.co/2hYZBNM/6.png" class="glightbox">
+                            <img class="w-100"
+                                 src="https://i.ibb.co/2hYZBNM/6.png"
+                                 srcset="https://i.ibb.co/2hYZBNM/6.webp"
+                                 alt="Sale"
+                                 loading="lazy"
+                                 style="border-radius:5px;">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://i.ibb.co/fDQkLMG/7.png" class="glightbox">
+                            <img class="w-100"
+                                 src="https://i.ibb.co/fDQkLMG/7.png"
+                                 srcset="https://i.ibb.co/fDQkLMG/7.webp"
+                                 alt="Sale"
+                                 loading="lazy"
+                                 style="border-radius:5px;">
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://i.ibb.co/71Y0LmM/8.png" class="glightbox">
+                            <img class="w-100"
+                                 src="https://i.ibb.co/71Y0LmM/8.png"
+                                 srcset="https://i.ibb.co/71Y0LmM/8.webp"
+                                 alt="Sale"
+                                 loading="lazy"
+                                 style="border-radius:5px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-7">
+            <div class="main-description px-2">
+                <div class="category text-bold">
+                    <h2 class="no-style">Drink No</h2>
+                </div>
+
+                <div class="price-area my-4">
+                    <p class="old-price mb-1"><del>@Html.Translate("p2")</del> <span class="old-price-discount text-danger">@Html.Translate("10%off")</span></p>
+                    <p class="new-price text-bold mb-1">@Html.Translate("p")</p>
+                </div>
+                <div class="buttons d-flex my-5">
+
+                    <div class="block">
+                        <form method="post" asp-page-handler="AddToCart">
+                            <input type="hidden" name="productId" value="2" />
+                            <!-- Add quantity input inside the form -->
+                            <input type="number" class="form-control" id="cart_quantity" name="cart_quantity" min="0" max="10" placeholder="@Html.Translate("Enter_quantity")">
+                            </br>
+                            <button id="addcartid" type="submit" class="shadow btn custom-btn" style="background-color:aquamarine;">@Html.Translate("addTocart")</button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="product-details my-4">
+                    <p class="details-title text-color mb-1"><strong>@Html.Translate("prDetail")</strong></p>
+                    <p class="description">
+                    <p><strong>@Html.Translate("Size"):</strong> @Html.Translate("sizeDt")</p>
+                    <p><strong>@Html.Translate("Quantity"):</strong> @Html.Translate("quantityDt")</p>
+
+                    <p><strong>@Html.Translate("Colors"):</strong> @Html.Translate("colorDt")</p>
+
+                    <p><strong>@Html.Translate("Material"):</strong> @Html.Translate("materialDt")</p>
+                    <p><strong>@Html.Translate("gf")</strong></p>
+                </div>
+
+                <div class="row questions bg-light p-3">
+                    <div class="col-md-1 icon">
+                        <i class="fa-brands fa-rocketchat questions-icon"></i>
+                    </div>
+                    <div class="col-md-11 text">
+                        @Html.Translate("hvqs")
+                    </div>
+                </div>
+
+                <div class="delivery my-4">
+                    <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-truck"></i></span> <b>@Html.Translate("dlv3d").</b> </p>
+                    <p class="text-secondary">@Html.Translate("orderna").</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="game-rules mt-4">
+            <h3 class="rules-title"><strong>@Html.Translate("gamerule")</strong></h3>
+            <ul>
+                <li><strong>@Html.Translate("r1")</strong> - @Html.Translate("r1dt")</li>
+                <li><strong>@Html.Translate("r2")</strong> - @Html.Translate("r2dt")</li>
+                <li><strong>@Html.Translate("r3")</strong> - @Html.Translate("r3dt")</li>
+                <li><strong>@Html.Translate("r4")</strong> - @Html.Translate("r4dt")</li>
+                <li><strong>@Html.Translate("r5")</strong> - @Html.Translate("r5dt")</li>
+                <li><strong>@Html.Translate("r6")</strong> - @Html.Translate("r6dt")</li>
+                <li><strong>@Html.Translate("r7")</strong> - @Html.Translate("r7dt")</li>
+            </ul>
+
+            <h4><strong>@Html.Translate("prst")</strong></h4>
+            <ul>
+                <li>@Html.Translate("prst1")</li>
+                <li>@Html.Translate("prst2")</li>
+                <li>@Html.Translate("prst3")</li>
+            </ul>
+
+            <h4><strong>@Html.Translate("gameplay")</strong></h4>
+            <ul>
+                <li>@Html.Translate("gameplay1")</li>
+            </ul>
+
+            <h4><strong>@Html.Translate("endGame")</strong></h4>
+            <ul>
+                <li>@Html.Translate("endGame1")</li>
+            </ul>
+
+            <h4><strong>@Html.Translate("addRule")</strong></h4>
+            <ul>
+                <li>@Html.Translate("addRule1")</li>
+                <li>@Html.Translate("addRule2")</li>
+                <li>@Html.Translate("addRule3")</li>
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function updateColumns() {
+        const columns = document.querySelectorAll('.col-md-3'); // Select all elements with class 'col-md-3'
+
+        if (window.innerWidth < 768) {
+            columns.forEach(column => {
+                column.classList.remove('col-md-3');
+                column.classList.add('col'); // Add 'col' for small screens
+            });
+        } else {
+            columns.forEach(column => {
+                column.classList.remove('col'); // Remove 'col' on larger screens
+                column.classList.add('col-md-3'); // Add 'col-md-3' for larger screens
+            });
+        }
+    }
+
+
+    // Call the function on page load and whenever the window is resized
+    window.addEventListener('load', updateColumns);
+    window.addEventListener('resize', updateColumns);
+</script>
+
+

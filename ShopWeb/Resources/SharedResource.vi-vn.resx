@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="10%off" xml:space="preserve">
+    <value>Giảm 10% </value>
+  </data>
+  <data name="ab" xml:space="preserve">
+    <value>Giới Thiệu</value>
+  </data>
+  <data name="aboutus" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="ad" xml:space="preserve">
+    <value>Địa Chỉ</value>
+  </data>
+  <data name="AddressDetails" xml:space="preserve">
+    <value>Chi tiết địa chỉ</value>
+  </data>
+  <data name="AddressPlaceholder" xml:space="preserve">
+    <value>Nhập địa chỉ</value>
+  </data>
+  <data name="addressPrf" xml:space="preserve">
+    <value>Vui lòng nhập địa chỉ.</value>
+  </data>
+  <data name="addressPrf1" xml:space="preserve">
+    <value>Địa chỉ it nhất 5 kí tự.</value>
+  </data>
+  <data name="addRule" xml:space="preserve">
+    <value>Quy tắc bổ sung</value>
+  </data>
+  <data name="addRule1" xml:space="preserve">
+    <value>Chặn chuỗi bài chức năng: Nếu người chơi được chơi một lá bài +2 hoặc +4 và họ có một lá bài CHẶN, họ có thể sử dụng nó để chặn và tránh rút thêm bài.</value>
+  </data>
+  <data name="addRule2" xml:space="preserve">
+    <value>Chống lại Thẻ BỎ QUA: Nếu một người chơi bỏ qua lượt của mình bằng thẻ Bỏ qua, những người chơi khác có thể sử dụng thẻ Không để ngăn họ bỏ qua.</value>
+  </data>
+  <data name="addRule3" xml:space="preserve">
+    <value>Chống lại các lá bài CHẶN: Nếu một người chơi sử dụng lá bài CHẶN để tránh thực hiện một hành động theo lá bài có chức năng của người chơi khác, những người khác có thể sử dụng lá bài CHẶN để vô hiệu hóa hiệu ứng của lá bài CHẶN đầu tiên.</value>
+  </data>
+  <data name="addTocart" xml:space="preserve">
+    <value>Thêm vào giỏ hàng</value>
+  </data>
+  <data name="Approve Refund" xml:space="preserve">
+    <value>Xác nhận hoàn trả</value>
+  </data>
+  <data name="backHome" xml:space="preserve">
+    <value>Về trang chủ</value>
+  </data>
+  <data name="btnBuy" xml:space="preserve">
+    <value>Xác nhận</value>
+  </data>
+  <data name="btnCancelOrder" xml:space="preserve">
+    <value>Hủy đơn</value>
+  </data>
+  <data name="btnDisputeOrder" xml:space="preserve">
+    <value>Chưa nhận hàng?</value>
+  </data>
+  <data name="btnRequestRefund" xml:space="preserve">
+    <value>Hoàn hàng</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Đã hủy</value>
+  </data>
+  <data name="cart" xml:space="preserve">
+    <value>Giỏ hàng</value>
+  </data>
+  <data name="check" xml:space="preserve">
+    <value>Khám Phá</value>
+  </data>
+  <data name="ChoosePayment" xml:space="preserve">
+    <value>Chọn phương thức thanh thoán</value>
+  </data>
+  <data name="closed" xml:space="preserve">
+    <value>Đóng cửa</value>
+  </data>
+  <data name="co" xml:space="preserve">
+    <value>Khám Phá</value>
+  </data>
+  <data name="colorDt" xml:space="preserve">
+    <value>Nhiều màu sắc, thiết kế bắt mắt và ấn tượng.</value>
+  </data>
+  <data name="Colors" xml:space="preserve">
+    <value>Màu sắc</value>
+  </data>
+  <data name="company" xml:space="preserve">
+    <value>Tên công ty:</value>
+  </data>
+  <data name="Conlai" xml:space="preserve">
+    <value>Còn lại</value>
+  </data>
+  <data name="ct" xml:space="preserve">
+    <value>Liên Hệ</value>
+  </data>
+  <data name="cu" xml:space="preserve">
+    <value>Liên Hệ Với Chúng Tôi</value>
+  </data>
+  <data name="de" xml:space="preserve">
+    <value>Phát Triển Kỹ Năng Mềm và Tập Trung</value>
+  </data>
+  <data name="Dehanhdong" xml:space="preserve">
+    <value>để hành động</value>
+  </data>
+  <data name="dep" xml:space="preserve">
+    <value>Trong khi chơi, người tham gia phát triển các kỹ năng mềm, cải thiện khả năng tư duy phản biện và tăng cường sự tập trung.</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>Quận/Huyện</value>
+  </data>
+  <data name="dlv3d" xml:space="preserve">
+    <value>Giao hàng trong vòng 3 ngày kể từ ngày mua</value>
+  </data>
+  <data name="dnh" xml:space="preserve">
+    <value>Đã nhận ?</value>
+  </data>
+  <data name="edp" xml:space="preserve">
+    <value>Sửa hồ sơ</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="email1" xml:space="preserve">
+    <value>Nhập email</value>
+  </data>
+  <data name="email2" xml:space="preserve">
+    <value>Nhập email hợp lệ</value>
+  </data>
+  <data name="EmailPlaceholder" xml:space="preserve">
+    <value>Nhập email</value>
+  </data>
+  <data name="endGame" xml:space="preserve">
+    <value>Kết thúc trò chơi</value>
+  </data>
+  <data name="endGame1" xml:space="preserve">
+    <value>Trò chơi kết thúc khi một người chơi hết bài trên tay. Người chơi đó là người chiến thắng.</value>
+  </data>
+  <data name="Enter_quantity" xml:space="preserve">
+    <value>Nhập số lượng</value>
+  </data>
+  <data name="errorCart" xml:space="preserve">
+    <value>Gio hang trong</value>
+  </data>
+  <data name="eu" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="fou" xml:space="preserve">
+    <value>Theo Dõi Chúng Tôi</value>
+  </data>
+  <data name="fu" xml:space="preserve">
+    <value>ĐẠI HỌC FPT ĐÀ NẴNG</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Họ và tên</value>
+  </data>
+  <data name="FullNamePlaceholder" xml:space="preserve">
+    <value>Nhập họ và tên</value>
+  </data>
+  <data name="g" xml:space="preserve">
+    <value>Thư Viện Hình Ảnh</value>
+  </data>
+  <data name="gameplay" xml:space="preserve">
+    <value>Cách chơi</value>
+  </data>
+  <data name="gameplay1" xml:space="preserve">
+    <value>Thứ tự lượt chơi: Người chơi đầu tiên bắt đầu bằng cách chơi một lá bài trên tay. Người chơi tiếp theo phải chơi một lá bài cùng loại hoặc sử dụng một lá bài có chức năng nếu có.</value>
+  </data>
+  <data name="gamerule" xml:space="preserve">
+    <value>Luật chơi</value>
+  </data>
+  <data name="gf" xml:space="preserve">
+    <value>Luật chơi đơn giản và dễ hiểu, hứa hẹn mang lại nhiều niềm vui và trải nghiệm mới.</value>
+  </data>
+  <data name="giamgia" xml:space="preserve">
+    <value>Giảm giá 10%</value>
+  </data>
+  <data name="hello" xml:space="preserve">
+    <value>Xin chào</value>
+  </data>
+  <data name="ho" xml:space="preserve">
+    <value>Trang Chủ</value>
+  </data>
+  <data name="hvqs" xml:space="preserve">
+    <value>Bạn có thắc mắc về sản phẩm của chúng tôi tại E-Store? Vui lòng liên hệ với đại diện của chúng tôi qua trò chuyện trực tiếp hoặc email.</value>
+  </data>
+  <data name="infor" xml:space="preserve">
+    <value>BoardFusion là sự kết hợp của nhiều loại trò chơi Board games, mang đến những trải nghiệm đa dạng, tạo sự linh hoạt cho người chơi.</value>
+  </data>
+  <data name="Invalid login attempt." xml:space="preserve">
+    <value>Đăng nhập không hợp lệ.</value>
+  </data>
+  <data name="Item added to cart successfully!" xml:space="preserve">
+    <value>Đã thêm sản phẩm vào giỏ hàng thành công!</value>
+  </data>
+  <data name="learnmore" xml:space="preserve">
+    <value>Xem thêm</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="Mark as Delivered" xml:space="preserve">
+    <value>Đã giao hàng.</value>
+  </data>
+  <data name="Material" xml:space="preserve">
+    <value>Chất liệu</value>
+  </data>
+  <data name="materialDt" xml:space="preserve">
+    <value>Giấy cứng.</value>
+  </data>
+  <data name="mission" xml:space="preserve">
+    <value>Sứ Mệnh: </value>
+  </data>
+  <data name="missionp" xml:space="preserve">
+    <value>Mang đến những sản phẩm board game chất lượng, độc đáo và linh hoạt để làm phong phú đời sống giải trí của giới trẻ.</value>
+  </data>
+  <data name="MobileNumber" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="ms" xml:space="preserve">
+    <value>Thứ Hai đến Thứ Bảy: </value>
+  </data>
+  <data name="Muangay" xml:space="preserve">
+    <value>Mua ngay hôm nay</value>
+  </data>
+  <data name="name1" xml:space="preserve">
+    <value>Nhập họ và tên</value>
+  </data>
+  <data name="name2" xml:space="preserve">
+    <value>Tên không chứa kí tự đặc biệt, số</value>
+  </data>
+  <data name="ne" xml:space="preserve">
+    <value>Trải Nghiệm Mới Cho Giới Trẻ</value>
+  </data>
+  <data name="nep" xml:space="preserve">
+    <value>Mang đến cho giới trẻ một hình thức giải trí mới có thể chơi bất cứ lúc nào, ở bất kỳ đâu, giúp dễ dàng tiếp cận và vui vẻ.</value>
+  </data>
+  <data name="nh" xml:space="preserve">
+    <value>Cần Giúp Đỡ?</value>
+  </data>
+  <data name="og" xml:space="preserve">
+    <value>Thư Viện Hình Ảnh</value>
+  </data>
+  <data name="oh" xml:space="preserve">
+    <value>Giờ Làm Việc</value>
+  </data>
+  <data name="om" xml:space="preserve">
+    <value>Sản Phẩm Của Chúng Tôi</value>
+  </data>
+  <data name="OrderDate" xml:space="preserve">
+    <value>Ngày đặt hàng</value>
+  </data>
+  <data name="orderna" xml:space="preserve">
+    <value>Đặt hàng ngay để nhận sản phẩm này giao hàng</value>
+  </data>
+  <data name="p" xml:space="preserve">
+    <value>135.000 VNĐ</value>
+  </data>
+  <data name="p2" xml:space="preserve">
+    <value>150.000 VNĐ</value>
+  </data>
+  <data name="PaymentFailed" xml:space="preserve">
+    <value>Thanh toán thất bại</value>
+  </data>
+  <data name="Payment_Success" xml:space="preserve">
+    <value>Thanh toán thành công</value>
+  </data>
+  <data name="Payment_Success1" xml:space="preserve">
+    <value>Cảm ơn bạn đã hoàn tất thanh toán trực tuyến an toàn.</value>
+  </data>
+  <data name="Payment_Success2" xml:space="preserve">
+    <value>Chúc bạn một ngày tuyệt vời!</value>
+  </data>
+  <data name="ph1" xml:space="preserve">
+    <value>Với tiềm năng thị trường trò chơi BoardGame hiện nay, sản phẩm này hứa hẹn sẽ dễ dàng tiếp cận nhiều phân khúc khách hàng. Tùy theo độ tuổi sẽ có những bộ bài phù hợp với mọi người. Dễ dàng mang theo và vui chơi cùng bạn bè, gia đình mọi lúc mọi nơi.</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="phone1" xml:space="preserve">
+    <value>Nhập số điện thoại</value>
+  </data>
+  <data name="phone2" xml:space="preserve">
+    <value>Nhập số điện thoại hợp lệ</value>
+  </data>
+  <data name="phone3" xml:space="preserve">
+    <value>Nhập số điện thoại hợp lệ</value>
+  </data>
+  <data name="phone4" xml:space="preserve">
+    <value>Nhập số điện thoại hợp lệ</value>
+  </data>
+  <data name="PhonePlaceholder" xml:space="preserve">
+    <value>Nhập số điện thoại</value>
+  </data>
+  <data name="pm1" xml:space="preserve">
+    <value>Thanh toán Online</value>
+  </data>
+  <data name="pm2" xml:space="preserve">
+    <value>Thanh toán khi nhận hàng</value>
+  </data>
+  <data name="pr" xml:space="preserve">
+    <value>Sản Phẩm</value>
+  </data>
+  <data name="prDetail" xml:space="preserve">
+    <value>Chi tiết sản phẩm</value>
+  </data>
+  <data name="ProductImage" xml:space="preserve">
+    <value>Hình ảnh</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="ProfileSettings" xml:space="preserve">
+    <value>Cài đặt hồ sơ</value>
+  </data>
+  <data name="ProvinceCity" xml:space="preserve">
+    <value>Tỉnh/Thành phố</value>
+  </data>
+  <data name="prst" xml:space="preserve">
+    <value>Sự chuẩn bị</value>
+  </data>
+  <data name="prst1" xml:space="preserve">
+    <value>Trộn tất cả các lá bài vào một bộ bài chung.</value>
+  </data>
+  <data name="prst2" xml:space="preserve">
+    <value>Mỗi người chơi rút 5 lá bài từ bộ bài chung.</value>
+  </data>
+  <data name="prst3" xml:space="preserve">
+    <value>Bộ bài còn lại được đặt ở giữa bàn, được gọi là bộ bài chung.</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="Quantity1" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="Quantity2" xml:space="preserve">
+    <value>Số lượng:</value>
+  </data>
+  <data name="quantityDt" xml:space="preserve">
+    <value>Tổng cộng có 80 thẻ, bao gồm 50 thẻ lớn và 30 thẻ nhỏ.</value>
+  </data>
+  <data name="r1" xml:space="preserve">
+    <value>Thẻ 1: 2 Sự thật hoặc Thử thách</value>
+  </data>
+  <data name="r1dt" xml:space="preserve">
+    <value>Khi rút, người chơi phải rút 2 lá bài Sự thật hay Thách thức (thẻ nhỏ) (Lá bài 6). Sau đó, người chơi phải thực hiện một trong những hành động được viết trên Lá bài 6 hoặc uống rượu.</value>
+  </data>
+  <data name="r2" xml:space="preserve">
+    <value>Thẻ 2: Bỏ qua</value>
+  </data>
+  <data name="r2dt" xml:space="preserve">
+    <value>Dùng để bỏ qua lượt của bạn. Chơi nước đi cho người chơi tiếp theo.</value>
+  </data>
+  <data name="r3" xml:space="preserve">
+    <value>Thẻ 3: Chặn</value>
+  </data>
+  <data name="r3dt" xml:space="preserve">
+    <value>Được sử dụng để chặn hành động gần đây nhất. Người chơi bị chặn không thể thực hiện hành động cuối cùng của mình và phải thực hiện hành động mới.</value>
+  </data>
+  <data name="r4" xml:space="preserve">
+    <value>Thẻ 4: +2</value>
+  </data>
+  <data name="r4dt" xml:space="preserve">
+    <value>Người chơi tiếp theo phải rút 2 lá bài từ bộ bài chung.</value>
+  </data>
+  <data name="r5" xml:space="preserve">
+    <value>Thẻ 5: +4</value>
+  </data>
+  <data name="r5dt" xml:space="preserve">
+    <value>Người chơi tiếp theo phải rút 4 lá bài từ bộ bài chung.</value>
+  </data>
+  <data name="r6" xml:space="preserve">
+    <value>Thẻ 6: Sự thật hay Thách thức (thẻ nhỏ)</value>
+  </data>
+  <data name="r6dt" xml:space="preserve">
+    <value>Chứa sự thật hoặc thử thách được viết bên trong. Người chơi phải thực hiện hành động được viết hoặc uống rượu nếu không thể thực hiện.</value>
+  </data>
+  <data name="r7" xml:space="preserve">
+    <value>Thẻ 7: Số (1-8, 4 màu)</value>
+  </data>
+  <data name="r7dt" xml:space="preserve">
+    <value>Người chơi có thể chơi một lá bài trùng với số và màu hiện có trên bàn. Nếu không có lá bài phù hợp, họ phải rút một lá bài từ bộ bài chung và bỏ qua lượt chơi nếu không thể chơi.</value>
+  </data>
+  <data name="Resolve Dispute" xml:space="preserve">
+    <value>Giải quyết</value>
+  </data>
+  <data name="ReturnHome" xml:space="preserve">
+    <value>Về trang chủ</value>
+  </data>
+  <data name="s" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="SaveProfile" xml:space="preserve">
+    <value>Lưu hồ sơ</value>
+  </data>
+  <data name="SelectDistrict" xml:space="preserve">
+    <value>Chọn quận/huyện</value>
+  </data>
+  <data name="SelectProvinceCity" xml:space="preserve">
+    <value>Chọn tỉnh/thành phố</value>
+  </data>
+  <data name="SelectWard" xml:space="preserve">
+    <value>Chọn phường/xã</value>
+  </data>
+  <data name="ShipAddress" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="shopnow" xml:space="preserve">
+    <value>Mua ngay</value>
+  </data>
+  <data name="Shopping Cart" xml:space="preserve">
+    <value>Giỏ hàng</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Kích thước</value>
+  </data>
+  <data name="sizeDt" xml:space="preserve">
+    <value>Thẻ lớn: 5,5 x 8,5 cm, thẻ nhỏ: 3 x 5 cm.</value>
+  </data>
+  <data name="slidewelcom" xml:space="preserve">
+    <value>Chào mừng đến với Gameboard Shop. Cửa hàng cung cấp các trò chơi BoardGame thú vị!</value>
+  </data>
+  <data name="sm" xml:space="preserve">
+    <value>Gửi tin nhắn</value>
+  </data>
+  <data name="sp" xml:space="preserve">
+    <value>Sản Phẩm BoardFusion</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="StatusCancelled" xml:space="preserve">
+    <value>Đã hủy</value>
+  </data>
+  <data name="StatusDisputed" xml:space="preserve">
+    <value>Yêu cầu giải quyết</value>
+  </data>
+  <data name="StatusPending" xml:space="preserve">
+    <value>Đang giao</value>
+  </data>
+  <data name="StatusReceived" xml:space="preserve">
+    <value>Đã nhận</value>
+  </data>
+  <data name="StatusRefundDisputed" xml:space="preserve">
+    <value>Đã giải quyết</value>
+  </data>
+  <data name="StatusRefundRequested" xml:space="preserve">
+    <value>Đã trả hàng</value>
+  </data>
+  <data name="StatusReturned" xml:space="preserve">
+    <value>Yêu cầu trả hàng</value>
+  </data>
+  <data name="sunday" xml:space="preserve">
+    <value>Chủ nhật</value>
+  </data>
+  <data name="This product is out of stock!" xml:space="preserve">
+    <value>Sản phẩm hiện đã hết hàng!</value>
+  </data>
+  <data name="Time limit exceeded for actions." xml:space="preserve">
+    <value>Hết thời gian hành động</value>
+  </data>
+  <data name="un" xml:space="preserve">
+    <value>Giải trí Độc đáo và Lành mạnh</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>Đơn giá</value>
+  </data>
+  <data name="unp" xml:space="preserve">
+    <value>Cung cấp một hình thức giải trí hấp dẫn và lành mạnh với tính tương tác và tập thể cao, tạo ra sự kết nối giữa mọi người.</value>
+  </data>
+  <data name="vision" xml:space="preserve">
+    <value>Tầm nhìn: </value>
+  </data>
+  <data name="visionp" xml:space="preserve">
+    <value>"Tạo ra những trò chơi board game sáng tạo và bao gồm, kết nối mọi người lại với nhau, truyền cảm hứng, nâng cao khả năng tư duy chiến lược và mang đến những trải nghiệm đáng nhớ cho giới trẻ ngày nay."</value>
+  </data>
+  <data name="Ward" xml:space="preserve">
+    <value>Phường/Xã</value>
+  </data>
+  <data name="watchvideo" xml:space="preserve">
+    <value>Xem video</value>
+  </data>
+  <data name="wcb" xml:space="preserve">
+    <value>Tại sao chọn BoardFusion</value>
+  </data>
+  <data name="wcbp" xml:space="preserve">
+    <value>Với tiềm năng thị trường board game hiện tại, sản phẩm này hứa hẹn dễ dàng tiếp cận nhiều phân khúc khách hàng khác nhau. Tùy thuộc vào độ tuổi, sẽ có các bộ bài phù hợp cho từng nhóm. Dễ dàng mang theo và vui chơi cùng bạn bè và gia đình bất cứ lúc nào, ở bất kỳ đâu.</value>
+  </data>
+</root>

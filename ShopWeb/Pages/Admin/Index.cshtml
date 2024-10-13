@@ -1,0 +1,269 @@
+﻿@page
+@model ShopWeb.Pages.Admin.IndexModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Main -->
+<main class="main-container">
+    <div class="main-title">
+        <p class="font-weight-bold">DASHBOARD</p>
+    </div>
+
+    <div class="main-cards">
+        <div class="card" style="    border-left: 7px solid #246dec;">
+            <div class="card-inner">
+                <p class="text-primary">Tổng thu nhập</p>
+                <span class="material-icons-outlined text-blue">paid</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="totalRevenue"></span>
+        </div>
+
+        <div class="card" style="border-left: 7px solid #bdcc3c;">
+            <div class="card-inner">
+                <p class="text-primary">Tổng tài khoản</p>
+                <span class="material-icons-outlined text-blue">face_3</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="totalAcc"></span>
+        </div>
+
+        <div class="card" style="    border-left: 7px solid #f5b74f;">
+            <div class="card-inner">
+                <p class="text-primary">Tổng số đơn</p>
+                <span class="material-icons-outlined text-orange">shopping_cart</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="totalOrders"></span>
+        </div>
+
+        <div class="card" style="border-left: 7px solid #1f5056;">
+            <div class="card-inner">
+                <p class="text-primary">Sản phẩm trong shop</p>
+                <span class="material-icons-outlined text-orange">inventory_2</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="prodquan"></span>
+        </div>
+
+        <div class="card" style="border-left: 7px solid #367952;">
+            <div class="card-inner">
+                <p class="text-primary">Đơn thành công</p>
+                <span class="material-icons-outlined text-green">check</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="successfulOrders"></span>
+        </div>
+
+        <div class="card" style="    border-left: 7px solid #cc3c43;">
+            <div class="card-inner">
+                <p class="text-primary">Đang Giao</p>
+                <span class="material-icons-outlined text-red">arrow_forward</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="pendingOrders"></span>
+        </div>
+
+        <div class="card" style=" border-left: 7px solid #f54fc2;">
+            <div class="card-inner">
+                <p class="text-primary">Đơn đã hủy</p>
+                <span class="material-icons-outlined text-red">close</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="cancelledOrders"></span>
+        </div>
+
+        <div class="card" style=" border-left: 7px solid #f54fc2;">
+            <div class="card-inner">
+                <p class="text-primary">Đơn khiếu nại</p>
+                <span class="material-icons-outlined text-red">close</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="disputedOrders"></span>
+        </div>
+        <div class="card" style=" border-left: 7px solid #f54fc2;">
+            <div class="card-inner">
+                <p class="text-primary">Đơn đã trả</p>
+                <span class="material-icons-outlined text-red">close</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="returnedOrders"></span>
+        </div>
+        <div class="card" style=" border-left: 7px solid #f54fc2;">
+            <div class="card-inner">
+                <p class="text-primary">Đơn đang yêu cầu trả</p>
+                <span class="material-icons-outlined text-red">close</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="dongdangyeuCauTra"></span>
+        </div>
+        <div class="card" style=" border-left: 7px solid #f54fc2;">
+            <div class="card-inner">
+                <p class="text-primary">Đơn đang yêu cầu giải quyết</p>
+                <span class="material-icons-outlined text-red">close</span>
+            </div>
+            <span class="text-primary font-weight-bold" id="donDangyeyCauGiaiQuyet"></span>
+        </div>
+    </div>
+
+    <div class="charts">
+        <div class="charts-card">
+            <p class="chart-title">Sales Statistics</p>
+            <div>
+                <canvas id="sales-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="charts-card">
+            <p class="chart-title">Purchase and Sales Orders</p>
+            <canvas id="area-chart"></canvas>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let salesChart;
+        let areaChart;
+
+        // Delay in milliseconds (e.g., 2000 ms = 2 seconds)
+        const delay = 500;
+
+        setTimeout(() => {
+            fetch('/Admin/signalr/GetProdQuantity') // Replace with your API endpoint
+                .then(response => response.json())
+                .then(data => {
+                    // Update HTML elements with fetched data
+                    $("#totalRevenue").html(formatCurrency(data.salesStatistics.totalRevenue));
+                    $("#totalOrders").html(data.salesStatistics.totalOrders);
+                    $("#successfulOrders").html(data.salesStatistics.successfulOrders);
+                    $("#pendingOrders").html(data.salesStatistics.pendingOrders);
+                    $("#cancelledOrders").html(data.salesStatistics.cancelledOrders);
+                    $("#prodquan").html(data.productQuantity);
+                    $("#totalAcc").html(data.totalAcc);
+                    $("#returnedOrders").html(data.salesStatistics.returnedOrders);
+                    $("#disputedOrders").html(data.salesStatistics.disputedOrders);
+                    $("#dongdangyeuCauTra").html(data.salesStatistics.dangYeuCautra);
+                    $("#donDangyeyCauGiaiQuyet").html(data.salesStatistics.dangYeuCauGiaiQuyet);
+                    // Create charts
+                    createSalesChart(data);
+                    createSalesChart2(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }, delay);
+
+        function formatCurrency(value) {
+            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " VND";
+        }
+
+        // Sales Statistics chart
+        function createSalesChart(data) {
+            var salesCtx = document.getElementById('sales-chart').getContext('2d');
+            var salesChart = new Chart(salesCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Tổng đơn', 'Đơn thành công', 'Đơn đang giao', 'Đơn đã hủy', 'Đơn đã trả', 'Đơn khiếu nại', 'Yêu cầu trả', 'Yêu cầu giải quyết'],
+                    datasets: [{
+                        label: 'Order Statistics',
+                        data: [
+                            data.salesStatistics.totalOrders,
+                            data.salesStatistics.successfulOrders,
+                            data.salesStatistics.pendingOrders,
+                            data.salesStatistics.cancelledOrders,
+                            data.salesStatistics.returnedOrders,
+                            data.salesStatistics.disputedOrders,
+                            data.salesStatistics.dangYeuCautra,
+                            data.salesStatistics.dangYeuCauGiaiQuyet
+                        ],
+                        backgroundColor: ['#CB4335', '#27AE60', '#F1C40F', '#DC2192', '#884EA0', '#D35400', '#7CF5FF', '#6439FF'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            enabled: true,
+                        }
+                    }
+                }
+            });
+        }
+
+
+        function createSalesChart2(data) {
+            var ctx2 = document.getElementById('area-chart').getContext('2d');
+            var labels = data.monthlyRevenue.map(revenue => {
+                return new Intl.DateTimeFormat('vi-VN', { month: 'long' }).format(new Date(revenue.year, revenue.month - 1));
+            });
+
+            var revenueData = data.monthlyRevenue.map(revenue => revenue.totalRevenue);
+
+            areaChart = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Monthly Revenue',
+                        data: revenueData,
+                        fill: true,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to update charts when text changes
+        function updateCharts(data) {
+            if (salesChart) {
+                salesChart.data.datasets[0].data = [
+                    data.salesStatistics.totalOrders,
+                    data.salesStatistics.successfulOrders,
+                    data.salesStatistics.pendingOrders,
+                    data.salesStatistics.cancelledOrders
+                ];
+                salesChart.update();
+            }
+
+            if (areaChart) {
+                var labels = data.monthlyRevenue.map(revenue => {
+                    return new Intl.DateTimeFormat('vi-VN', { month: 'long' }).format(new Date(revenue.year, revenue.month - 1));
+                });
+                var revenueData = data.monthlyRevenue.map(revenue => revenue.totalRevenue);
+
+                areaChart.data.labels = labels;
+                areaChart.data.datasets[0].data = revenueData;
+                areaChart.update();
+            }
+        }
+
+        // Example of setting up an observer for text changes (You might want to implement a specific trigger)
+        const observerConfig = { attributes: true, childList: true, subtree: true };
+        const targetNode = document.querySelector('.main-cards');
+
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                if (mutation.type === 'childList') {
+                    // Fetch new data and update charts
+                    fetch('/Admin/signalr/GetProdQuantity')
+                        .then(response => response.json())
+                        .then(data => {
+                            updateCharts(data);
+                        })
+                        .catch(error => console.error('Error fetching updated data:', error));
+                }
+            });
+        });
+
+        observer.observe(targetNode, observerConfig);
+    </script>
+}

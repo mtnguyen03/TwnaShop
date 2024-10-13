@@ -1,0 +1,197 @@
+﻿@model ShopWeb.Pages.IndexModel.HeaderModel
+@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+
+@{
+    var currentPath = Context.Request.Path.Value;
+    var segmentsToRemove = new[] { "Login/PasswordResetConfirmation", "cart", "anotherSegment" };
+
+    var loginPage = "/login/index";
+    var logoutPage = "/login/logout";
+    var editProfilePage = "/users/editprofile";
+
+    foreach (var segment in segmentsToRemove)
+    {
+        if (currentPath.Contains(segment))
+        {
+            loginPage = loginPage.Replace($"{segment}/", "");
+            logoutPage = logoutPage.Replace($"{segment}/", "");
+            editProfilePage = editProfilePage.Replace($"{segment}/", "");
+        }
+    }
+}
+
+
+
+<style>
+    .custom-select-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .custom-select {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px;
+        background-color: #fff; /* Background for better visibility */
+    }
+
+    .custom-select-current img {
+        width: 24px;
+        height: 16px;
+    }
+
+    .custom-select-options {
+        display: none; /* Initially hidden */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        z-index: 1000;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .custom-select-option {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+        .custom-select-option img {
+            width: 24px;
+            height: 16px;
+            margin-right: 8px;
+        }
+
+        .custom-select-option:hover {
+            background-color: #f0f0f0;
+        }
+
+    .custom-select.open .custom-select-options {
+        display: block;
+    }
+
+    #ms21{
+        order:3;
+    }
+
+    @@media (max-width: 767px) {
+
+        #ms21 {
+            flex: 1 1 500px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            order: 6;
+        }
+        #flex2{
+            flex: 1 1 250px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+       
+    }
+
+</style>
+
+
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureList = ViewData["Cultures"] as List<SelectListItem>;
+}
+
+
+<div class="container position-relative d-flex align-items-center justify-content-between" style="flex-wrap: wrap;">
+
+    <a href="/index" class="logo d-flex align-items-center me-auto me-xl-0" style="order:1;">
+        <h1 class="sitename">BoardFusion</h1>
+        <span>.</span>
+    </a>
+
+    <nav id="navmenu" class="navmenu" style="order:2;">
+
+        <ul>
+            <li><a href="/index">@Html.Translate("ho")<br></a></li>
+            <li><a href="/index#about">@Html.Translate("ab")</a></li>
+            <li><a href="/products/details"><span>@Html.Translate("pr")</span></a></li>
+            <li><a href="/index#contact">@Html.Translate("ct")</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+
+
+    <!-- Shopping Cart Button -->
+    <form class="d-flex" style="order:4; " id="flex2">
+
+        <a href="/cart/index" class="btn btn-outline-dark" style="text-decoration: none;">
+            <i class="bi-cart-fill me-1"></i> @Html.Translate("cart")
+            <span id="cartCountBadge" class="badge bg-dark text-white ms-1 rounded-pill"></span>
+        </a>
+    </form>
+
+    <!-- User Account Dropdown -->
+    <div class="dropdown ms-2"  id="ms21">
+        <button class="btn btn-outline-secondary dropdown-toggle text-truncate" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle">
+                @Html.Translate("hello")
+                @if (ViewData["UserName"] != null)
+                {
+                    <span class="username">@ViewData["UserName"]</span>
+                }
+            </i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            @if (ViewData["UserName"] == null || ViewData["UserName"] == "")
+            {
+                <li><a class="dropdown-item" asp-page="@loginPage"><i class="bi bi-box-arrow-in-right me-1"></i> @Html.Translate("login")</a></li>
+            }
+            else
+            {
+                <li><a class="dropdown-item" asp-page="@editProfilePage"><i class="bi bi-box-arrow-in-right me-1"></i>@Html.Translate("edp")</a></li>
+                <li><a class="dropdown-item" asp-page="@logoutPage"><i class="bi bi-box-arrow-in-right me-1"></i>@Html.Translate("logout")</a></li>
+            }
+        </ul>
+    </div>
+    <!-- Language Selector Dropdown using Select -->
+    <!-- Language Selector Dropdown with Images -->
+    <div class="ms-2" style="order:5" id="ms22">
+        <form id="selectLanguage" method="post" asp-page-handler="SetLanguage" asp-route-returnUrl="@Context.Request.Path" role="form">
+            <div class="custom-select-wrapper">
+                <div class="custom-select">
+                    <div class="custom-select-current">
+                        @if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+                        {
+                            <img src="https://t-cf.bstatic.com/design-assets/assets/v3.125.0/images-flags/Us@3x.png" alt="English" />
+                        }
+                        else if (Thread.CurrentThread.CurrentCulture.Name == "vi-VN")
+                        {
+                            <img src="https://t-cf.bstatic.com/design-assets/assets/v3.125.0/images-flags/Vn@3x.png" alt="Vietnamese" />
+                        }
+                    </div>
+                    <div class="custom-select-options">
+                        <div class="custom-select-option" data-value="en-US">
+                            <img src="https://t-cf.bstatic.com/design-assets/assets/v3.125.0/images-flags/Us@3x.png" alt="English" />
+
+                        </div>
+                        <div class="custom-select-option" data-value="vi-VN">
+                            <img src="https://t-cf.bstatic.com/design-assets/assets/v3.125.0/images-flags/Vn@3x.png" alt="Vietnamese" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="~/js/sleatngu.js"></script>

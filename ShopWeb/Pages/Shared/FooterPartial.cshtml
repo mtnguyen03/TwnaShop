@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+
+<div class="container">
+    <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+            <i class="bi bi-geo-alt icon"></i>
+            <div class="address">
+                <h4>@Html.Translate("ad")</h4>
+                <p>@Html.Translate("fu")</p>
+                <p>Hoa Hai, Ngu Hanh Son</p>
+                <p>Test CICD 003</p>
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+            <i class="bi bi-telephone icon"></i>
+            <div>
+                <h4>@Html.Translate("ct")</h4>
+                <p>
+                    <strong>@Html.Translate("phone")</strong> <span>+84 37 733 4791</span><br>
+                    <strong>Email:</strong> <span>boardFusion@gmail.com</span><br>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+            <i class="bi bi-clock icon"></i>
+            <div>
+                <h4>@Html.Translate("oh")</h4>
+                <p>
+                    <strong>@Html.Translate("ms")</strong> <span>7AM - 11PM</span><br>
+                    <strong>@Html.Translate("sunday")</strong>: <span>@Html.Translate("closed")</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <h4>@Html.Translate("fou")</h4>
+            <div class="social-links d-flex">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container copyright text-center mt-4">
+    <p>© <span>Copyright</span> <strong class="px-1 sitename">BoardFusion</strong> <span>All Rights Reserved</span></p>
+    <div class="credits">
+        Designed by <a href="https://www.facebook.com/mtuong.xyz">Twna21</a>
+    </div>
+</div>

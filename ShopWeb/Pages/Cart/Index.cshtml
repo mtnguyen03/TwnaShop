@@ -1,0 +1,326 @@
+﻿@page
+@model ShopWeb.Pages.Cart.IndexModel
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+@{
+    var exchangeRate = 0.000040;
+    var currentCulture = System.Globalization.CultureInfo.CurrentCulture;
+}
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse; /* Ensures borders between cells are merged */
+    }
+
+        .table th, .table td {
+            padding: 8px; /* Adds space inside table cells */
+            border: 1px solid #ddd; /* Adds a light border around cells */
+            text-align: left; /* Aligns text to the left */
+        }
+</style>
+
+<section class="h-100">
+    <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-normal mb-0">@Html.Translate("Shopping Cart")</h3>
+                </div>
+
+                @foreach (var item in Model.CartItems)
+                {
+                    <div class="card rounded-3 mb-4">
+                        <div class="card-body p-4">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="col-md-2 col-lg-2 col-xl-2">
+                                    <img src="@item.Image" class="card-img-top" alt="Product Image" style="border-radius:15px">
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-3 text-center border-custom">
+                                    <p class="lead fw-normal mb-2">@item.ProductName</p>
+                                    <p><span class="text-muted">@Html.Translate("Quantity"): </span>@item.Quantity</p>
+                                </div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+
+                                    @{
+                                        var totalVND1 = (double)item.TotalPrice;
+                                        var totalUSD1 = totalVND1 * exchangeRate;
+                                    }
+
+                                    <p>
+                                        @if (currentCulture.Name == "en-US")
+                                        {
+                                            @string.Format(currentCulture, "{0:C2}", totalUSD1)
+                                        }
+                                        else
+                                        {
+                                            @string.Format(currentCulture, "{0:C0}", totalVND1)
+                                        }
+                                    </p>
+                                </div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 text-end">
+                                    <form method="post" asp-page-handler="RemoveFromCart">
+                                        <input type="hidden" name="productId" value="@item.ProductId" />
+                                        <button type="submit" class="btn btn-link text-danger">
+                                            <i class="fas fa-trash fa-lg">X</i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+                <div class="card">
+                    <form method="post" asp-page-handler="ProceedToPay" id="paymentForm">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="paymentMethod">@Html.Translate("ChoosePayment")</label>
+                                <select class="form-control" id="paymentMethod" name="paymentMethod">
+                                    <option value="online">@Html.Translate("pm1")</option>
+                                    <option value="delivery">@Html.Translate("pm2")</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-warning btn-block btn-lg mt-3" id="buyButton">@Html.Translate("btnBuy")</button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+                <hr />
+                <br />
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+
+                    <br>
+                    <hr>
+
+                    <div class="table-responsive">
+                        @if (Model.OrderDetail != null && Model.OrderDetail.Count > 0)
+                        {
+
+
+                            <table id="myTable1" class="table" style="width:100%;">
+                                <thead>
+                                    <tr>
+
+                                        <th>
+                                            @Html.Translate("ProductName")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("ProductImage")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("UnitPrice")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("Quantity")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("ShipAddress")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("OrderDate")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("Status")
+                                        </th>
+                                        <th>@Html.Translate("Action")</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.OrderDetail)
+                                    {
+                                        <tr>
+                                            @{
+
+                                                var unitPriceInVND2 = (double)item.UnitPrice * item.Quantity ;
+                                                var unitPriceInUSD2 = unitPriceInVND2 * exchangeRate;
+
+                                            }
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Product.ProductName)
+                                            </td>
+                                            <td>
+                                                <a href="@item.Product.ProductImage" class="glightbox">
+                                                    <img src="@item.Product.ProductImage"
+                                                         class="img-fluid"
+                                                         style="width: 100px; height: auto; border-radius: 15px;"
+                                                         alt="Product Image" loading="lazy">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @if (currentCulture.Name == "en-US")
+                                                {
+                                                    @string.Format(currentCulture, "{0:C2}", unitPriceInUSD2)
+                                                }
+                                                else
+                                                {
+                                                    @string.Format(currentCulture, "{0:C0}", unitPriceInVND2)
+                                                }
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Quantity)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Order.ShipAddress)
+                                            </td>
+                                            <td>@item.Order.OrderDate.ToString("dd/MM/yyyy")</td>
+                                            <td style="color: @(item.Order.Status == 0 ? "orange" :
+                  item.Order.Status == 1 ? "green" :
+                  item.Order.Status == 2 ? "red" :
+                  item.Order.Status == 3 ? "blue" :
+                  item.Order.Status == 4 ? "purple" :
+                  item.Order.Status == 5 ? "darkorange" :
+                  item.Order.Status == 6 ? "darkred" : "black")">
+                                                @if (item.Order.Status == 0)
+                                                {
+                                                    @Html.Translate("StatusPending")
+                                                }
+                                                else if (item.Order.Status == 1)
+                                                {
+                                                    @Html.Translate("StatusReceived")
+                                                }
+                                                else if (item.Order.Status == 2)
+                                                {
+                                                    @Html.Translate("StatusCancelled")
+                                                }
+                                                else if (item.Order.Status == 3)
+                                                {
+                                                    @Html.Translate("StatusReturned")
+                                                }
+                                                else if (item.Order.Status == 4)
+                                                {
+                                                    @Html.Translate("StatusDisputed")
+                                                }
+                                                else if (item.Order.Status == 5)
+                                                {
+                                                    @Html.Translate("StatusRefundRequested")
+                                                }
+                                                else if (item.Order.Status == 6)
+                                                {
+                                                    @Html.Translate("StatusRefundDisputed")
+                                                }
+                                            </td>
+
+
+
+                                            <td>
+                                                <!-- Cancel Order Button (Only if Status is 0 - Pending) -->
+                                                @if (item.Order.Status == 0)
+                                                {
+                                                    <form method="post" asp-page-handler="CancelOrder" style="display:inline-block;">
+                                                        <input type="hidden" name="orderId" value="@item.Order.OrderId" />
+                                                        <button type="submit" class="btn btn-danger">
+                                                            @Html.Translate("btnCancelOrder")
+                                                        </button>
+                                                    </form>
+                                                }
+                                                else if (item.Order.Status == 1)
+                                                {
+                                                    // Check if 2 days have passed since the order date
+                                                    var orderDate = item.Order.OrderDate;
+                                                    var timeDifference = DateTime.Now - orderDate;
+
+                                                    // Only show buttons if within 2 days
+                                                    if (timeDifference.TotalDays < 2)
+                                                    {
+                                                        var timeLeft = TimeSpan.FromDays(2) - timeDifference;
+
+                                                        // Display countdown timer
+                                                        <div id="countdown-@item.Order.OrderId" class="countdown-timer"></div>
+
+                                                        // Refund Button
+                                                        <form asp-page-handler="RequestRefund" method="post" style="display:inline-block;">
+                                                            <input type="hidden" name="orderId" value="@item.Order.OrderId" />
+                                                            <button type="submit" class="btn btn-warning">
+                                                                @Html.Translate("btnRequestRefund")
+                                                            </button>
+                                                        </form>
+
+                                                        // Dispute Button
+                                                        <form asp-page-handler="DisputeOrder" method="post" style="display:inline-block;">
+                                                            <input type="hidden" name="orderId" value="@item.Order.OrderId" />
+                                                            <button type="submit" class="btn btn-danger">
+                                                                @Html.Translate("btnDisputeOrder")
+                                                            </button>
+                                                        </form>
+
+                                                        <script>
+                                                            // Countdown timer logic
+                                                            var countdownDate = new Date("@orderDate.ToString("yyyy-MM-ddTHH:mm:ss")").getTime() + (2 * 24 * 60 * 60 * 1000); // 2 days in milliseconds
+
+                                                            var countdownFunction = setInterval(function () {
+                                                                var now = new Date().getTime();
+                                                                var distance = countdownDate - now;
+
+                                                                // Time calculations for days, hours, minutes and seconds
+                                                                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                                                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                                                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                                                // Display the result in the countdown element
+                                                                document.getElementById("countdown-@item.Order.OrderId").innerHTML = "@Html.Translate("Conlai") " + days + "d " + hours + "h " + minutes + "m " + seconds + "s " + "@Html.Translate("Dehanhdong")";
+
+
+                                                                // If the countdown is over, display a message
+                                                                if (distance < 0) {
+                                                                    clearInterval(countdownFunction);
+                                                                    document.getElementById("countdown-@item.Order.OrderId").innerHTML = "@Html.Translate("Time limit exceeded for actions.")";
+                                                                }
+                                                            }, 1000);
+                                                        </script>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p>@Html.Translate("Time limit exceeded for actions.")</p>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <p></p>
+                                                }
+                                            </td>
+
+
+
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@if (!string.IsNullOrEmpty(TempData["SuccessMessage"] as string))
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(TempData["ErrorMessage"] as string))
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+
+
+<script src="~/js/payment.js"></script>

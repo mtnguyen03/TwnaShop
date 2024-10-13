@@ -1,0 +1,479 @@
+﻿@page
+@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@{
+    var requestCulture = HttpContext.Features.Get<IRequestCultureFeature>();
+    var cultureList = ViewData["Cultures"] as List<SelectListItem>;
+}
+
+<!-- Hero Section -->
+<!-- Additional CSS for animations and effects -->
+<style>
+    /* Smooth hover effect for the Why Box */
+    .why-box {
+        border: 1px solid #ddd;
+        padding: 20px;
+        background-color: #fff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .why-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+    /* Icon Box hover effect */
+    .icon-box {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+        .icon-box:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.1);
+        }
+
+    /* Smooth hover effect for buttons */
+    .more-btn {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .more-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+        }
+
+    /* Icon animations on hover */
+    .icon-box i {
+        font-size: 36px;
+        color: #007bff;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .icon-box:hover i {
+        color: #0056b3;
+        transform: rotate(10deg);
+    }
+
+    /* Animations using AOS (Animate on Scroll) */
+    [data-aos="fade-up"] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+        [data-aos="fade-up"].aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+</style>
+
+
+
+<section class="hero section light-background">
+    <cache vary-by-param="none" duration="120">
+        <div class="container" style="background-image: url('https://i.ibb.co/yRQfdNL/bnok.png'); min-height:49vh;border-radius:15px;">
+    </cache>
+    <div class="row gy-4 justify-content-center justify-content-lg-between">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">@Html.Translate("Muangay")<br>@Html.Translate("giamgia")</h1>
+            <p data-aos="fade-up" data-aos-delay="100">
+                @Html.Translate("slidewelcom")
+            </p>
+            <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                <a href="/products/details" class="btn-get-started">@Html.Translate("shopnow")</a>
+                @*       <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+                class="glightbox btn-watch-video d-flex align-items-center">
+                <i class="bi bi-play-circle"></i><span>
+                @Html.Translate("watchvideo")
+                </span>
+                <!--video of board game-->
+                </a> *@
+            </div>
+        </div>
+        <cache vary-by-param="none" duration="120">
+            <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+                <img src="https://i.ibb.co/qgxrJ8N/chinh01.png" srcset="https://i.ibb.co/qgxrJ8N/chinh01.webp" class="img-fluid animated" alt="" style="padding: 70px; border-radius: 87px;">
+            </div>
+        </cache>
+    </div>
+    </div>
+
+</section><!-- /Hero Section -->
+<!-- About Section -->
+<section id="about" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2> @Html.Translate("aboutus")<br></h2>
+
+
+        <p><span>@Html.Translate("learnmore")</span> <span class="description-title">@Html.Translate("aboutus")</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+                <cache vary-by-param="none" duration="120">
+                    <img src="https://i.ibb.co/smMp79H/hinhanhbg02.png" srcset="https://i.ibb.co/smMp79H/hinhanhbg02.webp" class="img-fluid mb-4" style="border-radius:12px;" alt="">
+                </cache>
+                <div class="book-a-table">
+                    <h3>@Html.Translate("shopnow")</h3>
+                    <p>+84 377 33 4791</p>
+                </div>
+            </div>
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
+                <div class="content ps-0 ps-lg-5">
+                    <p class="fst-italic">
+                        @Html.Translate("ph1")
+                    </p>
+                    <ul>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i> <span>
+                                @Html.Translate("company") <strong>BoardFusion</strong>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i> <span>
+                                @Html.Translate("infor")
+
+                            </span>
+                        </li>
+
+                    </ul>
+                    <p>
+                        <strong>@Html.Translate("mission")</strong>@Html.Translate("missionp")
+                    </p>
+                    <p>
+                        <strong>@Html.Translate("vision")</strong>@Html.Translate("visionp")
+                    </p>
+
+                    @*       <div class="position-relative mt-4">
+                    <img src="~/img/about-2.jpg" class="img-fluid" alt="">
+                    <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox pulsating-play-btn"></a>
+                    <!--video of board game-->
+                    </div> *@
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section><!-- /About Section -->
+<!-- Why Us Section -->
+<section id="why-us" class="why-us section light-background">
+
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="why-box animated-box">
+                    <h3>@Html.Translate("wcb")</h3>
+                    <p>@Html.Translate("wcbp")</p>
+                    <div class="text-center">
+                        <a href="#" class="more-btn">
+                            <span>@Html.Translate("learnmore")</span>
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div><!-- End Why Box -->
+
+            <div class="col-lg-8 d-flex align-items-stretch">
+                <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+
+                    <div class="col-xl-4">
+                        <div class="icon-box animated-icon d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-clipboard-data"></i>
+                            <h4>@Html.Translate("un")</h4>
+                            <p>@Html.Translate("unp")</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-box animated-icon d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-gem"></i>
+                            <h4>@Html.Translate("ne")</h4>
+                            <p>@Html.Translate("nep")</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-box animated-icon d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-inboxes"></i>
+                            <h4>@Html.Translate("de")</h4>
+                            <p>@Html.Translate("dep")</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- /Why Us Section -->
+<!-- Menu Section -->
+<section id="menu" class="menu section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>@Html.Translate("om")</h2>
+        <p><span>@Html.Translate("co")</span> <span class="description-title">@Html.Translate("sp")</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+            <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
+                    <h4>Board Game</h4>
+                </a>
+            </li><!-- End tab nav item -->
+        </ul>
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- Starters Menu Content -->
+            <div class="tab-pane fade active show" id="menu-starters">
+                <div class="tab-header text-center">
+                    <p>@Html.Translate("s")</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 menu-item">
+                        <cache vary-by-param="none" duration="120">
+                            <a href="https://i.ibb.co/qgxrJ8N/chinh01.png" class="glightbox">
+                                <img src="https://i.ibb.co/qgxrJ8N/chinh01.png" class="menu-img img-fluid" alt="">
+                            </a>
+                        </cache>
+                        <a href="/products/details" title="Click to details">
+
+                            <h4>Drink No</h4>
+                            <p class="price">
+                                @Html.Translate("p")
+                            </p>
+                        </a>
+                    </div><!-- Menu Item -->
+                </div>
+            </div><!-- End Starters Menu Content -->
+            <!-- Breakfast Menu Content -->
+        </div>
+    </div>
+
+
+</section><!-- /Menu Section -->
+<!-- Gallery Section -->
+<section id="gallery" class="gallery section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>@Html.Translate("g")</h2>
+        <p><span>@Html.Translate("check")</span> <span class="description-title">@Html.Translate("og")</span></p>
+    </div><!-- End Section Title -->
+    <cache vary-by-param="none" duration="120">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="swiper init-swiper">
+                <script type="application/json" class="swiper-config">
+                    {
+                      "loop": true,
+                      "speed": 600,
+                      "autoplay": {
+                        "delay": 5000
+                      },
+                      "slidesPerView": "auto",
+                      "centeredSlides": true,
+                      "pagination": {
+                        "el": ".swiper-pagination",
+                        "type": "bullets",
+                        "clickable": true
+                      },
+                      "breakpoints": {
+                        "320": {
+                          "slidesPerView": 1,
+                          "spaceBetween": 0
+                        },
+                        "768": {
+                          "slidesPerView": 3,
+                          "spaceBetween": 20
+                        },
+                        "1200": {
+                          "slidesPerView": 5,
+                          "spaceBetween": 20
+                        }
+                      }
+                    }
+                </script>
+                <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide">
+                        <a class="glightbox" data-gallery="images-gallery"
+                           href="~/img/gallery/gallery-1.webp">
+                            <img src="~/img/gallery/gallery-1.webp" class="img-fluid"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="glightbox" data-gallery="images-gallery"
+                           href="~/img/gallery/gallery-2.webp">
+                            <img src="~/img/gallery/gallery-2.webp" class="img-fluid"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="glightbox" data-gallery="images-gallery"
+                           href="~/img/gallery/gallery-3.webp">
+                            <img src="~/img/gallery/gallery-3.webp" class="img-fluid"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="glightbox" data-gallery="images-gallery"
+                           href="~/img/gallery/gallery-4.webp">
+                            <img src="~/img/gallery/gallery-4.webp" class="img-fluid"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="glightbox" data-gallery="images-gallery"
+                           href="~/img/gallery/gallery-5.webp">
+                            <img src="~/img/gallery/gallery-5.webp" class="img-fluid"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="glightbox" data-gallery="images-gallery"
+                           href="~/img/gallery/gallery-6.webp">
+                            <img src="~/img/gallery/gallery-6.webp" class="img-fluid"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="glightbox" data-gallery="images-gallery"
+                           href="~/img/gallery/gallery-7.webp">
+                            <img src="~/img/gallery/gallery-7.webp" class="img-fluid"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="glightbox" data-gallery="images-gallery"
+                           href="~/img/gallery/gallery-8.webp">
+                            <img src="~/img/gallery/gallery-8.webp" class="img-fluid"
+                                 alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </cache>
+</section><!-- /Gallery Section -->
+<!-- Contact Section -->
+
+<section id="contact" class="contact section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>@Html.Translate("ct")</h2>
+        <p><span>@Html.Translate("nh")</span> <span class="description-title">@Html.Translate("cu")</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <cache vary-by-param="none" duration="120">
+            <div class="mb-5">
+                <iframe style="width: 100%; height: 400px;"
+                        src="https://maps.google.com/maps?q=fpt%20university%20DaNang&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" allowfullscreen=""></iframe>
+            </div><!-- End Google Maps -->
+        </cache>
+        <div class="row gy-4">
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+                    <i class="icon bi bi-geo-alt flex-shrink-0"></i>
+                    <div>
+                        <h3>@Html.Translate("ad")</h3>
+                        <p>@Html.Translate("fu")</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+                    <i class="icon bi bi-telephone flex-shrink-0"></i>
+                    <div>
+                        <h3>@Html.Translate("cu")</h3>
+                        <p>+84 377 33 4791</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+                    <i class="icon bi bi-envelope flex-shrink-0"></i>
+                    <div>
+                        <h3>@Html.Translate("eu")</h3>
+                        <p>boardFusion@gmail.com</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+                    <i class="icon bi bi-clock flex-shrink-0"></i>
+                    <div>
+                        <h3>@Html.Translate("oh")<br></h3>
+                        <p><strong>@Html.Translate("ms")</strong>7AM - 11PM;
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+        </div>
+
+        <form asp-page-handler="SendMailContact" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+            <div class="row gy-4">
+
+                <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                </div>
+
+                <div class="col-md-12">
+                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <button type="submit">@Html.Translate("sm")</button>
+                </div>
+
+            </div>
+        </form><!-- End Contact Form -->
+
+    </div>
+
+</section><!-- /Contact Section -->
+
+
+<link href="~/css/main.css" rel="stylesheet" />
