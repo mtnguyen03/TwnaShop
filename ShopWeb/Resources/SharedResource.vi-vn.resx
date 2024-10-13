@@ -373,10 +373,10 @@
     <value>Đặt hàng ngay để nhận sản phẩm này giao hàng</value>
   </data>
   <data name="p" xml:space="preserve">
-    <value>135.000 VNĐ</value>
+    <value>100.000 VNĐ</value>
   </data>
   <data name="p2" xml:space="preserve">
-    <value>150.000 VNĐ</value>
+    <value>115.000 VNĐ</value>
   </data>
   <data name="PaymentFailed" xml:space="preserve">
     <value>Thanh toán thất bại</value>

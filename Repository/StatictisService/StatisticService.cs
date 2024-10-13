@@ -52,7 +52,7 @@ namespace Repository.StatictisService
                 {
                     Month = g.Key.Month,
                     Year = g.Key.Year,
-                    TotalRevenue = g.Count() * 135000 
+                    TotalRevenue = g.Count() * 100000 
                 })
                 .OrderBy(m => m.Year).ThenBy(m => m.Month) 
                 .ToList();

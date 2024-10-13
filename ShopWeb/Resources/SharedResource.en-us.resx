@@ -376,10 +376,10 @@
     <value>Order now to get this product delivery</value>
   </data>
   <data name="p" xml:space="preserve">
-    <value>$ 5.49</value>
+    <value>$ 4.17</value>
   </data>
   <data name="p2" xml:space="preserve">
-    <value>$ 6.08</value>
+    <value>$ 4.63</value>
   </data>
   <data name="PaymentFailed" xml:space="preserve">
     <value>Payment Failed</value>
