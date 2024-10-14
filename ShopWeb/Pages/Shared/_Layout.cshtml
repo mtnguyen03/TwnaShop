@@ -14,13 +14,14 @@
     <!-- Favicons -->
     <link href="https://i.ibb.co/vd5YyQJ/White-and-Black-Elegant-Circuit-Logo.png" rel="icon">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="https://uhchat.net/code.php?f=6e80f4"></script>
-
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+    <script src="https://uhchat.net/code.php?f=19e4e6"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap"
+          rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,8 +35,10 @@
 
     <style>
         .ui-autocomplete {
-            max-height: 200px; /* Adjust the height as needed */
-            overflow-y: auto; /* Enable vertical scrolling */
+            max-height: 200px;
+            /* Adjust the height as needed */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
         }
     </style>
 
@@ -51,14 +54,17 @@
 
     <main class="main">
         @RenderBody()
+        <div class="elfsight-app-14be8ff5-f5e0-4dc8-95ba-1190398b80e2" data-elfsight-app-lazy></div>
+        <div class="elfsight-app-e76cdd1c-502f-4dad-b986-5389095c4673" data-elfsight-app-lazy></div>
     </main>
 
     <footer id="footer" class="footer dark-background">
         <partial name="FooterPartial" />
     </footer>
-
     <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="bottom:50px;">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
 
     <!-- Preloader -->
     <div id="preloader"></div>
@@ -84,12 +90,12 @@
     </script>
     <script src="~/js/autocomplete.js">
     </script>
-    <script src="~/js/rmads.js"></script>
+    @* <script src="~/js/rmads.js"></script> *@
     <script src="~/js/alertsendmail.js"></script>
     <script src="~/js/countitemcart.js"></script>
 
 
-   
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
