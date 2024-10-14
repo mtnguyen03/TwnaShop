@@ -20,6 +20,7 @@ using System.Globalization;
 using Repository.StatictisService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Rewrite;
 namespace ShopWeb
 {
     public class Program
@@ -180,6 +181,8 @@ namespace ShopWeb
             app.UseResponseCaching();
 
             app.UseRouting();
+            app.UseRewriter(new RewriteOptions()
+               .AddRedirect("www.twna.shop", "twna.shop"));
 
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
