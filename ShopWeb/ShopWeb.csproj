@@ -1,51 +1,51 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
 
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\js\alertSendMail.js" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Remove="wwwroot\js\alertSendMail.js" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="wwwroot\js\alertSendMail.js" />
-  </ItemGroup>
+	<ItemGroup>
+		<_ContentIncludedByDefault Remove="wwwroot\js\alertSendMail.js" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\js\alertSendMail.js" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="wwwroot\js\alertSendMail.js" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="8.0.8" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
-    <PackageReference Include="NEST" Version="7.17.5" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj" />
-    <ProjectReference Include="..\DataAcess\DataAcess.csproj" />
-    <ProjectReference Include="..\Repository\Repository.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="8.0.8" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
+		<PackageReference Include="NEST" Version="7.17.5" />
+	</ItemGroup>
 
 
-  <ItemGroup>
-    <Content Update="wwwroot\js\local.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\BusinessObject\BusinessObject.csproj" />
+		<ProjectReference Include="..\DataAcess\DataAcess.csproj" />
+		<ProjectReference Include="..\Repository\Repository.csproj" />
+	</ItemGroup>
 
 
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\SharedResource.en-US.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\SharedResource.vi-VN.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Update="wwwroot\js\local.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\SharedResource.en-US.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\SharedResource.vi-VN.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
 
 </Project>

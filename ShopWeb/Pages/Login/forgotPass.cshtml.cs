@@ -6,7 +6,6 @@ using Repository;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using Repository.MailService;
-using Repository.MailUtils;
 
 namespace ShopWeb.Pages.Login
 {

@@ -1,5 +1,4 @@
-﻿using Repository.MailUtils;
-using MimeKit;
+﻿using MimeKit;
 using MailKit;
 using MailKit.Security;
 using Microsoft.Extensions.Options;
@@ -35,13 +34,14 @@ namespace Repository.MailService
                 await smtp.ConnectAsync(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);
                 await smtp.AuthenticateAsync(_mailSettings.Mail, _mailSettings.Password);
                 await smtp.SendAsync(email);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return "Error" + ex.Message;
             }
             smtp.Disconnect(true);
-            return "Send Email Successfully!" ;
+            return "Send Email Successfully!";
         }
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {

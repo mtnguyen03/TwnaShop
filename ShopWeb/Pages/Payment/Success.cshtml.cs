@@ -1,13 +1,22 @@
-using BusinessObject;
+﻿using BusinessObject;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
+using Repository;
 
 namespace ShopWeb.Pages.Payment
 {
     public class SuccessModel : PageModel
     {
         private readonly ShopDbContext _context = new ShopDbContext();
+        private readonly INotificationRepository _notificationRepository;
+        private readonly IStringLocalizer<SuccessModel> _localizer;
+        public SuccessModel(IStringLocalizer<SuccessModel> localizer, INotificationRepository notificationRepository)
+        {
+            _localizer = localizer;
+            _notificationRepository = notificationRepository;
+        }
         public async Task<IActionResult> OnGet(int orderId, decimal totalAmount)
         {
             try
@@ -19,7 +28,7 @@ namespace ShopWeb.Pages.Payment
                 var order = _context.Orders.FirstOrDefault(o => o.OrderId == orderId);
                 if (order == null)
                 {
-                  
+
                     return RedirectToPage("/Error");
                 }
 
@@ -28,11 +37,26 @@ namespace ShopWeb.Pages.Payment
                 await _context.SaveChangesAsync();
                 HttpContext.Session.Remove("Cart");
 
+                string translatedMessage = string.Format(_localizer["Your payment was successful."]);
+
+                int userId = order.CustomerId ?? 0;
+             
+                var notification = new Notification
+                {
+                    UserID = userId, 
+                    Title = _localizer["Payment Successful"],
+                    MessageContent = translatedMessage,
+                    NotificationDate = DateTime.Now,
+                    IsRead = false,
+                    Photo = "https://cdn3d.iconscout.com/3d/premium/thumb/successfully-done-4416855-3663892.png"
+                };
+
+                await _notificationRepository.Add(notification);
                 return Page();
             }
             catch (Exception ex)
             {
-             
+
                 return RedirectToPage("/Error");
             }
         }

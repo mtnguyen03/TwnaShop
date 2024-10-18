@@ -12,6 +12,8 @@ using Repository.PaymentService;
 using System.Linq;
 using Repository.TranslateService;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Localization;
+using ShopWeb.Pages.Payment;
 
 namespace ShopWeb.Pages.Cart
 {
@@ -22,20 +24,24 @@ namespace ShopWeb.Pages.Cart
         private readonly PayOS _payOS;
         private readonly TranslateService _translateService;
         private readonly IHubContext<SignalRServer> _signalRHub;
+        private readonly INotificationRepository _noti;
+        private readonly IStringLocalizer<SuccessModel> _localizer;
         public IndexModel(PayOS payProcess,
              TranslateService translateService,
-              IHubContext<SignalRServer> signalRHub
+              IHubContext<SignalRServer> signalRHub,
+              INotificationRepository noti,
+              IStringLocalizer<SuccessModel> localizer
             )
         {
             _payOS = payProcess;
             _translateService = translateService;
             _signalRHub = signalRHub;
+            _noti = noti;
+            _localizer = localizer;
         }
         public async Task OnGetAsync()
         {
             ViewData["Cultures"] = await _translateService.GetAvailableCultures();
-
-
 
             var cart = HttpContext.Session.GetString("Cart");
             if (!string.IsNullOrEmpty(cart))
@@ -65,7 +71,7 @@ namespace ShopWeb.Pages.Cart
 
         public IActionResult OnPostRemoveFromCart(int productId)
         {
-            var cart =  HttpContext.Session.GetString("Cart");
+            var cart = HttpContext.Session.GetString("Cart");
             if (string.IsNullOrEmpty(cart))
             {
                 return RedirectToPage();
@@ -87,7 +93,7 @@ namespace ShopWeb.Pages.Cart
         {
             try
             {
-                var culturesCurrent =  _translateService.GetCurrentCulture(HttpContext);
+                var culturesCurrent = _translateService.GetCurrentCulture(HttpContext);
                 ViewData["Cultures"] = await _translateService.GetAvailableCultures();
 
 
@@ -110,56 +116,56 @@ namespace ShopWeb.Pages.Cart
                 }
 
 
-                    var customer = _context.Accounts.FirstOrDefault(c => c.AccountID == int.Parse(userNameSession));
+                var customer = _context.Accounts.FirstOrDefault(c => c.AccountID == int.Parse(userNameSession));
 
-                    string message = string.Empty;
+                string message = string.Empty;
 
 
-                    if (string.IsNullOrEmpty(userNameSession))
-                    {
-                        message = culturesCurrent == 1 ? "Chưa đăng nhập." : "User not logged in.";
-                    }
-                    else if (string.IsNullOrEmpty(cart))
-                    {
-                        message = culturesCurrent == 1 ? "Giỏ hàng trống." : "Cart is empty.";
-                    }
-                    else if (customer == null)
-                    {
-                        message = culturesCurrent == 1 ? "Không tìm thấy tài khoản người dùng." : "User account not found.";
-                    }
-                    else if (string.IsNullOrEmpty(customer.Address))
-                    {
-                        message = culturesCurrent == 1 ? "Thiếu địa chỉ trong hồ sơ." : "Address is missing in Edit Profile.";
-                    }
-                    else if (string.IsNullOrEmpty(customer.Phone))
-                    {
-                        message = culturesCurrent == 1 ? "Thiếu số điện thoại trong hồ sơ." : "Phone number is missing in Edit Profile.";
-                    }
+                if (string.IsNullOrEmpty(userNameSession))
+                {
+                    message = culturesCurrent == 1 ? "Chưa đăng nhập." : "User not logged in.";
+                }
+                else if (string.IsNullOrEmpty(cart))
+                {
+                    message = culturesCurrent == 1 ? "Giỏ hàng trống." : "Cart is empty.";
+                }
+                else if (customer == null)
+                {
+                    message = culturesCurrent == 1 ? "Không tìm thấy tài khoản người dùng." : "User account not found.";
+                }
+                else if (string.IsNullOrEmpty(customer.Address))
+                {
+                    message = culturesCurrent == 1 ? "Thiếu địa chỉ trong hồ sơ." : "Address is missing in Edit Profile.";
+                }
+                else if (string.IsNullOrEmpty(customer.Phone))
+                {
+                    message = culturesCurrent == 1 ? "Thiếu số điện thoại trong hồ sơ." : "Phone number is missing in Edit Profile.";
+                }
 
-                    // If there's a validation message, return a failure response
-                    if (!string.IsNullOrEmpty(message))
-                    {
-                        return new JsonResult(new { success = false, message });
-                    }
+                // If there's a validation message, return a failure response
+                if (!string.IsNullOrEmpty(message))
+                {
+                    return new JsonResult(new { success = false, message });
+                }
 
                 decimal totalFreight = 0;
 
                 var orderDetails = new List<OrderDetail>();
-                    foreach (var cartItem in cartItems)
+                foreach (var cartItem in cartItems)
+                {
+                    var product = _context.Products.FirstOrDefault(p => p.ProductId == cartItem.ProductId);
+                    if (product != null)
                     {
-                        var product = _context.Products.FirstOrDefault(p => p.ProductId == cartItem.ProductId);
-                        if (product != null)
+                        var orderDetail = new OrderDetail
                         {
-                            var orderDetail = new OrderDetail
-                            {
-                                ProductId = product.ProductId,
-                                UnitPrice = product.UnitPrice,
-                                Quantity = cartItem.Quantity
-                            };
+                            ProductId = product.ProductId,
+                            UnitPrice = product.UnitPrice,
+                            Quantity = cartItem.Quantity
+                        };
                         totalFreight += orderDetail.Quantity * orderDetail.UnitPrice;
                         orderDetails.Add(orderDetail);
-                        }
                     }
+                }
 
                 var order = new Order
                 {
@@ -172,55 +178,64 @@ namespace ShopWeb.Pages.Cart
                 };
 
                 order.OrderDetails = orderDetails;
-                    _context.Orders.Add(order);
-                    _context.SaveChanges();
+                _context.Orders.Add(order);
+                _context.SaveChanges();
                 await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity");
 
                 int totalAmount = (int)orderDetails.Sum(od => od.Quantity * od.UnitPrice);
 
-                    if (paymentMethod.Equals("online"))
-                    {
-                        var paymentData = new PaymentData(
-                            order.OrderId,
-                            totalAmount,
-                            culturesCurrent == 1 ? "Mua hàng: Drink No" : "Buy: DrinkNo on twna.shop",
-                            cartItems.Select(c => new ItemData(c.ProductName, c.Quantity, (int)c.UnitPrice)).ToList(),
+                if (paymentMethod.Equals("online"))
+                {
+                    var paymentData = new PaymentData(
+                        order.OrderId,
+                        totalAmount,
+                        culturesCurrent == 1 ? "Mua hàng: Drink No" : "Buy: DrinkNo on twna.shop",
+                        cartItems.Select(c => new ItemData(c.ProductName, c.Quantity, (int)c.UnitPrice)).ToList(),
                             $"https://twna.shop/Payment/Failed?orderId={order.OrderId}",
                             $"https://twna.shop/Payment/Success?orderId={order.OrderId}&totalAmount={totalAmount}"
-                        );
+                    );
 
-                        CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
+                    CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
 
-                        return new JsonResult(new { success = true, paymentUrl = createPayment.checkoutUrl });
-                    }
-                    else
-                    {
-                        return new JsonResult(new { success = true, paymentUrl = $"https://twnashop.azurewebsites.net/Payment/Success?orderId={order.OrderId}&totalAmount={totalAmount}" });
-                    }
+                    return new JsonResult(new { success = true, paymentUrl = createPayment.checkoutUrl });
                 }
+                else
+                {
+                    return new JsonResult(new { success = true, paymentUrl = $"https://twna.shop/Payment/Success?orderId={order.OrderId}&totalAmount={totalAmount}" });
+                }
+            }
             catch (Exception ex)
             {
                 return new JsonResult(new { success = false, message = "Failed to place order.", error = ex.Message });
             }
         }
-
         public async Task<IActionResult> OnPostRequestRefundAsync(int orderId)
         {
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
 
-            // Only allow refund if the order is marked as received (status = 1)
             if (order != null && order.Status == 1)
             {
                 order.Status = 3; // Set status to 3 (Refund Requested)
                 await _context.SaveChangesAsync();
+
+                // Create a notification for the refund request
+                var notification = new Notification
+                {
+                    UserID = order.CustomerId ?? 0,
+                    Title = _localizer["Refund Requested"],
+                    MessageContent = _localizer["Your refund request has been submitted."],
+                    NotificationDate = DateTime.Now,
+                    IsRead = false,
+                    Photo = "https://static.vecteezy.com/system/resources/previews/015/872/168/original/payment-cancellation-icon-isometric-style-vector.jpg"
+                };
+
+                await _noti.Add(notification);
 
                 await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity"); // Notify clients if needed
             }
 
             return RedirectToPage();
         }
-
-      
 
         public async Task<IActionResult> OnPostDisputeOrderAsync(int orderId)
         {
@@ -232,26 +247,54 @@ namespace ShopWeb.Pages.Cart
                 order.Status = 4; // Set status to 'Disputed'
                 await _context.SaveChangesAsync();
 
+                // Create a notification for the dispute
+                var notification = new Notification
+                {
+                    UserID = order.CustomerId ?? 0,
+                    Title = _localizer["Order Disputed"],
+                    MessageContent = _localizer["Your order has been disputed."],
+                    NotificationDate = DateTime.Now,
+                    IsRead = false,
+                    Photo = "https://cdn4.iconfinder.com/data/icons/server-database/60/server__exclamation__warning__database__datacenter-1024.png"
+                };
+
+                await _noti.Add(notification);
+
                 await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity"); // Notify clients if needed
             }
 
             return RedirectToPage();
         }
 
-
         public async Task<IActionResult> OnPostCancelOrderAsync(int orderId, byte currentStatus)
         {
             var order = await _context.Orders.FindAsync(orderId);
             if (order != null)
             {
-                order.Status = (byte)2;
+                order.Status = (byte)2; // Set status to 2 (Canceled)
                 await _context.SaveChangesAsync();
-                await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity");
+
+                string translatedMessage = string.Format(_localizer["The order has been canceled."]);
+
+                int userId = order.CustomerId ?? 0;
+
+                var notification = new Notification
+                {
+                    UserID = userId,
+                    Title = _localizer["Canceled Successful"],
+                    MessageContent = translatedMessage,
+                    NotificationDate = DateTime.Now,
+                    IsRead = false,
+                    Photo = "https://cdn-icons-png.flaticon.com/512/4764/4764977.png"
+                };
+
+                await _noti.Add(notification);
+
+                await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity"); // Notify clients if needed
             }
 
             return RedirectToPage();
         }
-
 
 
         public async Task<IActionResult> OnPostSetLanguage(string culture, string returnUrl)

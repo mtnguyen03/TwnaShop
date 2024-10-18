@@ -7,6 +7,8 @@ using Repository.MailService;
 using Repository.TranslateService;
 using System.Security.Policy;
 using Repository.CartService;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 
 namespace ShopWeb.Pages
@@ -72,7 +74,10 @@ namespace ShopWeb.Pages
             ViewData["UserName"] = HeaderModelView.UserName;
             var cultures = await _translateService.GetAvailableCultures();
             ViewData["Cultures"] = cultures;
+            var requestCulture = HttpContext.Features.Get<IRequestCultureFeature>()?.RequestCulture?.Culture ?? CultureInfo.CurrentCulture;
+            var currentCultureCode = requestCulture.Name;
 
+            ViewData["current"] = currentCultureCode;
             return Page();
         }
 

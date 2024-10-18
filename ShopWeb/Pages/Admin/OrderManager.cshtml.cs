@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Repository.TranslateService;
 using System.Globalization;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Localization;
+using ShopWeb.Pages.Payment;
 
 namespace ShopWeb.Pages.Admin
 {
@@ -19,13 +21,20 @@ namespace ShopWeb.Pages.Admin
         private readonly IOrderRepository _orderRepository;
         private readonly TranslateService _translateService;
         private readonly IHubContext<SignalRServer> _signalRHub;
+        private readonly INotificationRepository _noti;
+        private readonly IStringLocalizer<SuccessModel> _localizer;
         public OrderManagerModel(IOrderRepository orderRepository,
             TranslateService translateService,
-             IHubContext<SignalRServer> signalRHub)
+             IHubContext<SignalRServer> signalRHub,
+                       INotificationRepository noti,
+              IStringLocalizer<SuccessModel> localizer
+             )
         {
             _orderRepository = orderRepository;
             _translateService = translateService;
             _signalRHub = signalRHub;
+            _noti = noti;
+            _localizer = localizer;
         }
 
         [BindProperty]
@@ -63,9 +72,9 @@ namespace ShopWeb.Pages.Admin
             PendingOrders = allOrders.Where(o => o.Status == 0).ToList(); // Status 0: Pending
             ReceivedOrders = allOrders.Where(o => o.Status == 1).ToList(); // Status 1: Đã nhận
             CancelledOrders = allOrders.Where(o => o.Status == 2).ToList(); // Status 2: Đã hủy
-            DisputeRefundOrders = allOrders.Where(o => o.Status == 4 || o.Status == 5 || o.Status == 6 || o.Status ==3).ToList(); // Status 4, 5, 6
+            DisputeRefundOrders = allOrders.Where(o => o.Status == 4 || o.Status == 5 || o.Status == 6 || o.Status == 3).ToList(); // Status 4, 5, 6
 
-         await _translateService.SetLanguage("vi-VN", Response);
+            await _translateService.SetLanguage("vi-VN", Response);
         }
 
 
@@ -96,6 +105,18 @@ namespace ShopWeb.Pages.Admin
                     await _context.SaveChangesAsync();
                     await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity");
 
+                    var notification = new Notification
+                    {
+                        UserID = order.CustomerId ?? 0,
+                        Title = _localizer["Order Delivered"],
+                        MessageContent = _localizer["Your order has been successfully delivered."],
+                        NotificationDate = DateTime.Now,
+                        IsRead = false,
+                        Photo = "https://static.vecteezy.com/system/resources/previews/015/872/168/original/payment-cancellation-icon-isometric-style-vector.jpg"
+                    };
+
+                    await _noti.Add(notification);
+
                 }
             }
 
@@ -119,12 +140,25 @@ namespace ShopWeb.Pages.Admin
         public async Task<IActionResult> OnPostApproveRefundAsync(int orderId)
         {
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
-            if (order != null && order.Status == 3) 
+            if (order != null && order.Status == 3)
             {
-                
-                order.Status = 5; 
+
+                order.Status = 5;
                 await _context.SaveChangesAsync();
                 await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity");
+
+
+                var notification = new Notification
+                {
+                    UserID = order.CustomerId ?? 0,
+                    Title = _localizer["Refund Approved"],
+                    MessageContent = _localizer["Your refund has been approved."],
+                    NotificationDate = DateTime.Now,
+                    IsRead = false,
+                    Photo = "https://static.vecteezy.com/system/resources/previews/015/872/168/original/payment-cancellation-icon-isometric-style-vector.jpg"
+                };
+
+                await _noti.Add(notification);
             }
 
             return RedirectToPage();
@@ -139,6 +173,17 @@ namespace ShopWeb.Pages.Admin
                 order.Status = 6;
                 await _context.SaveChangesAsync();
                 await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity");
+                var notification = new Notification
+                {
+                    UserID = order.CustomerId ?? 0,
+                    Title = _localizer["Dispute Resolved"],
+                    MessageContent = _localizer["Your dispute has been resolved."],
+                    NotificationDate = DateTime.Now,
+                    IsRead = false,
+                    Photo = "https://cdn-icons-png.flaticon.com/512/4764/4764977.png"
+                };
+
+                await _noti.Add(notification); // Save the notification
             }
 
             return RedirectToPage();

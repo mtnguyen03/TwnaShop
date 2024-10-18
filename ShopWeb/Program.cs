@@ -1,6 +1,4 @@
 using BusinessObject;
-using Repository.MailService;
-using Repository.MailUtils;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
@@ -21,6 +19,7 @@ using Repository.StatictisService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Rewrite;
+using Repository.MailService;
 namespace ShopWeb
 {
     public class Program
@@ -92,25 +91,25 @@ namespace ShopWeb
                 };
             });
 
-            builder.Services.AddAuthentication().AddFacebook(facebookOptions =>
-            {
+            //builder.Services.AddAuthentication().AddFacebook(facebookOptions =>
+            //{
 
-                facebookOptions.AppId = builder.Configuration["Authentication:Facebook:AppId"];
-                facebookOptions.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
-                facebookOptions.Scope.Add("public_profile");
-                facebookOptions.Fields.Add("picture");
-                facebookOptions.Events = new OAuthEvents
-                {
-                    OnCreatingTicket = context =>
-                    {
-                        var identity = (ClaimsIdentity)context.Principal.Identity;
-                        var profileImg = context.User.GetProperty("picture").GetProperty("data").GetProperty("url").ToString();
-                        identity.AddClaim(new Claim("picture", profileImg));
-                        return Task.CompletedTask;
-                    }
-                };
+            //    facebookOptions.AppId = builder.Configuration["Authentication:Facebook:AppId"];
+            //    facebookOptions.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
+            //    facebookOptions.Scope.Add("public_profile");
+            //    facebookOptions.Fields.Add("picture");
+            //    facebookOptions.Events = new OAuthEvents
+            //    {
+            //        OnCreatingTicket = context =>
+            //        {
+            //            var identity = (ClaimsIdentity)context.Principal.Identity;
+            //            var profileImg = context.User.GetProperty("picture").GetProperty("data").GetProperty("url").ToString();
+            //            identity.AddClaim(new Claim("picture", profileImg));
+            //            return Task.CompletedTask;
+            //        }
+            //    };
 
-            });
+            //});
 
             var connectionString = builder.Configuration.GetConnectionString("PROJECT");
 
@@ -123,7 +122,7 @@ namespace ShopWeb
             builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
             builder.Services.AddSingleton<ICategoryRepository, CategoryRepository>();
             builder.Services.AddSingleton<IOtpService, OtpService>();
-
+            builder.Services.AddSingleton<INotificationRepository, NotificationRepository>();
 
 
             var mailSettings = builder.Configuration.GetSection("MailSettings");
@@ -150,6 +149,15 @@ namespace ShopWeb
 
             // Register PayProcess
             builder.Services.AddTransient<PayProcess>();
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
 
             builder.Services.AddSession((options) =>
             {

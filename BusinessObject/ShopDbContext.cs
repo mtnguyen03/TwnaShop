@@ -15,6 +15,7 @@ namespace BusinessObject
         public DbSet<Product> Products { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,6 +32,10 @@ namespace BusinessObject
         {
             modelBuilder.Entity<OrderDetail>()
     .HasKey(od => new { od.OrderId, od.ProductId });
+            modelBuilder.Entity<Notification>()
+                .HasOne(n => n.User)
+                .WithMany(u => u.Notifications)
+                .HasForeignKey(n => n.UserID); 
 
             OnModelCreatingPartial(modelBuilder);
         }

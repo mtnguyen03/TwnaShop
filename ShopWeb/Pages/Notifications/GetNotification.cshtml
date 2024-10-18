@@ -1,0 +1,30 @@
+﻿@page
+@model ShopWeb.Notifications.GetNotification
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Manager</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: '@Url.Page("/Notifications/GetNotification")',
+                type: 'GET',
+                success: function (data) {
+                    // Handle the received data here
+                    console.log(data);
+                },
+                error: function (error) {
+                    console.error("There was an error retrieving the products:", error);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Product Manager</h1>
+</body>
+</html>

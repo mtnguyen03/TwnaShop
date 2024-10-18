@@ -25,6 +25,14 @@
 
 
 <style>
+
+    #notificationList {
+        max-height: 300px; /* Set the max height */
+        overflow-y: auto; /* Enable vertical scrolling */
+        padding: 10px; /* Optional padding */
+        border: 1px solid #ddd; /* Optional border for styling */
+    }
+
     .custom-select-wrapper {
         position: relative;
         display: inline-block;
@@ -80,24 +88,28 @@
         display: block;
     }
 
-    #ms21{
-        order:3;
+    #ms21 {
+        order: 3;
     }
 
     @@media (max-width: 767px) {
 
         #ms21 {
-            flex: 1 1 500px;
-            margin-top: 5px;
+            /*         margin-top: 5px; */
             margin-bottom: 5px;
             order: 6;
         }
-        #flex2{
+
+        #ms23 {
+            /*         margin-top: 5px; */
+            order: 6;
+        }
+
+        #flex2 {
             flex: 1 1 250px;
             margin-top: 5px;
             margin-bottom: 5px;
         }
-       
     }
 
 </style>
@@ -139,7 +151,7 @@
     </form>
 
     <!-- User Account Dropdown -->
-    <div class="dropdown ms-2"  id="ms21">
+    <div class="dropdown" id="ms21">
         <button class="btn btn-outline-secondary dropdown-toggle text-truncate" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-person-circle">
                 @Html.Translate("hello")
@@ -163,7 +175,7 @@
     </div>
     <!-- Language Selector Dropdown using Select -->
     <!-- Language Selector Dropdown with Images -->
-    <div class="ms-2" style="order:5" id="ms22">
+    <div class="ms-2" style="order:10;" id="ms22">
         <form id="selectLanguage" method="post" asp-page-handler="SetLanguage" asp-route-returnUrl="@Context.Request.Path" role="form">
             <div class="custom-select-wrapper">
                 <div class="custom-select">
@@ -191,7 +203,33 @@
             </div>
         </form>
     </div>
+
+    <div class="dropdown" style="order:4;" id="ms23">
+        <div class="btn btn-outline-dark dropdown-toggle position-relative" id="notification-drop" data-bs-toggle="dropdown">
+            <a href="#" class="search-toggle">
+                <i class="bi bi-bell"></i>
+                <!-- Badge for notification count -->
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notiCountBadge">
+                </span>
+            </a>
+        </div>
+        <div class="sub-drop dropdown-menu" aria-labelledby="notification-drop">
+            <div class="card shadow-none m-0">
+                <div class="card-header d-flex justify-content-between" style="background-color:#d54a99;">
+                    <div class="header-title">
+                        <h5 class="mb-0 text-white">All Notifications</h5>
+                    </div>
+                </div>
+                <div class="card-body p-0" id="notificationList">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 
 <script src="~/js/sleatngu.js"></script>
+
+
