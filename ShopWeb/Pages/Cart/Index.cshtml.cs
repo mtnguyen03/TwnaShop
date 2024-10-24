@@ -195,7 +195,7 @@ namespace ShopWeb.Pages.Cart
                 }
                 else
                 {
-                    return new JsonResult(new { success = true, paymentUrl = $"https://localhost:7252/Payment/Success?orderId={order.OrderId}&totalAmount={totalAmount}" });
+                    return new JsonResult(new { success = true, paymentUrl = $"https://twna.shop/Payment/Success?orderId={order.OrderId}&totalAmount={totalAmount}" });
                 }
             }
             catch (Exception ex)

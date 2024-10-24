@@ -89,7 +89,7 @@
         // Function to load comments and their replies
         function loadComments() {
             $.ajax({
-                url: 'https://localhost:7025/api/Comments', // Adjust this URL to your API endpoint
+                url: 'https://shopapi20241024170309.azurewebsites.net/api/comments', // Adjust this URL to your API endpoint
                 type: 'GET',
                 success: function (data) {
                     // Clear the current comments
@@ -137,7 +137,7 @@
             const productId = 1; // Example: Replace this with the actual product ID
 
             $.ajax({
-                url: "https://localhost:7025/api/Comments",
+                url: "https://shopapi20241024170309.azurewebsites.net/api/comments",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify({
@@ -153,7 +153,7 @@
 
                     // Show notification with slide down effect
                     const notification = $("#notification");
-                    notification.text("Review submitted successfully!");
+                    notification.text(`@Html.Translate("avcd")`);
                     notification.slideDown(300); // Slide down the notification
 
                     // Slide up the notification after 3 seconds
@@ -162,8 +162,20 @@
                     }, 3000);
                 },
                 error: function (xhr) {
-                    console.log(xhr.responseText);
-                    alert("Failed to submit review. Please try again.");
+                    // Extract and display error message from server response
+                    let errorMessage = `@Html.Translate("acvd2")`; // Default message
+
+               
+                    // Show error message
+                    const notification = $("#notification");
+                    notification.text(errorMessage);
+                    notification.addClass("error"); // Add error styling if needed
+                    notification.slideDown(300);
+
+                    // Slide up the notification after 3 seconds
+                    setTimeout(function () {
+                        notification.slideUp(300); // Slide up the notification
+                    }, 3000);
                 }
             });
         });

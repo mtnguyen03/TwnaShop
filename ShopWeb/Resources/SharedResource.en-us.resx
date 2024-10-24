@@ -132,6 +132,9 @@
   <data name="Action" xml:space="preserve">
     <value>Action</value>
   </data>
+  <data name="acvd2" xml:space="preserve">
+    <value>You can only review a product you have purchased and only review it once.</value>
+  </data>
   <data name="ad" xml:space="preserve">
     <value>Address</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Approve Refund" xml:space="preserve">
     <value>Approve Refund</value>
+  </data>
+  <data name="avcd" xml:space="preserve">
+    <value>Add Review Successful.</value>
   </data>
   <data name="backHome" xml:space="preserve">
     <value>Back Home</value>

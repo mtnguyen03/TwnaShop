@@ -21,13 +21,13 @@ namespace ShopApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetComments()
         {
-            var comments = await _commentRepository.GetCommentsByProductIdAsync(1);
+            var comments = await _commentRepository.GetCommentsByProductIdAsync(2);
             return Ok(comments);
         }
         [HttpGet("/reply/{id}")]
         public async Task<IActionResult> GetReplys(int id)
         {
-            var comments = await _commentRepository.GetCommentsByProductIdAsync2(1,id);
+            var comments = await _commentRepository.GetCommentsByProductIdAsync2(2,id);
             return Ok(comments);
         }
 
@@ -49,8 +49,15 @@ namespace ShopApi.Controllers
                 CreatedAt = DateTime.UtcNow
             };
 
-            await _commentRepository.AddCommentAsync(newComment);
-            return Ok(newComment);
+            var addedComment = await _commentRepository.AddCommentAsync(newComment);
+
+            if (addedComment == null)
+            {
+                // Handle the case where the comment was not added (e.g., user hasn't purchased or already reviewed)
+                return BadRequest(new { message = "You can only review a product you have purchased and only review it once." });
+            }
+
+            return Ok(addedComment);
         }
 
         // Add a new AddReply
@@ -65,7 +72,7 @@ namespace ShopApi.Controllers
             var newComment = new Comment
             {
                 UserId = comment.UserId,
-                ProductId = 1,
+                ProductId = 2,
                 CommentText = comment.CommentText,
                 CreatedAt = DateTime.UtcNow,
                 UserReplyId = comment.UserReplyId,

@@ -129,6 +129,9 @@
   <data name="Action" xml:space="preserve">
     <value>Hành động</value>
   </data>
+  <data name="acvd2" xml:space="preserve">
+    <value>Loi: Chua Login / Chua mua hang / Da danh gia.</value>
+  </data>
   <data name="ad" xml:space="preserve">
     <value>Địa Chỉ</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="Approve Refund" xml:space="preserve">
     <value>Xác nhận hoàn trả</value>
+  </data>
+  <data name="avcd" xml:space="preserve">
+    <value>Them binh luan thanh cong.</value>
   </data>
   <data name="backHome" xml:space="preserve">
     <value>Về trang chủ</value>

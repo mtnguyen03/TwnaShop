@@ -120,6 +120,25 @@ namespace DataAccess
 
         public async Task<Comment> AddCommentAsync(Comment comment)
         {
+       
+    var hasPurchased = await _context.Orders
+        .AnyAsync(od => od.CustomerId == comment.UserId  && od.Status != 0);
+
+            if (!hasPurchased)
+            {
+                return null;
+            }
+
+            // Check if the user has already reviewed the product
+            var existingReview = await _context.Comments
+                .AnyAsync(c => c.UserId == comment.UserId && c.ProductId == comment.ProductId);
+
+            if (existingReview)
+            {
+                return null;
+            }
+
+            // If the user has purchased the product and hasn't already reviewed it, proceed to add the comment
             _context.Comments.Add(comment);
             await _context.SaveChangesAsync();
             return comment;
