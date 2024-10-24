@@ -16,7 +16,7 @@ namespace BusinessObject
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Notification> Notifications { get; set; }
-
+        public DbSet<Comment> Comments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

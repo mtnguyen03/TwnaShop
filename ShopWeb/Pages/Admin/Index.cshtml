@@ -158,11 +158,11 @@
             var salesChart = new Chart(salesCtx, {
                 type: 'pie',
                 data: {
-                    labels: ['Tổng đơn', 'Đơn thành công', 'Đơn đang giao', 'Đơn đã hủy', 'Đơn đã trả', 'Đơn khiếu nại', 'Yêu cầu trả', 'Yêu cầu giải quyết'],
+                    labels: [ 'Đơn thành công', 'Đơn đang giao', 'Đơn đã hủy', 'Đơn đã trả', 'Đơn khiếu nại', 'Yêu cầu trả', 'Yêu cầu giải quyết'],
                     datasets: [{
                         label: 'Order Statistics',
                         data: [
-                            data.salesStatistics.totalOrders,
+                            // data.salesStatistics.totalOrders,
                             data.salesStatistics.successfulOrders,
                             data.salesStatistics.pendingOrders,
                             data.salesStatistics.cancelledOrders,
@@ -171,7 +171,7 @@
                             data.salesStatistics.dangYeuCautra,
                             data.salesStatistics.dangYeuCauGiaiQuyet
                         ],
-                        backgroundColor: ['#CB4335', '#27AE60', '#F1C40F', '#DC2192', '#884EA0', '#D35400', '#7CF5FF', '#6439FF'],
+                        backgroundColor: [ '#27AE60', '#F1C40F', '#DC2192', '#884EA0', '#D35400', '#7CF5FF', '#6439FF'],
                         borderWidth: 1
                     }]
                 },

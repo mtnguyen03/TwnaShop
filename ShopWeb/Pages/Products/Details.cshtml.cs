@@ -35,7 +35,7 @@ namespace ShopWeb.Pages.Products
             ViewData["Cultures"] =  await _translateService.GetAvailableCultures();
             HeaderModelView.UserName = HttpContext.Request.Cookies["UserName"] ?? string.Empty;
             ViewData["UserName"] = HeaderModelView.UserName;
-
+            ViewData["UserId"] = HttpContext.Request.Cookies["UserId"] ?? string.Empty;
         }
 
 
@@ -62,7 +62,7 @@ namespace ShopWeb.Pages.Products
             ViewData["Cultures"] = _translateService.GetAvailableCultures();
             HeaderModelView.UserName = HttpContext.Request.Cookies["UserName"] ?? string.Empty;
             ViewData["UserName"] = HeaderModelView.UserName;
-
+            ViewData["UserId"] = HttpContext.Request.Cookies["UserId"] ?? string.Empty;
             return Page();
         }
 
@@ -79,7 +79,7 @@ namespace ShopWeb.Pages.Products
 
             HeaderModelView.UserName = HttpContext.Request.Cookies["UserName"] ?? string.Empty;
             ViewData["UserName"] = HeaderModelView.UserName;
-
+            ViewData["UserId"] = HttpContext.Request.Cookies["UserId"] ?? string.Empty;
             if (string.IsNullOrEmpty(returnUrl))
             {
                 returnUrl = Url.Page("/Index");

@@ -23,6 +23,6 @@ namespace BusinessObject
 
         public virtual Category? Categories { get; set; }
         public virtual ICollection<OrderDetail>? OrderDetails { get; set; }
-
+        public virtual ICollection<Comment>? Comments { get; set; }
     }
 }

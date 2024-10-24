@@ -183,8 +183,14 @@
   <data name="cart" xml:space="preserve">
     <value>Giỏ hàng</value>
   </data>
+  <data name="Cartisempty" xml:space="preserve">
+    <value>Giỏ hàng của bạn trống!</value>
+  </data>
   <data name="check" xml:space="preserve">
     <value>Khám Phá</value>
+  </data>
+  <data name="ChooseAddressLocation" xml:space="preserve">
+    <value>Chọn quốc gia</value>
   </data>
   <data name="ChoosePayment" xml:space="preserve">
     <value>Chọn phương thức thanh thoán</value>
@@ -200,6 +206,12 @@
   </data>
   <data name="Colors" xml:space="preserve">
     <value>Màu sắc</value>
+  </data>
+  <data name="Comment:" xml:space="preserve">
+    <value>Bình luận</value>
+  </data>
+  <data name="commenthere" xml:space="preserve">
+    <value>Viết bình luận của bạn ở đây...</value>
   </data>
   <data name="company" xml:space="preserve">
     <value>Tên công ty:</value>
@@ -372,6 +384,9 @@
   <data name="orderna" xml:space="preserve">
     <value>Đặt hàng ngay để nhận sản phẩm này giao hàng</value>
   </data>
+  <data name="OtherCountry" xml:space="preserve">
+    <value>Khác</value>
+  </data>
   <data name="p" xml:space="preserve">
     <value>100.000 VNĐ</value>
   </data>
@@ -501,11 +516,17 @@
   <data name="r7dt" xml:space="preserve">
     <value>Người chơi có thể chơi một lá bài trùng với số và màu hiện có trên bàn. Nếu không có lá bài phù hợp, họ phải rút một lá bài từ bộ bài chung và bỏ qua lượt chơi nếu không thể chơi.</value>
   </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Đánh giá</value>
+  </data>
   <data name="Resolve Dispute" xml:space="preserve">
     <value>Giải quyết</value>
   </data>
   <data name="ReturnHome" xml:space="preserve">
     <value>Về trang chủ</value>
+  </data>
+  <data name="rvcc" xml:space="preserve">
+    <value>Đánh giá thành công.</value>
   </data>
   <data name="s" xml:space="preserve">
     <value>Sản phẩm</value>
@@ -570,6 +591,9 @@
   <data name="StatusReturned" xml:space="preserve">
     <value>Yêu cầu trả hàng</value>
   </data>
+  <data name="SubmitReview" xml:space="preserve">
+    <value>Bình luận</value>
+  </data>
   <data name="sunday" xml:space="preserve">
     <value>Chủ nhật</value>
   </data>
@@ -587,6 +611,12 @@
   </data>
   <data name="unp" xml:space="preserve">
     <value>Cung cấp một hình thức giải trí hấp dẫn và lành mạnh với tính tương tác và tập thể cao, tạo ra sự kết nối giữa mọi người.</value>
+  </data>
+  <data name="uRating" xml:space="preserve">
+    <value>Thêm bình luận và Đánh giá</value>
+  </data>
+  <data name="VietNam" xml:space="preserve">
+    <value>Việt Nam</value>
   </data>
   <data name="vision" xml:space="preserve">
     <value>Tầm nhìn: </value>

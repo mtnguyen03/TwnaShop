@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Rewrite;
 using Repository.MailService;
+using Repository.CommentRepo;
 namespace ShopWeb
 {
     public class Program
@@ -123,7 +124,7 @@ namespace ShopWeb
             builder.Services.AddSingleton<ICategoryRepository, CategoryRepository>();
             builder.Services.AddSingleton<IOtpService, OtpService>();
             builder.Services.AddSingleton<INotificationRepository, NotificationRepository>();
-
+            //builder.Services.AddSingleton<ICommentRepository, CommentRepository>();
 
             var mailSettings = builder.Configuration.GetSection("MailSettings");
             builder.Services.Configure<MailSettings>(mailSettings);

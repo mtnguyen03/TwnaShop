@@ -204,27 +204,7 @@
         </form>
     </div>
 
-    <div class="dropdown" style="order:4;" id="ms23">
-        <div class="btn btn-outline-dark dropdown-toggle position-relative" id="notification-drop" data-bs-toggle="dropdown">
-            <a href="#" class="search-toggle">
-                <i class="bi bi-bell"></i>
-                <!-- Badge for notification count -->
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notiCountBadge">
-                </span>
-            </a>
-        </div>
-        <div class="sub-drop dropdown-menu" aria-labelledby="notification-drop">
-            <div class="card shadow-none m-0">
-                <div class="card-header d-flex justify-content-between" style="background-color:#d54a99;">
-                    <div class="header-title">
-                        <h5 class="mb-0 text-white">All Notifications</h5>
-                    </div>
-                </div>
-                <div class="card-body p-0" id="notificationList">
-                </div>
-            </div>
-        </div>
-    </div>
+    @await Html.PartialAsync("_NotificationPartial")
 
 
 </div>

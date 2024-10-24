@@ -1,0 +1,190 @@
+﻿@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+<style>
+    .star-rating {
+        direction: rtl; /* Makes stars appear from right to left */
+    }
+
+    .star {
+        font-size: 30px; /* Adjust star size */
+        color: #ccc; /* Default color */
+        cursor: pointer; /* Pointer cursor on hover */
+    }
+
+    input[type="radio"] {
+        display: none; /* Hide radio buttons */
+    }
+
+        input[type="radio"]:checked ~ .star {
+            color: #f39c12; /* Color of selected stars */
+        }
+
+    .star:hover,
+    .star:hover ~ .star {
+        color: #f39c12; /* Color of stars on hover */
+    }
+
+    input[type="radio"]:checked + .star:hover,
+    input[type="radio"]:checked + .star:hover ~ .star {
+        color: #f39c12; /* Hover color when a star is selected */
+    }
+
+    .notification {
+        display: none; /* Initially hidden */
+        position: fixed; /* Fixed position to appear on top */
+        top: 20px; /* Distance from the top */
+        left: 50%; /* Center it horizontally */
+        transform: translateX(-50%); /* Offset the center */
+        background-color: #28a745; /* Green background */
+        color: white; /* White text */
+        padding: 10px 20px; /* Padding */
+        border-radius: 5px; /* Rounded corners */
+        z-index: 1000; /* Ensure it appears above other content */
+        transition: opacity 0.5s ease; /* Fade effect */
+    }
+</style>
+
+
+<div class="container my-5">
+    <div id="notification" class="notification" style="display: none;"></div>
+
+    <div class="comments-section">
+        <h4><strong>@Html.Translate("uRating")</strong></h4>
+
+        <!-- Scrollable Comments Container -->
+        <div class="comments-container" style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px;"></div>
+
+        <!-- Add New Comment Form -->
+        <div class="add-comment my-5">
+            <h5><strong>@Html.Translate("Rating"):</strong></h5>
+            <div class="form-group">
+            
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="userRating" value="5" />
+                    <label for="star5" class="star">★</label>
+                    <input type="radio" id="star4" name="userRating" value="4" />
+                    <label for="star4" class="star">★</label>
+                    <input type="radio" id="star3" name="userRating" value="3" />
+                    <label for="star3" class="star">★</label>
+                    <input type="radio" id="star2" name="userRating" value="2" />
+                    <label for="star2" class="star">★</label>
+                    <input type="radio" id="star1" name="userRating" value="1" />
+                    <label for="star1" class="star">★</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="userComment">@Html.Translate("Comment:")</label>
+                <input type="hidden" id="userId" value="@ViewData["UserId"]" />
+                <textarea class="form-control" id="userComment" name="userComment" rows="4" placeholder="@Html.Translate("commenthere")" required></textarea>
+            </div>
+            <div class="form-group mt-3">
+                <button type="submit" id="addreview" class="btn btn-primary">@Html.Translate("SubmitReview")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Function to load comments and their replies
+        function loadComments() {
+            $.ajax({
+                url: 'https://localhost:7025/api/Comments', // Adjust this URL to your API endpoint
+                type: 'GET',
+                success: function (data) {
+                    // Clear the current comments
+                    $('.comments-container').empty();
+
+                    // Append new comments
+                    data.forEach(function (comment) {
+                        $('.comments-container').append(`
+                    <div class="comment my-3 p-3 border rounded" data-comment-id="${comment.id}">
+                        <div class="comment-header d-flex align-items-center">
+                            <img src="${comment.photo || 'https://via.placeholder.com/40'}" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;" />
+                            <div class="d-flex flex-grow-1 align-items-center">
+                                <strong class="mr-2">${comment.userName}</strong>
+                                                      <input type="hidden" id="commentUserRep-${comment.id}" value="${comment.userId}" />
+
+                                <span class="text-warning">${'★'.repeat(comment.rate)}${'☆'.repeat(5 - comment.rate)}</span>
+                            </div>
+                            <span class="text-muted">- ${new Date(comment.createdAt).toLocaleDateString()}</span>
+                        </div>
+                        <div class="comment-body mt-2">
+                            <p>${comment.commentText}</p>
+                        </div>
+                      
+                    </div>
+                `);
+
+                      
+                      
+                    });
+                },
+                error: function (err) {
+                    console.error('Error fetching comments:', err);
+                }
+            });
+        }
+
+        // Handle review submission
+        $("#addreview").click(function (e) {
+            e.preventDefault();
+
+            // Collect form data
+            const commentText = $("#userComment").val();
+            const rating = $("input[name='userRating']:checked").val() || null; // Get selected rating or set to null
+            const userId = $("#userId").val();
+            const productId = 1; // Example: Replace this with the actual product ID
+
+            $.ajax({
+                url: "https://localhost:7025/api/Comments",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    userId: userId,
+                    productId: productId,
+                    commentText: commentText,
+                    rate: rating, // This will be null if no rating is selected
+                }),
+                success: function (result) {
+                    $("#userComment").val('');
+                    $("input[name='userRating']").prop('checked', false); // Reset rating selection
+                    loadComments();
+
+                    // Show notification with slide down effect
+                    const notification = $("#notification");
+                    notification.text("Review submitted successfully!");
+                    notification.slideDown(300); // Slide down the notification
+
+                    // Slide up the notification after 3 seconds
+                    setTimeout(function () {
+                        notification.slideUp(300); // Slide up the notification
+                    }, 3000);
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                    alert("Failed to submit review. Please try again.");
+                }
+            });
+        });
+
+
+
+        // Load comments (and replies) on page load
+        loadComments();
+    });
+
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $('.star').click(function () {
+            const ratingValue = $(this).prev('input').val();
+       
+            $('#userRating').val(ratingValue);
+        });
+    });
+
+
+</script>

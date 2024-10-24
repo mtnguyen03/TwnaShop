@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UNIT TEST", "UNIT TEST\UNIT TEST.csproj", "{D212811A-9D51-47E1-A747-3E9CCC9788A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopApi", "ShopApi\ShopApi.csproj", "{87994356-E552-453B-9D33-C3A922944DED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D212811A-9D51-47E1-A747-3E9CCC9788A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D212811A-9D51-47E1-A747-3E9CCC9788A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D212811A-9D51-47E1-A747-3E9CCC9788A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87994356-E552-453B-9D33-C3A922944DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87994356-E552-453B-9D33-C3A922944DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87994356-E552-453B-9D33-C3A922944DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87994356-E552-453B-9D33-C3A922944DED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

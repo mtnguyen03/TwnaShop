@@ -89,18 +89,19 @@ namespace ShopWeb.Pages.Cart
 
         }
 
-        public async Task<IActionResult> OnPostProceedToPay(string paymentMethod)
+        public async Task<IActionResult> OnPostProceedToPay(string paymentMethod
+            , string fullName
+            , string mobileNumber
+            , string inputadd)
         {
             try
             {
                 var culturesCurrent = _translateService.GetCurrentCulture(HttpContext);
                 ViewData["Cultures"] = await _translateService.GetAvailableCultures();
 
-
                 paymentMethod = paymentMethod ?? string.Empty;
                 string? userNameSession = HttpContext.Request.Cookies["UserId"];
                 var cart = HttpContext.Session.GetString("Cart");
-
 
                 List<CartItem>? cartItems = null;
                 if (!string.IsNullOrEmpty(cart))
@@ -115,11 +116,8 @@ namespace ShopWeb.Pages.Cart
                     }
                 }
 
-
                 var customer = _context.Accounts.FirstOrDefault(c => c.AccountID == int.Parse(userNameSession));
-
                 string message = string.Empty;
-
 
                 if (string.IsNullOrEmpty(userNameSession))
                 {
@@ -133,13 +131,9 @@ namespace ShopWeb.Pages.Cart
                 {
                     message = culturesCurrent == 1 ? "Không tìm thấy tài khoản người dùng." : "User account not found.";
                 }
-                else if (string.IsNullOrEmpty(customer.Address))
+                else if (string.IsNullOrEmpty(inputadd))
                 {
-                    message = culturesCurrent == 1 ? "Thiếu địa chỉ trong hồ sơ." : "Address is missing in Edit Profile.";
-                }
-                else if (string.IsNullOrEmpty(customer.Phone))
-                {
-                    message = culturesCurrent == 1 ? "Thiếu số điện thoại trong hồ sơ." : "Phone number is missing in Edit Profile.";
+                    message = culturesCurrent == 1 ? "Vui lòng chọn địa chỉ giao hàng." : "Please select a shipping address.";
                 }
 
                 // If there's a validation message, return a failure response
@@ -172,8 +166,8 @@ namespace ShopWeb.Pages.Cart
                     CustomerId = customer.AccountID,
                     OrderDate = DateTime.Now,
                     ShippedDate = DateTime.Now,
-                    ShipAddress = customer.Address,
-                    Status = 0,// Mark as unpaid initially,
+                    ShipAddress = fullName + " " + mobileNumber + " " + inputadd,
+                    Status = 0,  // Mark as unpaid initially
                     Freight = totalFreight
                 };
 
@@ -191,8 +185,8 @@ namespace ShopWeb.Pages.Cart
                         totalAmount,
                         culturesCurrent == 1 ? "Mua hàng: Drink No" : "Buy: DrinkNo on twna.shop",
                         cartItems.Select(c => new ItemData(c.ProductName, c.Quantity, (int)c.UnitPrice)).ToList(),
-                            $"https://twna.shop/Payment/Failed?orderId={order.OrderId}",
-                            $"https://twna.shop/Payment/Success?orderId={order.OrderId}&totalAmount={totalAmount}"
+                        $"https://twna.shop/Payment/Failed?orderId={order.OrderId}",
+                        $"https://twna.shop/Payment/Success?orderId={order.OrderId}&totalAmount={totalAmount}"
                     );
 
                     CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
@@ -201,7 +195,7 @@ namespace ShopWeb.Pages.Cart
                 }
                 else
                 {
-                    return new JsonResult(new { success = true, paymentUrl = $"https://twna.shop/Payment/Success?orderId={order.OrderId}&totalAmount={totalAmount}" });
+                    return new JsonResult(new { success = true, paymentUrl = $"https://localhost:7252/Payment/Success?orderId={order.OrderId}&totalAmount={totalAmount}" });
                 }
             }
             catch (Exception ex)
@@ -209,6 +203,7 @@ namespace ShopWeb.Pages.Cart
                 return new JsonResult(new { success = false, message = "Failed to place order.", error = ex.Message });
             }
         }
+
         public async Task<IActionResult> OnPostRequestRefundAsync(int orderId)
         {
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);

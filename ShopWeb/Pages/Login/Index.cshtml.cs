@@ -235,6 +235,7 @@ namespace ShopWeb.Pages.Login
             HttpContext.Response.Cookies.Append("UserEmail", user.Email, cookieOptions);
             HttpContext.Response.Cookies.Append("UserId", user.Id, cookieOptions);
             HttpContext.Response.Cookies.Append("UserName", user.UserName, cookieOptions);
+            ViewData["UserId"] = user.Id;
         }
 
 

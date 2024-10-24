@@ -186,8 +186,14 @@
   <data name="cart" xml:space="preserve">
     <value>Cart</value>
   </data>
+  <data name="Cartisempty" xml:space="preserve">
+    <value>Cart is empty.</value>
+  </data>
   <data name="check" xml:space="preserve">
     <value>Check</value>
+  </data>
+  <data name="ChooseAddressLocation" xml:space="preserve">
+    <value>Choose Address Location</value>
   </data>
   <data name="ChoosePayment" xml:space="preserve">
     <value>Choose Payment Method:</value>
@@ -203,6 +209,12 @@
   </data>
   <data name="Colors" xml:space="preserve">
     <value>Colors</value>
+  </data>
+  <data name="Comment:" xml:space="preserve">
+    <value>Comment:</value>
+  </data>
+  <data name="commenthere" xml:space="preserve">
+    <value>Write your comment here...</value>
   </data>
   <data name="company" xml:space="preserve">
     <value>Company’s name:</value>
@@ -375,6 +387,9 @@
   <data name="orderna" xml:space="preserve">
     <value>Order now to get this product delivery</value>
   </data>
+  <data name="OtherCountry" xml:space="preserve">
+    <value>Other Country</value>
+  </data>
   <data name="p" xml:space="preserve">
     <value>$ 4.17</value>
   </data>
@@ -504,11 +519,17 @@
   <data name="r7dt" xml:space="preserve">
     <value>The player can play a card matching the number and color currently on the table. If they don't have a suitable card, they must draw one from the common deck and skip their turn if unable to play.</value>
   </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
   <data name="Resolve Dispute" xml:space="preserve">
     <value>Resolve Dispute</value>
   </data>
   <data name="ReturnHome" xml:space="preserve">
     <value>Return Home</value>
+  </data>
+  <data name="rvcc" xml:space="preserve">
+    <value>Review submitted successfully!</value>
   </data>
   <data name="s" xml:space="preserve">
     <value>Menu</value>
@@ -573,6 +594,9 @@
   <data name="StatusReturned" xml:space="preserve">
     <value>Requested Returned</value>
   </data>
+  <data name="SubmitReview" xml:space="preserve">
+    <value>Submit Review</value>
+  </data>
   <data name="sunday" xml:space="preserve">
     <value>Sunday</value>
   </data>
@@ -590,6 +614,12 @@
   </data>
   <data name="unp" xml:space="preserve">
     <value>Offering an attractive and healthy form of entertainment with high interactivity and collectivity, creating connections between people.</value>
+  </data>
+  <data name="uRating" xml:space="preserve">
+    <value>Add Your Review &amp; Rating</value>
+  </data>
+  <data name="VietNam" xml:space="preserve">
+    <value>Viet Nam</value>
   </data>
   <data name="vision" xml:space="preserve">
     <value>Vision: </value>
