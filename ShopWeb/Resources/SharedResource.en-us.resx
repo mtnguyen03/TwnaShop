@@ -240,6 +240,9 @@
   <data name="cu" xml:space="preserve">
     <value>Contact Us</value>
   </data>
+  <data name="Days" xml:space="preserve">
+    <value>Days</value>
+  </data>
   <data name="de" xml:space="preserve">
     <value>Develop Soft Skills and Focus</value>
   </data>
@@ -324,6 +327,9 @@
   <data name="ho" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Hours" xml:space="preserve">
+    <value>Hours</value>
+  </data>
   <data name="hvqs" xml:space="preserve">
     <value>Have a question about our products at E-Store? Feel free to contact our representatives via live chat or email.</value>
   </data>
@@ -353,6 +359,9 @@
   </data>
   <data name="materialDt" xml:space="preserve">
     <value>Sturdy paper.</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minutes</value>
   </data>
   <data name="mission" xml:space="preserve">
     <value>Mission: </value>
@@ -403,7 +412,7 @@
     <value>Other Country</value>
   </data>
   <data name="p" xml:space="preserve">
-    <value>$ 4.17</value>
+    <value>$ 4.00</value>
   </data>
   <data name="p2" xml:space="preserve">
     <value>$ 4.63</value>
@@ -548,6 +557,9 @@
   </data>
   <data name="SaveProfile" xml:space="preserve">
     <value>Save Profile</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>Seconds</value>
   </data>
   <data name="SelectDistrict" xml:space="preserve">
     <value>Select District</value>

@@ -237,6 +237,9 @@
   <data name="cu" xml:space="preserve">
     <value>Liên Hệ Với Chúng Tôi</value>
   </data>
+  <data name="Days" xml:space="preserve">
+    <value>Ngày</value>
+  </data>
   <data name="de" xml:space="preserve">
     <value>Phát Triển Kỹ Năng Mềm và Tập Trung</value>
   </data>
@@ -321,6 +324,9 @@
   <data name="ho" xml:space="preserve">
     <value>Trang Chủ</value>
   </data>
+  <data name="Hours" xml:space="preserve">
+    <value>Giờ</value>
+  </data>
   <data name="hvqs" xml:space="preserve">
     <value>Bạn có thắc mắc về sản phẩm của chúng tôi tại E-Store? Vui lòng liên hệ với đại diện của chúng tôi qua trò chuyện trực tiếp hoặc email.</value>
   </data>
@@ -350,6 +356,9 @@
   </data>
   <data name="materialDt" xml:space="preserve">
     <value>Giấy cứng.</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Phút</value>
   </data>
   <data name="mission" xml:space="preserve">
     <value>Sứ Mệnh: </value>
@@ -545,6 +554,9 @@
   </data>
   <data name="SaveProfile" xml:space="preserve">
     <value>Lưu hồ sơ</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>Giây</value>
   </data>
   <data name="SelectDistrict" xml:space="preserve">
     <value>Chọn quận/huyện</value>

@@ -41,6 +41,11 @@
             overflow-y: auto;
             /* Enable vertical scrolling */
         }
+
+        .hide-nav {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
     </style>
     <meta name="google-site-verification" content="o-nvd4o78IUwiKUnmvifVeecHEwuMkcWrLeCKMhYW7k" />
 
@@ -49,18 +54,21 @@
 </head>
 
 <body class="index-page">
+    <div class="" >
+        @await Html.PartialAsync("_CountDownTimePartial")
+    </div>
     <header id="header" class="header d-flex align-items-center sticky-top">
-        <partial name="HeaderParital" model="Header" />
+        @await Html.PartialAsync("HeaderParital",Header)
     </header>
+
 
     <main class="main">
         @RenderBody()
         <div class="elfsight-app-14be8ff5-f5e0-4dc8-95ba-1190398b80e2" data-elfsight-app-lazy></div>
-        <div class="elfsight-app-e76cdd1c-502f-4dad-b986-5389095c4673" data-elfsight-app-lazy></div>
     </main>
 
     <footer id="footer" class="footer dark-background">
-        <partial name="FooterPartial" />
+        @await Html.PartialAsync("FooterPartial")
     </footer>
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="bottom:50px;">
@@ -97,6 +105,26 @@
     <script src="~/js/countnotification.js"></script>
     <script src="~/js/getlistnoti.js"></script>
     <script src="~/js/translatenoti.js"></script>
+
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById("header");
+
+        if (header) {
+            window.addEventListener("scroll", function () {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    // Scroll down: Hide the header
+                    header.classList.add("hide-nav");
+                } else if (scrollTop < lastScrollTop) {
+                    // Scroll up: Show the header
+                    header.classList.remove("hide-nav");
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll values
+            });
+        }
+
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

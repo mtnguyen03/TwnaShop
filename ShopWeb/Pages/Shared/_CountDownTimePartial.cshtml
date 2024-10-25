@@ -1,0 +1,155 @@
+﻿@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+
+
+<style>
+    .countdown-container {
+        position: relative; /* To position the close button */
+        display: flex;
+        align-items: center; /* Vertically center the items */
+        justify-content: center; /* Horizontally center the items */
+        background-color: #ffe5e5;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+        padding: 10px; /* Add padding for better appearance */
+    }
+
+    .close-btn {
+        position: absolute; /* Position it at the top right */
+        top: 5px;
+        right: 10px;
+        background: none; /* Remove default button background */
+        border: none; /* Remove default border */
+        color: #ff3b3b; /* Color for the close button */
+        font-size: 18px; /* Size of the close button */
+        cursor: pointer; /* Pointer cursor on hover */
+    }
+
+    .offer-text {
+        border: 2px solid #ff3b3b; /* Add a red border */
+        border-radius: 5px; /* Optional: rounded corners */
+        padding: 5px 10px; /* Optional: padding inside the border */
+        margin-right: 20px; /* Space between text and countdown */
+        font-weight: bold; /* Make text bold */
+        color: #ff3b3b; /* Change text color to red */
+    }
+
+    .fire-emoji {
+        color: #ff5722;
+        font-size: 16px;
+        margin-left: 5px;
+    }
+
+    #countdown {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Horizontally center the countdown boxes */
+        gap: 8px; /* Add space between each box */
+    }
+
+    .time-box {
+        background-color: #ED3247;
+        color: white;
+        height: 40px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 9px;
+        width: 40px; /* Increase width if needed to fit content */
+        box-sizing: border-box; /* Ensure padding and border are included in width */
+    }
+
+        .time-box span {
+            display: block;
+            font-size: 18px;
+        }
+
+    .shop-now-btn {
+        background-color: #ED3247;
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-left: 15px;
+    }
+
+        .shop-now-btn:hover {
+            background-color: #ff1a1a;
+        }
+</style>
+
+
+
+<div class="countdown-container">
+    <button class="close-btn" onclick="closeCountdown()">✖</button>
+    <span class="offer-text">@Html.Translate("giamgia") <span class="fire-emoji">🔥</span></span>
+    <div id="countdown">
+        <div class="time-box">
+            <span id="days">00</span>
+            <p>@Html.Translate("Days")</p>
+        </div>
+        <div class="time-box">
+            <span id="hours">00</span>
+            <p>@Html.Translate("Hours")</p>
+        </div>
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <p>@Html.Translate("Minutes")</p>
+        </div>
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <p>@Html.Translate("Seconds")</p>
+        </div>
+        <a href="https://twna.shop/products/details" class="shop-now-btn">@Html.Translate("shopnow")</a>
+    </div>
+</div>
+
+
+<script>
+    function calculateTimeRemaining() {
+        const now = new Date().getTime();
+        const resetTime = new Date();
+
+        // Set the reset time to the next 24-hour mark
+        resetTime.setHours(resetTime.getHours() + 24); // Adds 24 hours to the current time
+        resetTime.setMinutes(0);
+        resetTime.setSeconds(0);
+        resetTime.setMilliseconds(0);
+
+        // Calculate the time remaining until the next reset
+        const distance = resetTime.getTime() - now;
+
+        return distance;
+    }
+
+    // Update the countdown every second
+    const x = setInterval(function () {
+        const distance = calculateTimeRemaining();
+
+        // Calculate time remaining
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the elements
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        // If the countdown is over, reset it
+        if (distance < 0) {
+            clearInterval(x);
+            // You can reset the countdown if you want to display a message or do something here
+            // Otherwise, it will continue from the next 24-hour mark
+        }
+    }, 1000);
+    function closeCountdown() {
+        const countdownContainer = document.querySelector('.countdown-container');
+        countdownContainer.style.display = 'none'; // Hide the countdown container
+    }
+
+</script>
