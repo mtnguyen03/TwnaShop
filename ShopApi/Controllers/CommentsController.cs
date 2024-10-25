@@ -1,5 +1,6 @@
 ﻿using BusinessObject;
 using DataAcess.Dto;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Repository.CommentRepo;
 using System.Xml.Linq;
@@ -82,6 +83,55 @@ namespace ShopApi.Controllers
             await _commentRepository.AddCommentAsync(newComment);
             return Ok(newComment);
         }
+
+        // Delete a comment
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteComment(int id)
+        {
+            var comment = await _commentRepository.GetCommentByIdAsync(id);
+            if (comment == null)
+            {
+                return NotFound(new { message = "Comment not found." });
+            }
+
+            await _commentRepository.DeleteCommentAsync(id);
+            return Ok(new { message = "Comment deleted successfully." });
+        }
+
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> UpdateComment(int id, [FromBody] JsonPatchDocument<CommentDto> patchDoc)
+        {
+            if (patchDoc == null)
+            {
+                return BadRequest("Invalid patch document.");
+            }
+
+            try
+            {
+                var commentDto = new CommentDto(); // Create a new instance of the DTO
+                patchDoc.ApplyTo(commentDto, ModelState); // Apply the patch to the DTO
+
+                // Validate the patched DTO
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                // Call the repository method to update the comment
+                await _commentRepository.UpdateCommentAsync(id, commentDto);
+                return NoContent(); // Respond with 204 No Content
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound(new { message = "Comment not found." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message }); // Handle other exceptions
+            }
+        }
+
 
 
     }

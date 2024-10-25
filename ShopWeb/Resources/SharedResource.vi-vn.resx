@@ -168,6 +168,12 @@
   <data name="avcd" xml:space="preserve">
     <value>Them binh luan thanh cong.</value>
   </data>
+  <data name="avcd3" xml:space="preserve">
+    <value>Xoa binh luan thanh cong.</value>
+  </data>
+  <data name="avcd4" xml:space="preserve">
+    <value>Sua danh gia thanh cong.</value>
+  </data>
   <data name="backHome" xml:space="preserve">
     <value>Về trang chủ</value>
   </data>

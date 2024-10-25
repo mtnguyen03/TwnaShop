@@ -41,9 +41,9 @@ namespace Repository.CommentRepo
             return await CommentDao.Instance.AddCommentAsync(comment);
         }
 
-        public async Task UpdateCommentAsync(Comment comment)
+        public async Task UpdateCommentAsync(int id, CommentDto commentDto)
         {
-            await CommentDao.Instance.UpdateCommentAsync(comment);
+            await CommentDao.Instance.UpdateCommentAsync(id,commentDto);
         }
 
         public async Task DeleteCommentAsync(int id)

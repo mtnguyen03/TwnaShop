@@ -15,7 +15,7 @@ namespace Repository.CommentRepo
         Task<IEnumerable<CommentDto>> GetCommentsByProductIdAsync(int productId);
         Task<IEnumerable<CommentDto>> GetCommentsByProductIdAsync2(int productId, int userCommentId);
         Task<Comment> AddCommentAsync(Comment comment);
-        Task UpdateCommentAsync(Comment comment);
+        Task UpdateCommentAsync(int id, CommentDto commentDto);
         Task DeleteCommentAsync(int id);
     }
 }

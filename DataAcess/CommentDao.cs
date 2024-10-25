@@ -45,7 +45,6 @@ namespace DataAccess
             return await _context.Comments
                 .Include(c => c.User)
                 .Include(c => c.Product)
-                .Include(c => c.UserReplies)
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
 
@@ -144,11 +143,33 @@ namespace DataAccess
             return comment;
         }
 
-        public async Task UpdateCommentAsync(Comment comment)
+        public async Task UpdateCommentAsync(int id, CommentDto commentDto)
         {
-            _context.Comments.Update(comment);
+            // Find the existing comment by ID
+            var existingComment = await _context.Comments.FindAsync(id);
+            if (existingComment == null)
+            {
+                throw new KeyNotFoundException("Comment not found.");
+            }
+
+            // Update the existing comment with new values from the DTO
+            if (!string.IsNullOrEmpty(commentDto.CommentText))
+            {
+                existingComment.CommentText = commentDto.CommentText;
+            }
+
+            if (commentDto.Rate > 0) // Assuming Rate is an int and > 0 means valid
+            {
+                existingComment.Rate = commentDto.Rate;
+            }
+
+            // Update other properties as necessary, for example, setting the updated date
+            existingComment.UpdatedAt = DateTime.UtcNow;
+
+            // Save changes to the database
             await _context.SaveChangesAsync();
         }
+
 
         public async Task DeleteCommentAsync(int id)
         {

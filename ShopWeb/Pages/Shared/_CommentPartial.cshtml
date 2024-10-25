@@ -58,7 +58,7 @@
         <div class="add-comment my-5">
             <h5><strong>@Html.Translate("Rating"):</strong></h5>
             <div class="form-group">
-            
+
                 <div class="star-rating">
                     <input type="radio" id="star5" name="userRating" value="5" />
                     <label for="star5" class="star">★</label>
@@ -89,42 +89,77 @@
         // Function to load comments and their replies
         function loadComments() {
             $.ajax({
-                url: 'https://shopapi20241024170309.azurewebsites.net/api/comments', // Adjust this URL to your API endpoint
+                url: 'https://shopapi20241024170309.azurewebsites.net/api/comments/', // Adjust this URL to your API endpoint
                 type: 'GET',
                 success: function (data) {
                     // Clear the current comments
                     $('.comments-container').empty();
-
+                    const currentUserId = $('#userId').val();
                     // Append new comments
+
                     data.forEach(function (comment) {
+                        let deleteButton = '';
+                        let editButton = '';
+                        if (comment.userId == currentUserId) {
+                            deleteButton = `<button class="btn btn-danger btn-sm delete-comment" data-comment-id="${comment.id}">Delete</button>`;
+                            editButton = `<button class="btn btn-warning btn-sm edit-comment" data-comment-id="${comment.id}">Edit</button>`;
+                        }
+
                         $('.comments-container').append(`
-                    <div class="comment my-3 p-3 border rounded" data-comment-id="${comment.id}">
-                        <div class="comment-header d-flex align-items-center">
+                <div class="comment my-3 p-3 border rounded" data-comment-id="${comment.id}">
+                    <div class="comment-header d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
                             <img src="${comment.photo || 'https://via.placeholder.com/40'}" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;" />
                             <div class="d-flex flex-grow-1 align-items-center">
                                 <strong class="mr-2">${comment.userName}</strong>
-                                                      <input type="hidden" id="commentUserRep-${comment.id}" value="${comment.userId}" />
-
                                 <span class="text-warning">${'★'.repeat(comment.rate)}${'☆'.repeat(5 - comment.rate)}</span>
                             </div>
                             <span class="text-muted">- ${new Date(comment.createdAt).toLocaleDateString()}</span>
                         </div>
-                        <div class="comment-body mt-2">
-                            <p>${comment.commentText}</p>
-                        </div>
-                      
+                        ${editButton} <!-- Only render Edit button if the user can edit -->
+                        ${deleteButton} <!-- Only render Delete button if the user can delete -->
                     </div>
-                `);
-
-                      
-                      
+                    <div class="comment-body mt-2">
+                        <p class="comment-text" data-comment-id="${comment.id}">${comment.commentText}</p>
+                    </div>
+                </div>
+            `);
                     });
+
+
+
                 },
                 error: function (err) {
                     console.error('Error fetching comments:', err);
                 }
             });
         }
+
+        // Event listener for delete button
+        $(document).on('click', '.delete-comment', function () {
+            const commentId = $(this).data('comment-id');
+            // Call the delete function here, for example, an AJAX request to delete the comment from the database
+            $.ajax({
+                url: `https://shopapi20241024170309.azurewebsites.net/api/comments/${commentId}`,
+                method: 'DELETE',
+                success: function () {
+                    // Remove the comment from the DOM after successful deletion
+                    $(`[data-comment-id="${commentId}"]`).remove();
+                    // Show notification with slide down effect
+                    const notification = $("#notification");
+                    notification.text(`@Html.Translate("avcd3")`);
+                    notification.slideDown(300); // Slide down the notification
+
+                    // Slide up the notification after 3 seconds
+                    setTimeout(function () {
+                        notification.slideUp(300); // Slide up the notification
+                    }, 3000);
+                },
+                error: function (error) {
+                    console.error('Error deleting comment:', error);
+                }
+            });
+        });
 
         // Handle review submission
         $("#addreview").click(function (e) {
@@ -137,7 +172,7 @@
             const productId = 1; // Example: Replace this with the actual product ID
 
             $.ajax({
-                url: "https://shopapi20241024170309.azurewebsites.net/api/comments",
+                url: "https://shopapi20241024170309.azurewebsites.net/api/comments/",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify({
@@ -165,7 +200,7 @@
                     // Extract and display error message from server response
                     let errorMessage = `@Html.Translate("acvd2")`; // Default message
 
-               
+
                     // Show error message
                     const notification = $("#notification");
                     notification.text(errorMessage);
@@ -181,8 +216,103 @@
         });
 
 
+        // Event listener for Edit button
+        $(document).on('click', '.edit-comment', function () {
+            const commentId = $(this).data('comment-id');
+            const commentTextElement = $(`.comment-text[data-comment-id="${commentId}"]`);
+            const currentText = commentTextElement.text();
+            const currentRating = $(`.text-warning`, $(this).closest('.comment')).text().trim().length; // Get current rating
 
+            // Store the original text and rating in data attributes for later restoration
+            commentTextElement.data('original-text', currentText);
+            $(this).data('original-rating', currentRating);
+
+            // Hide the Edit button
+            $(this).hide();
+
+            // Replace the text with a textarea and buttons (Save and Cancel), plus rating stars
+            commentTextElement.html(`
+            <textarea class="form-control" id="editCommentText-${commentId}">${currentText}</textarea>
+            <div class="star-rating" id="editStarRating-${commentId}">
+                ${[5, 4, 3, 2, 1].map(rate => `
+                    <input type="radio" id="editStar${rate}-${commentId}" name="editUserRating-${commentId}" value="${rate}" ${rate === currentRating ? 'checked' : ''} />
+                    <label for="editStar${rate}-${commentId}" class="star">★</label>
+                `).join('')}
+            </div>
+            <button class="btn btn-success btn-sm save-comment" data-comment-id="${commentId}">Save</button>
+            <button class="btn btn-secondary btn-sm cancel-edit" data-comment-id="${commentId}">Cancel</button>
+        `);
+        });
+
+
+        // Event listener for Cancel button
+        $(document).on('click', '.cancel-edit', function () {
+            const commentId = $(this).data('comment-id');
+            const commentTextElement = $(`.comment-text[data-comment-id="${commentId}"]`);
+
+            // Retrieve the original text stored in the data attribute
+            const originalText = commentTextElement.data('original-text');
+
+            // Replace the textarea with the original comment text
+            commentTextElement.text(originalText);
+
+            // Show the Edit button again
+            $(`.edit-comment[data-comment-id="${commentId}"]`).show();
+        });
         // Load comments (and replies) on page load
+
+        $(document).on('click', '.save-comment', function () {
+            const commentId = $(this).data('comment-id');
+            const updatedText = $(`#editCommentText-${commentId}`).val();
+            const updatedRating = $(`input[name='editUserRating-${commentId}']:checked`).val(); // Get the new rating
+
+            // Prepare the patch data
+            const patchData = [
+                { op: 'replace', path: '/commentText', value: updatedText },
+                { op: 'replace', path: '/rate', value: updatedRating } // Add rating update
+            ];
+
+            // Make the AJAX request
+            $.ajax({
+                url: `https://shopapi20241024170309.azurewebsites.net/api/comments/${commentId}`,
+                method: 'PATCH',
+                contentType: 'application/json',
+                data: JSON.stringify(patchData),
+                success: function () {
+                    // Update the comment text and rating in the UI
+                    const commentTextElement = $(`.comment-text[data-comment-id="${commentId}"]`);
+                    commentTextElement.text(updatedText);
+
+                    // Update the rating display
+                    const newRatingStars = '★'.repeat(updatedRating) + '☆'.repeat(5 - updatedRating);
+                    commentTextElement.closest('.comment').find('.text-warning').html(newRatingStars);
+
+
+                    // Show notification with slide down effect
+                    const notification = $("#notification");
+                    notification.text(`@Html.Translate("avcd4")`);
+                    notification.slideDown(300); // Slide down the notification
+
+                    // Slide up the notification after 3 seconds
+                    setTimeout(function () {
+                        notification.slideUp(300); // Slide up the notification
+                    }, 3000);
+
+                    // Hide the textarea and rating stars after saving
+                    $(`#editCommentText-${commentId}`).hide(); // Hide the textarea
+                    $(`#editStarRating-${commentId}`).hide(); // Hide the rating stars
+                    $(`.edit-comment[data-comment-id="${commentId}"]`).show(); // Show the Edit button again
+                },
+                error: function (xhr, status, error) {
+                    const errorMessage = xhr.responseJSON ? xhr.responseJSON.message : 'An error occurred while updating the comment.';
+                    console.error('Error updating comment:', errorMessage);
+                    alert(errorMessage); // Optionally show an alert with the error message
+                }
+            });
+        });
+
+
+
         loadComments();
     });
 
@@ -193,7 +323,7 @@
     $(document).ready(function () {
         $('.star').click(function () {
             const ratingValue = $(this).prev('input').val();
-       
+
             $('#userRating').val(ratingValue);
         });
     });
