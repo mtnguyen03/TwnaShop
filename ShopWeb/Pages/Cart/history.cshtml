@@ -1,0 +1,222 @@
+﻿@page
+@model ShopWeb.Pages.Cart.historyModel
+@{
+}
+@using Microsoft.AspNetCore.Localization
+@using Repository.TranslateService.ExtensionMethods
+@using Microsoft.AspNetCore.Mvc.Razor
+@{
+    var exchangeRate = 0.000040;
+    var currentCulture = System.Globalization.CultureInfo.CurrentCulture;
+}
+<section class="h-100">
+    <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+                <!-- Order Detail Table -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <br>
+                    <hr>
+
+                    <div class="table-responsive">
+                        @if (Model.OrderDetail != null && Model.OrderDetail.Count > 0)
+                        {
+                            <table id="myTable1" class="table" style="width:100%;">
+                                <thead>
+                                    <tr>
+
+                                        <th>
+                                            @Html.Translate("ProductName")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("ProductImage")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("UnitPrice")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("Quantity")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("ShipAddress")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("OrderDate")
+                                        </th>
+                                        <th>
+                                            @Html.Translate("Status")
+                                        </th>
+                                        <th>@Html.Translate("Action")</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.OrderDetail)
+                                    {
+                                        <tr>
+                                            @{
+
+                                                var unitPriceInVND2 = (double)item.UnitPrice * item.Quantity;
+                                                var unitPriceInUSD2 = unitPriceInVND2 * exchangeRate;
+
+                                            }
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Product.ProductName)
+                                            </td>
+                                            <td>
+                                                <a href="@item.Product.ProductImage" class="glightbox">
+                                                    <img src="@item.Product.ProductImage"
+                                                         class="img-fluid"
+                                                         style="width: 100px; height: auto; border-radius: 15px;"
+                                                         alt="Product Image" loading="lazy">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @if (currentCulture.Name == "en-US")
+                                                {
+                                                    @string.Format(currentCulture, "{0:C2}", unitPriceInUSD2)
+                                                }
+                                                else
+                                                {
+                                                    @string.Format(currentCulture, "{0:C0}", unitPriceInVND2)
+                                                }
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Quantity)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Order.ShipAddress)
+                                            </td>
+                                            <td>@item.Order.OrderDate.ToString("dd/MM/yyyy")</td>
+                                            <td style="color: @(item.Order.Status == 0 ? "orange" :
+                  item.Order.Status == 1 ? "green" :
+                  item.Order.Status == 2 ? "red" :
+                  item.Order.Status == 3 ? "blue" :
+                  item.Order.Status == 4 ? "purple" :
+                  item.Order.Status == 5 ? "darkorange" :
+                  item.Order.Status == 6 ? "darkred" : "black")">
+                                                @if (item.Order.Status == 0)
+                                                {
+                                                    @Html.Translate("StatusPending")
+                                                }
+                                                else if (item.Order.Status == 1)
+                                                {
+                                                    @Html.Translate("StatusReceived")
+                                                }
+                                                else if (item.Order.Status == 2)
+                                                {
+                                                    @Html.Translate("StatusCancelled")
+                                                }
+                                                else if (item.Order.Status == 3)
+                                                {
+                                                    @Html.Translate("StatusReturned")
+                                                }
+                                                else if (item.Order.Status == 4)
+                                                {
+                                                    @Html.Translate("StatusDisputed")
+                                                }
+                                                else if (item.Order.Status == 5)
+                                                {
+                                                    @Html.Translate("StatusRefundRequested")
+                                                }
+                                                else if (item.Order.Status == 6)
+                                                {
+                                                    @Html.Translate("StatusRefundDisputed")
+                                                }
+                                            </td>
+
+
+
+                                            <td>
+                                                <!-- Cancel Order Button (Only if Status is 0 - Pending) -->
+                                                @if (item.Order.Status == 0)
+                                                {
+                                                    <form method="post" asp-page-handler="CancelOrder" style="display:inline-block;">
+                                                        <input type="hidden" name="orderId" value="@item.Order.OrderId" />
+                                                        <button type="submit" class="btn btn-danger">
+                                                            @Html.Translate("btnCancelOrder")
+                                                        </button>
+                                                    </form>
+                                                }
+                                                else if (item.Order.Status == 1)
+                                                {
+                                                    // Check if 2 days have passed since the order date
+                                                    var orderDate = item.Order.OrderDate;
+                                                    var timeDifference = DateTime.Now - orderDate;
+
+                                                    // Only show buttons if within 2 days
+                                                    if (timeDifference.TotalDays < 2)
+                                                    {
+                                                        var timeLeft = TimeSpan.FromDays(2) - timeDifference;
+
+                                                        // Display countdown timer
+                                                        <div id="countdown-@item.Order.OrderId" class="countdown-timer"></div>
+
+                                                        // Refund Button
+                                                        <form asp-page-handler="RequestRefund" method="post" style="display:inline-block;">
+                                                            <input type="hidden" name="orderId" value="@item.Order.OrderId" />
+                                                            <button type="submit" class="btn btn-warning">
+                                                                @Html.Translate("btnRequestRefund")
+                                                            </button>
+                                                        </form>
+
+                                                        // Dispute Button
+                                                        <form asp-page-handler="DisputeOrder" method="post" style="display:inline-block;">
+                                                            <input type="hidden" name="orderId" value="@item.Order.OrderId" />
+                                                            <button type="submit" class="btn btn-danger">
+                                                                @Html.Translate("btnDisputeOrder")
+                                                            </button>
+                                                        </form>
+
+                                                        <script>
+                                                            // Countdown timer logic
+                                                            var countdownDate = new Date("@orderDate.ToString("yyyy-MM-ddTHH:mm:ss")").getTime() + (2 * 24 * 60 * 60 * 1000); // 2 days in milliseconds
+
+                                                            var countdownFunction = setInterval(function () {
+                                                                var now = new Date().getTime();
+                                                                var distance = countdownDate - now;
+
+                                                                // Time calculations for days, hours, minutes and seconds
+                                                                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                                                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                                                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                                                                // Display the result in the countdown element
+                                                                document.getElementById("countdown-@item.Order.OrderId").innerHTML = "@Html.Translate("Conlai") " + days + "d " + hours + "h " + minutes + "m " + seconds + "s " + "@Html.Translate("Dehanhdong")";
+
+
+                                                                // If the countdown is over, display a message
+                                                                if (distance < 0) {
+                                                                    clearInterval(countdownFunction);
+                                                                    document.getElementById("countdown-@item.Order.OrderId").innerHTML = "@Html.Translate("Time limit exceeded for actions.")";
+                                                                }
+                                                            }, 1000);
+                                                        </script>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p>@Html.Translate("Time limit exceeded for actions.")</p>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <p></p>
+                                                }
+                                            </td>
+
+
+
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

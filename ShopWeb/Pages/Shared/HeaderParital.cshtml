@@ -10,7 +10,8 @@
     var loginPage = "/login/index";
     var logoutPage = "/login/logout";
     var editProfilePage = "/users/editprofile";
-
+    
+    var lichsumua = "/cart/history";
     foreach (var segment in segmentsToRemove)
     {
         if (currentPath.Contains(segment))
@@ -148,6 +149,7 @@
             <i class="bi-cart-fill me-1"></i> @Html.Translate("cart")
             <span id="cartCountBadge" class="badge bg-dark text-white ms-1 rounded-pill"></span>
         </a>
+
     </form>
 
     <!-- User Account Dropdown -->
@@ -169,6 +171,7 @@
             else
             {
                 <li><a class="dropdown-item" asp-page="@editProfilePage"><i class="bi bi-box-arrow-in-right me-1"></i>@Html.Translate("edp")</a></li>
+                <li><a class="dropdown-item" asp-page="@lichsumua"><i class="bi bi-box-arrow-in-right me-1"></i>@Html.Translate("Lichsumua")</a></li>
                 <li><a class="dropdown-item" asp-page="@logoutPage"><i class="bi bi-box-arrow-in-right me-1"></i>@Html.Translate("logout")</a></li>
             }
         </ul>

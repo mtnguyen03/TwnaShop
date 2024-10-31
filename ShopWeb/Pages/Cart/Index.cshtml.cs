@@ -14,6 +14,7 @@ using Repository.TranslateService;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Localization;
 using ShopWeb.Pages.Payment;
+using Repository.CartService;
 
 namespace ShopWeb.Pages.Cart
 {
@@ -50,21 +51,6 @@ namespace ShopWeb.Pages.Cart
             }
 
             HeaderModelView.UserName = HttpContext.Request.Cookies["UserName"] ?? "";
-
-            if (int.TryParse(HttpContext.Request.Cookies["UserId"], out int uid))
-            {
-                if (_context.OrderDetails != null)
-                {
-                    OrderDetail = await _context.OrderDetails
-                                   .Include(o => o.Order)
-                                   .Include(o => o.Product)
-                                   .Where(o => o.Order.CustomerId == uid)
-                                   .OrderByDescending(o => o.Order.OrderDate)
-                                   .ToListAsync();
-
-                }
-            }
-
             ViewData["UserName"] = HeaderModelView.UserName;
         }
 
@@ -204,88 +190,33 @@ namespace ShopWeb.Pages.Cart
             }
         }
 
-        public async Task<IActionResult> OnPostRequestRefundAsync(int orderId)
+
+     
+
+    
+        public IActionResult OnPostUpdateQuantity(int productId, string action)
         {
-            var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-            if (order != null && order.Status == 1)
+            var cart = HttpContext.Session.GetString("Cart");
+            if (string.IsNullOrEmpty(cart))
             {
-                order.Status = 3; // Set status to 3 (Refund Requested)
-                await _context.SaveChangesAsync();
-
-                // Create a notification for the refund request
-                var notification = new Notification
-                {
-                    UserID = order.CustomerId ?? 0,
-                    Title = _localizer["Refund Requested"],
-                    MessageContent = _localizer["Your refund request has been submitted."],
-                    NotificationDate = DateTime.Now,
-                    IsRead = false,
-                    Photo = "https://static.vecteezy.com/system/resources/previews/015/872/168/original/payment-cancellation-icon-isometric-style-vector.jpg"
-                };
-
-                await _noti.Add(notification);
-
-                await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity"); // Notify clients if needed
+                return RedirectToPage();
             }
 
-            return RedirectToPage();
-        }
+            var cartItems = JsonSerializer.Deserialize<List<CartItem>>(cart) ?? new List<CartItem>();
+            var item = cartItems.FirstOrDefault(ci => ci.ProductId == productId);
 
-        public async Task<IActionResult> OnPostDisputeOrderAsync(int orderId)
-        {
-            var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-            // Allow the user to raise a dispute if the status is currently 'Received' (status = 1)
-            if (order != null && order.Status == 1)
+            if (item != null)
             {
-                order.Status = 4; // Set status to 'Disputed'
-                await _context.SaveChangesAsync();
-
-                // Create a notification for the dispute
-                var notification = new Notification
+                if (action == "increase")
                 {
-                    UserID = order.CustomerId ?? 0,
-                    Title = _localizer["Order Disputed"],
-                    MessageContent = _localizer["Your order has been disputed."],
-                    NotificationDate = DateTime.Now,
-                    IsRead = false,
-                    Photo = "https://cdn4.iconfinder.com/data/icons/server-database/60/server__exclamation__warning__database__datacenter-1024.png"
-                };
-
-                await _noti.Add(notification);
-
-                await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity"); // Notify clients if needed
-            }
-
-            return RedirectToPage();
-        }
-
-        public async Task<IActionResult> OnPostCancelOrderAsync(int orderId, byte currentStatus)
-        {
-            var order = await _context.Orders.FindAsync(orderId);
-            if (order != null)
-            {
-                order.Status = (byte)2; // Set status to 2 (Canceled)
-                await _context.SaveChangesAsync();
-
-                string translatedMessage = string.Format(_localizer["The order has been canceled."]);
-
-                int userId = order.CustomerId ?? 0;
-
-                var notification = new Notification
+                    item.Quantity++;
+                }
+                else if (action == "decrease" && item.Quantity > 1)
                 {
-                    UserID = userId,
-                    Title = _localizer["Canceled Successful"],
-                    MessageContent = translatedMessage,
-                    NotificationDate = DateTime.Now,
-                    IsRead = false,
-                    Photo = "https://cdn-icons-png.flaticon.com/512/4764/4764977.png"
-                };
+                    item.Quantity--;
+                }
 
-                await _noti.Add(notification);
-
-                await _signalRHub.Clients.All.SendAsync("LoadProductsQuantity"); // Notify clients if needed
+                HttpContext.Session.SetString("Cart", JsonSerializer.Serialize(cartItems));
             }
 
             return RedirectToPage();

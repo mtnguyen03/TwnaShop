@@ -222,6 +222,9 @@
   <data name="Comment:" xml:space="preserve">
     <value>Bình luận</value>
   </data>
+  <data name="Commentaddedsuccessfully" xml:space="preserve">
+    <value>Them danh gia thanh cong</value>
+  </data>
   <data name="commenthere" xml:space="preserve">
     <value>Viết bình luận của bạn ở đây...</value>
   </data>
@@ -288,6 +291,9 @@
   <data name="eu" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="Failedtoaddcomment" xml:space="preserve">
+    <value>Them danh gia that bai</value>
+  </data>
   <data name="fou" xml:space="preserve">
     <value>Theo Dõi Chúng Tôi</value>
   </data>
@@ -341,6 +347,9 @@
   </data>
   <data name="learnmore" xml:space="preserve">
     <value>Xem thêm</value>
+  </data>
+  <data name="Lichsumua" xml:space="preserve">
+    <value>Lịch sử mua hàng.</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>Đăng nhập</value>

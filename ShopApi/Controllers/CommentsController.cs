@@ -36,9 +36,10 @@ namespace ShopApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddComment([FromBody] Comment comment)
         {
+            // Validate the model
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(false); // Return false if model state is invalid
             }
 
             var newComment = new Comment
@@ -50,39 +51,20 @@ namespace ShopApi.Controllers
                 CreatedAt = DateTime.UtcNow
             };
 
+            // Attempt to add the comment
             var addedComment = await _commentRepository.AddCommentAsync(newComment);
 
+            // Check if the comment was added
             if (addedComment == null)
             {
-                // Handle the case where the comment was not added (e.g., user hasn't purchased or already reviewed)
-                return BadRequest(new { message = "You can only review a product you have purchased and only review it once." });
+                // Handle the case where the comment was not added
+                return BadRequest(false); // Return false indicating failure
             }
 
-            return Ok(addedComment);
+            return Ok(true); // Return true indicating success
         }
 
-        // Add a new AddReply
-        [HttpPost("addReply")]
-        public async Task<IActionResult> AddReply([FromBody] Comment comment)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            var newComment = new Comment
-            {
-                UserId = comment.UserId,
-                ProductId = 2,
-                CommentText = comment.CommentText,
-                CreatedAt = DateTime.UtcNow,
-                UserReplyId = comment.UserReplyId,
-                Rate = 1
-            };
-
-            await _commentRepository.AddCommentAsync(newComment);
-            return Ok(newComment);
-        }
 
         // Delete a comment
         [HttpDelete("{id}")]

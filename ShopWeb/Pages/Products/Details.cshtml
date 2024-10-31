@@ -22,9 +22,13 @@
     </div>
 }
 
+<style>
+    .larger-font {
+        font-size: 1.25em; /* Adjust this value to increase font size */
+    }
+</style>
 
-
-<div class="container my-5">
+<div class="container my-5 larger-font">
     <div class="row">
         <div class="col-md-5">
             <div class="main-img">
@@ -178,41 +182,82 @@
 
         <div class="game-rules mt-4">
             <h3 class="rules-title"><strong>@Html.Translate("gamerule")</strong></h3>
-            <ul>
-                <li><strong>@Html.Translate("r1")</strong> - @Html.Translate("r1dt")</li>
-                <li><strong>@Html.Translate("r2")</strong> - @Html.Translate("r2dt")</li>
-                <li><strong>@Html.Translate("r3")</strong> - @Html.Translate("r3dt")</li>
-                <li><strong>@Html.Translate("r4")</strong> - @Html.Translate("r4dt")</li>
-                <li><strong>@Html.Translate("r5")</strong> - @Html.Translate("r5dt")</li>
-                <li><strong>@Html.Translate("r6")</strong> - @Html.Translate("r6dt")</li>
-                <li><strong>@Html.Translate("r7")</strong> - @Html.Translate("r7dt")</li>
-            </ul>
 
-            <h4><strong>@Html.Translate("prst")</strong></h4>
-            <ul>
-                <li>@Html.Translate("prst1")</li>
-                <li>@Html.Translate("prst2")</li>
-                <li>@Html.Translate("prst3")</li>
-            </ul>
+            <!-- Collapsible Game Rules Section -->
+            <div class="rule-box my-3 p-3 border rounded">
+                <button class="btn btn-link w-100 text-start" data-bs-toggle="collapse" data-bs-target="#rules-section" aria-expanded="false">
+                    <h4><strong>@Html.Translate("gamerule")</strong></h4>
+                </button>
+                <div id="rules-section" class="collapse mt-2">
+                    <ul>
+                        <li><strong>@Html.Translate("r1")</strong> - @Html.Translate("r1dt")</li>
+                        <li><strong>@Html.Translate("r2")</strong> - @Html.Translate("r2dt")</li>
+                        <li><strong>@Html.Translate("r3")</strong> - @Html.Translate("r3dt")</li>
+                        <li><strong>@Html.Translate("r4")</strong> - @Html.Translate("r4dt")</li>
+                        <li><strong>@Html.Translate("r5")</strong> - @Html.Translate("r5dt")</li>
+                        <li><strong>@Html.Translate("r6")</strong> - @Html.Translate("r6dt")</li>
+                        <li><strong>@Html.Translate("r7")</strong> - @Html.Translate("r7dt")</li>
+                    </ul>
+                </div>
+            </div>
 
-            <h4><strong>@Html.Translate("gameplay")</strong></h4>
-            <ul>
-                <li>@Html.Translate("gameplay1")</li>
-            </ul>
+            <!-- Collapsible Preparation Section -->
+            <div class="rule-box my-3 p-3 border rounded">
+                <button class="btn btn-link w-100 text-start" data-bs-toggle="collapse" data-bs-target="#preparation-section" aria-expanded="false">
+                    <h4><strong>@Html.Translate("prst")</strong></h4>
+                </button>
+                <div id="preparation-section" class="collapse mt-2">
+              
+                    <ul>
+                        <li>@Html.Translate("prst1")</li>
+                        <li>@Html.Translate("prst2")</li>
+                        <li>@Html.Translate("prst3")</li>
+                    </ul>
+                </div>
+            </div>
 
-            <h4><strong>@Html.Translate("endGame")</strong></h4>
-            <ul>
-                <li>@Html.Translate("endGame1")</li>
-            </ul>
+            <!-- Collapsible Gameplay Section -->
+            <div class="rule-box my-3 p-3 border rounded">
+                <button class="btn btn-link w-100 text-start" data-bs-toggle="collapse" data-bs-target="#gameplay-section" aria-expanded="false">
+                    <h4><strong>@Html.Translate("gameplay")</strong></h4>
+                </button>
+                <div id="gameplay-section" class="collapse mt-2">
+               
+                    <ul>
+                        <li>@Html.Translate("gameplay1")</li>
+                    </ul>
+                </div>
+            </div>
 
-            <h4><strong>@Html.Translate("addRule")</strong></h4>
-            <ul>
-                <li>@Html.Translate("addRule1")</li>
-                <li>@Html.Translate("addRule2")</li>
-                <li>@Html.Translate("addRule3")</li>
-            </ul>
+            <!-- Collapsible End Game Section -->
+            <div class="rule-box my-3 p-3 border rounded">
+                <button class="btn btn-link w-100 text-start" data-bs-toggle="collapse" data-bs-target="#endgame-section" aria-expanded="false">
+                    <h4><strong>@Html.Translate("endGame")</strong></h4>
+                </button>
+                <div id="endgame-section" class="collapse mt-2">
+              
+                    <ul>
+                        <li>@Html.Translate("endGame1")</li>
+                    </ul>
+                </div>
+            </div>
 
+            <!-- Collapsible Additional Rules Section -->
+            <div class="rule-box my-3 p-3 border rounded">
+                <button class="btn btn-link w-100 text-start" data-bs-toggle="collapse" data-bs-target="#additional-rules-section" aria-expanded="false">
+                    <h4><strong>@Html.Translate("addRule")</strong></h4>
+                </button>
+                <div id="additional-rules-section" class="collapse mt-2">
+                   
+                    <ul>
+                        <li>@Html.Translate("addRule1")</li>
+                        <li>@Html.Translate("addRule2")</li>
+                        <li>@Html.Translate("addRule3")</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+
 
         @await Html.PartialAsync("_CommentPartial")
     </div>

@@ -46,6 +46,11 @@
             transform: translateY(-100%);
             transition: transform 0.3s ease-in-out;
         }
+
+
+        .larger-font {
+            font-size: 1.25em; /* Adjust this value to increase font size */
+        }
     </style>
     <meta name="google-site-verification" content="o-nvd4o78IUwiKUnmvifVeecHEwuMkcWrLeCKMhYW7k" />
 
@@ -53,7 +58,9 @@
     <link href="~/css/main.css" rel="stylesheet">
 </head>
 
-<body class="index-page">
+
+
+<body class="index-page larger-font">
     <div class="" >
         @await Html.PartialAsync("_CountDownTimePartial")
     </div>
