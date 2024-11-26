@@ -1,14 +1,10 @@
 ```markdown
-Web use ASP.NET core, RazorPage, SignalR, PayOS, Login GOOGLE/FACEBOOK<br>
+Web use ASP.NET core API, RazorPage, SignalR, PayOS, Login GOOGLE/FACEBOOK<br>
+Lazy loading, Ajax, search with autocomplete JS.
+Tool: github, visual studio
+CiCd: github action with azure.
 DB: SQL Server
 
-
-git clone https://github.com/Twna21/TwnaShopCICD.git
-git checkout -b NameBranch
-
-link demo: [twna.shop](https://twnashop20.azurewebsites.net/)
-ac: tuongnmde170578@fpt.edu.vn
-pw: manhtuong1
 
 How to RUN: 
 
@@ -24,3 +20,15 @@ If using .NET 8, change the following:
 
 The project have 2 Dbcontext so:
       1: dotnet ef database update --context ShopDbContext
+
+Functions: 
+User:
+    - Users can log in using Google, Facebook, or an account created on the website.
+    - Users can purchase products, make payments online (using the payment method PayOS), and track their orders on the website.
+    - Users can review products after completing their purchases.
+    - The website is user-friendly, featuring lazy loading for better performance and supporting functionalities such as     
+      chat and notifications.
+
+Admin: - Make management products, orders with CRUD
+      - View all statistics with charts realtime SignalR
+
