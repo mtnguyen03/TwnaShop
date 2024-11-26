@@ -1,8 +1,3 @@
-
-using BusinessObject;
-using Microsoft.EntityFrameworkCore;
-using Repository.CommentRepo;
-
 namespace ShopApi
 {
     public class Program

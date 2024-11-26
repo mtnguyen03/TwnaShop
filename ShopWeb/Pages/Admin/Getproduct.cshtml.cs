@@ -1,12 +1,3 @@
-using BusinessObject;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.EntityFrameworkCore;
-using Repository;
-using System.Drawing.Printing;
-
 namespace ShopWeb.Pages.Admin
 {
     public class GetproductModel : PageModel

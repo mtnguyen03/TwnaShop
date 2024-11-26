@@ -1,19 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using BusinessObject;
-using Repository; // Ensure this namespace matches your actual project structure
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DataAcess.Dto;
-using Microsoft.EntityFrameworkCore;
-using Repository.TranslateService;
-using System.Globalization;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Localization;
-using ShopWeb.Pages.Payment;
-
-namespace ShopWeb.Pages.Admin
+﻿namespace ShopWeb.Pages.Admin
 {
     public class OrderManagerModel : PageModel
     {

@@ -1,25 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using BusinessObject;
-using Repository;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
 namespace ShopWeb.Pages.Accounts
 {
-    public class AccountManagerModel : PageModel
+    public class AccountManagerModel(IAccountRepository _accountRepository) : PageModel
     {
-        private readonly IAccountRepository _accountRepository;
-
-        public AccountManagerModel(IAccountRepository accountRepository)
-        {
-            _accountRepository = accountRepository;
-        }
 
         [BindProperty]
         public IList<Account> Accounts { get; set; }
-
-
 
         public async Task OnGetAsync()
         {

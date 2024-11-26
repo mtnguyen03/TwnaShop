@@ -1,10 +1,3 @@
-using BusinessObject;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
-using Repository;
-
 namespace ShopWeb.Pages.Payment
 {
     public class FailedModel : PageModel

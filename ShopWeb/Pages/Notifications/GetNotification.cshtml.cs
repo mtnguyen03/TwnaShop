@@ -1,25 +1,10 @@
-using BusinessObject;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.EntityFrameworkCore;
-using Nest;
-using Repository;
-using System.Drawing.Printing;
-
 namespace ShopWeb.Notifications
 {
-    public class GetNotification : PageModel
+    public class GetNotification(
+               INotificationRepository _noti,
+    IHubContext<SignalRServer> _signalRHub
+        ) : PageModel
     {
-        private readonly INotificationRepository _noti;
-        private readonly IHubContext<SignalRServer> _signalRHub;
-        public GetNotification(INotificationRepository noti, IHubContext<SignalRServer> signalRHub)
-        {
-            _noti = noti;
-            _signalRHub = signalRHub;
-        }
-
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -49,7 +34,7 @@ namespace ShopWeb.Notifications
                 return BadRequest(new { success = false, message = "Invalid notification ID." });
             }
 
-            await _noti.Delete(id); // Call the delete method from your repository
+            await _noti.Delete(id);
 
             return new JsonResult(new { success = true });
         }

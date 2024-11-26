@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR;
-
-namespace ShopWeb
+﻿namespace ShopWeb
 {
     public class SignalRServer : Hub
     {

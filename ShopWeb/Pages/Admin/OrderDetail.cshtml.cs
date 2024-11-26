@@ -1,11 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using BusinessObject;
-using Repository; // Ensure this namespace matches your actual project structure
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace ShopWeb.Pages.Admin
 {
     public class OrderDetailManagerModel : PageModel

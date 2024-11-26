@@ -1,8 +1,3 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Data;
-
 namespace ShopWeb.Pages.Login
 {
     public class logoutModel : PageModel

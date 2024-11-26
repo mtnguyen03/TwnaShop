@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Repository;
-using Repository.TranslateService;
-
-namespace ShopWeb.Pages.Login
+﻿namespace ShopWeb.Pages.Login
 {
 
     public class CheckOtpModel : PageModel

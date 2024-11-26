@@ -1,10 +1,4 @@
-﻿using MimeKit;
-using MailKit;
-using MailKit.Security;
-using Microsoft.Extensions.Options;
-
-
-namespace Repository.MailService
+﻿namespace Repository.MailService
 {
     public class SendGmailService : ISendGmailService
     {

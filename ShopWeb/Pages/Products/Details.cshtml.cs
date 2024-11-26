@@ -1,13 +1,3 @@
-using BusinessObject;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Caching.Memory;
-using Repository;
-using Repository.CartService;
-using Repository.TranslateService;
-using System.Text.Json;
-
 namespace ShopWeb.Pages.Products
 {
     public class DetailsModel : PageModel

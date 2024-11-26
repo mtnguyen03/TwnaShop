@@ -1,17 +1,4 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using Repository.MailService;
-using Repository.TranslateService;
-using System.Security.Policy;
-using Repository.CartService;
-using Microsoft.AspNetCore.Localization;
-using System.Globalization;
-
-
-namespace ShopWeb.Pages
+﻿namespace ShopWeb.Pages
 {
     public class IndexModel : PageModel
     {

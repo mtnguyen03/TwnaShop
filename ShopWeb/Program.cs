@@ -1,26 +1,3 @@
-using BusinessObject;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.Google;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
-using Repository;
-using System.Security.Claims;
-using Nest;
-using Repository.SearchAutoNest;
-using Repository.CartService;
-using Repository.PaymentService;
-using Net.payOS;
-using Microsoft.AspNetCore.Localization;
-using Repository.TranslateService;
-using System.Globalization;
-using Repository.StatictisService;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.OAuth;
-using Microsoft.AspNetCore.Rewrite;
-using Repository.MailService;
-using Repository.CommentRepo;
 namespace ShopWeb
 {
     public class Program
@@ -166,6 +143,7 @@ namespace ShopWeb
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+
             builder.Services.AddDistributedMemoryCache();
 
             var app = builder.Build();

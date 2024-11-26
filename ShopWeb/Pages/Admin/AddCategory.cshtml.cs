@@ -1,19 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using BusinessObject;
-using Repository; // Adjust this namespace based on your project structure
-using System.Threading.Tasks;
-
 namespace ShopWeb.Pages.Admin
 {
-    public class AddCategoryModel : PageModel
+    public class AddCategoryModel(ICategoryRepository _categoryRepository) : PageModel
     {
-        private readonly ICategoryRepository _categoryRepository;
-
-        public AddCategoryModel(ICategoryRepository categoryRepository)
-        {
-            _categoryRepository = categoryRepository;
-        }
 
         [BindProperty]
         public Category Category { get; set; }

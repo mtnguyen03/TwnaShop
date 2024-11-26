@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using BusinessObject;
-
-namespace Repository
+﻿namespace Repository
 {
     public interface ICategoryRepository
     {

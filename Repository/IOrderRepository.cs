@@ -1,9 +1,4 @@
-﻿using BusinessObject;
-using DataAcess.Dto;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Repository
+﻿namespace Repository
 {
     public interface IOrderRepository
     {

@@ -1,22 +1,9 @@
-﻿using BusinessObject;
-using DataAcess.Dto;
-using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.Mvc;
-using Repository.CommentRepo;
-using System.Xml.Linq;
-
-namespace ShopApi.Controllers
+﻿namespace ShopApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CommentsController : ControllerBase
+    public class CommentsController(ICommentRepository _commentRepository) : ControllerBase
     {
-        private readonly ICommentRepository _commentRepository;
-
-        public CommentsController(ICommentRepository commentRepository)
-        {
-            _commentRepository = commentRepository;
-        }
 
         // Get comments for a product
         [HttpGet]

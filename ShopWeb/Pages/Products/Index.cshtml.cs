@@ -1,19 +1,4 @@
-﻿using BusinessObject;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Linq;
-using System.Collections.Generic;
-using Repository;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using MailKit.Search;
-using Repository.CartService;
-
-namespace ShopWeb.Pages.Products
+﻿namespace ShopWeb.Pages.Products
 {
     public class IndexModel : PageModel
     {

@@ -1,22 +1,4 @@
-﻿using BusinessObject;
-using MailKit.Search;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using Nest;
-using Net.payOS.Types;
-using Net.payOS;
-using Repository;
-using System.Text.Json;
-using Repository.PaymentService;
-using System.Linq;
-using Repository.TranslateService;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Localization;
-using ShopWeb.Pages.Payment;
-using Repository.CartService;
-
-namespace ShopWeb.Pages.Cart
+﻿namespace ShopWeb.Pages.Cart
 {
     public class IndexModel : PageModel
     {
@@ -102,7 +84,7 @@ namespace ShopWeb.Pages.Cart
                     }
                 }
 
-                var customer = _context.Accounts.FirstOrDefault(c => c.AccountID == int.Parse(userNameSession));
+                var customer =  _context.Accounts.FirstOrDefault(c => c.AccountID == int.Parse(userNameSession));
                 string message = string.Empty;
 
                 if (string.IsNullOrEmpty(userNameSession))
@@ -191,9 +173,7 @@ namespace ShopWeb.Pages.Cart
         }
 
 
-     
 
-    
         public IActionResult OnPostUpdateQuantity(int productId, string action)
         {
             var cart = HttpContext.Session.GetString("Cart");

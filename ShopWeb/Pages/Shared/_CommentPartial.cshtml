@@ -89,7 +89,7 @@
         // Function to load comments and their replies
         function loadComments() {
             $.ajax({
-                url: 'https://shopapi20241024170309.azurewebsites.net/api/Comments/', // Adjust this URL to your API endpoint
+                url: 'https://localhost:7025/api/Comments/', // Adjust this URL to your API endpoint
                 type: 'GET',
                 success: function (data) {
                     // Clear the current comments
@@ -140,7 +140,7 @@
             const commentId = $(this).data('comment-id');
             // Call the delete function here, for example, an AJAX request to delete the comment from the database
             $.ajax({
-                url: `https://shopapi20241024170309.azurewebsites.net/api/Comments/${commentId}`,
+                url: `https://localhost:7025/api/Comments/${commentId}`,
                 method: 'DELETE',
                 success: function () {
                     // Remove the comment from the DOM after successful deletion
@@ -173,7 +173,7 @@
             const productId = 1; // Example: Replace this with the actual product ID
 
             $.ajax({
-                url: "https://shopapi20241024170309.azurewebsites.net/api/Comments/",
+                url: "https://localhost:7025/api/Comments/",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify({
@@ -288,7 +288,7 @@
 
             // Make the AJAX request
             $.ajax({
-                url: `https://shopapi20241024170309.azurewebsites.net/api/Comments/${commentId}`,
+                url: `https://localhost:7025/api/Comments/${commentId}`,
                 method: 'PATCH',
                 contentType: 'application/json',
                 data: JSON.stringify(patchData),

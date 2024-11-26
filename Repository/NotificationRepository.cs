@@ -1,10 +1,4 @@
-﻿using BusinessObject;
-using DataAccess; // Assuming this is where NotificationDAO resides
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Repository
+﻿namespace Repository
 {
     public class NotificationRepository : INotificationRepository
     {

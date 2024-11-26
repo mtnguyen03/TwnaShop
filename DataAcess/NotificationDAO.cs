@@ -1,11 +1,4 @@
-﻿using BusinessObject;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Threading.Tasks;
-
-namespace DataAccess
+﻿namespace DataAccess
 {
     public class NotificationDAO
     {

@@ -1,17 +1,4 @@
-﻿using BusinessObject;
-using DataAccess;
-using DataAcess;
-using DataAcess.Dto;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Repository.CommentRepo
+﻿namespace Repository.CommentRepo
 {
     public class CommentRepository : ICommentRepository
     {

@@ -1,11 +1,3 @@
-using BusinessObject;
-using MailKit.Search;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Caching.Memory;
-using Repository;
-using Repository.SearchAutoNest;
-
 namespace ShopWeb.Pages.Products
 {
     public class SearchProductModel : PageModel

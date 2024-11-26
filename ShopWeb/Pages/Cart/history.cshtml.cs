@@ -1,44 +1,23 @@
-using BusinessObject;
-using MailKit.Search;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using Nest;
-using Net.payOS.Types;
-using Net.payOS;
-using Repository;
-using System.Text.Json;
-using Repository.PaymentService;
-using System.Linq;
-using Repository.TranslateService;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Localization;
-using ShopWeb.Pages.Payment;
-
 namespace ShopWeb.Pages.Cart
 {
-    public class historyModel : PageModel
+    public class historyModel(
+       PayOS payProcess,
+       TranslateService translateService,
+       IHubContext<SignalRServer> signalRHub,
+       INotificationRepository noti,
+       IStringLocalizer<SuccessModel> localizer
+   ) : PageModel
     {
         public IList<CartItem> CartItems { get; set; } = new List<CartItem>();
         private readonly ShopDbContext _context = new ShopDbContext();
-        private readonly PayOS _payOS;
-        private readonly TranslateService _translateService;
-        private readonly IHubContext<SignalRServer> _signalRHub;
-        private readonly INotificationRepository _noti;
-        private readonly IStringLocalizer<SuccessModel> _localizer;
-        public historyModel(PayOS payProcess,
-             TranslateService translateService,
-              IHubContext<SignalRServer> signalRHub,
-              INotificationRepository noti,
-              IStringLocalizer<SuccessModel> localizer
-            )
-        {
-            _payOS = payProcess;
-            _translateService = translateService;
-            _signalRHub = signalRHub;
-            _noti = noti;
-            _localizer = localizer;
-        }
+
+        private readonly PayOS _payOS = payProcess;
+        private readonly TranslateService _translateService = translateService;
+        private readonly IHubContext<SignalRServer> _signalRHub = signalRHub;
+        private readonly INotificationRepository _noti = noti;
+        private readonly IStringLocalizer<SuccessModel> _localizer = localizer;
+
+
         public async Task OnGetAsync()
         {
             ViewData["Cultures"] = await _translateService.GetAvailableCultures();
@@ -68,7 +47,7 @@ namespace ShopWeb.Pages.Cart
             ViewData["UserName"] = HeaderModelView.UserName;
         }
 
-   
+
         public async Task<IActionResult> OnPostRequestRefundAsync(int orderId)
         {
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);

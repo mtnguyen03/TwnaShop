@@ -1,9 +1,4 @@
-﻿using BusinessObject;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace DataAccess
+﻿namespace DataAccess
 {
     public class CategoryDAO
     {

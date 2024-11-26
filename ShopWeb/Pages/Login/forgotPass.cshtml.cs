@@ -1,13 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Repository;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Encodings.Web;
-using Repository.MailService;
-
-namespace ShopWeb.Pages.Login
+﻿namespace ShopWeb.Pages.Login
 {
     public class forgotPassModel : PageModel
     {

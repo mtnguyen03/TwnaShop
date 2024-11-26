@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
-namespace BusinessObject
+﻿namespace BusinessObject
 {
     public class ShopIdentityDbContext : IdentityDbContext
     {

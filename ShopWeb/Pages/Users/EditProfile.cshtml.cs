@@ -1,8 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using BusinessObject;
-using Repository;
-
 namespace ShopWeb.Pages.Users
 {
     public class EditProfileModel : PageModel

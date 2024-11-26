@@ -1,17 +1,4 @@
-﻿using BusinessObject;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Claims;
-using Repository;
-using System.Security.Cryptography;
-using System.Text;
-using Repository.TranslateService;
-
-
-namespace ShopWeb.Pages.Login
+﻿namespace ShopWeb.Pages.Login
 {
     public class IndexModel : PageModel
     {

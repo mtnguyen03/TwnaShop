@@ -1,9 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Repository;
-using BusinessObject;
-using System.Security.Cryptography;
-using System.Text;
 namespace ShopWeb.Pages.Login
 {
     public class RegisterModel : PageModel

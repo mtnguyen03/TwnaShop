@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace ShopWeb.Pages
+﻿namespace ShopWeb.Pages
 {
     public class PrivacyModel : PageModel
     {

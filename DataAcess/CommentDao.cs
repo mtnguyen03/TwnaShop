@@ -1,12 +1,4 @@
-﻿using BusinessObject;
-using DataAcess.Dto;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace DataAccess
+﻿namespace DataAccess
 {
     public class CommentDao
     {

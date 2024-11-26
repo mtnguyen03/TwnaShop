@@ -1,10 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using BusinessObject;
-using DataAccess;
-
-
-namespace Repository
+﻿namespace Repository
 {
     public class CategoryRepository : ICategoryRepository
     {

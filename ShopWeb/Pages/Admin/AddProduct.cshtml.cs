@@ -1,11 +1,3 @@
-using BusinessObject;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Repository;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace ShopWeb.Pages.Admin
 {
     public class AddProductModel : PageModel

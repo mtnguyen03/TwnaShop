@@ -1,11 +1,4 @@
-﻿using Net.payOS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Repository.PaymentService
+﻿namespace Repository.PaymentService
 {
     public class PayProcess
     {
