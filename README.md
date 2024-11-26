@@ -27,7 +27,7 @@ User:
     - Users can purchase products, make payments online (using the payment method PayOS), and track their orders on the website.
     - Users can review products after completing their purchases.
     - The website is user-friendly, featuring lazy loading for better performance and supporting functionalities such as     
-      chat and notifications, can switch 2 languge: VN - EN.
+      chat and notifications, can switch 2 language: VN - EN.
 
 Admin: - Make management products, orders with CRUD
       - View all statistics with charts realtime SignalR
