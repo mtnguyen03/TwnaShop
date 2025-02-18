@@ -60,12 +60,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Category.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Account.cs",
                 "region": {
-                  "startLine": 10,
-                  "startColumn": 44,
-                  "endLine": 10,
-                  "endColumn": 45
+                  "startLine": 20,
+                  "startColumn": 42,
+                  "endLine": 20,
+                  "endColumn": 43
                 }
               }
             }
@@ -81,12 +81,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Account.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Category.cs",
                 "region": {
-                  "startLine": 20,
-                  "startColumn": 42,
-                  "endLine": 20,
-                  "endColumn": 43
+                  "startLine": 10,
+                  "startColumn": 44,
+                  "endLine": 10,
+                  "endColumn": 45
                 }
               }
             }
@@ -144,27 +144,6 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Account.cs",
-                "region": {
-                  "startLine": 21,
-                  "startColumn": 49,
-                  "endLine": 21,
-                  "endColumn": 50
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8632",
-          "level": "warning",
-          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
-          "locations": [
-            {
-              "resultFile": {
                 "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Comment.cs",
                 "region": {
                   "startLine": 8,
@@ -207,12 +186,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Order.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Account.cs",
                 "region": {
-                  "startLine": 16,
-                  "startColumn": 48,
-                  "endLine": 16,
-                  "endColumn": 49
+                  "startLine": 21,
+                  "startColumn": 49,
+                  "endLine": 21,
+                  "endColumn": 50
                 }
               }
             }
@@ -255,6 +234,27 @@
                   "startColumn": 22,
                   "endLine": 14,
                   "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Order.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 48,
+                  "endLine": 16,
+                  "endColumn": 49
                 }
               }
             }

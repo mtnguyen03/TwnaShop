@@ -1,8 +1,8 @@
 y
-nD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\obj\Debug\net8.0\DataAcess.AssemblyInfo.csutf-8Z
-QD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\ProductDAO.csutf-8è
+nD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\obj\Debug\net8.0\DataAcess.AssemblyInfo.csutf-8è
 ÉD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.csutf-8{
-pD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\obj\Debug\net8.0\DataAcess.GlobalUsings.g.csutf-8^
+pD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\obj\Debug\net8.0\DataAcess.GlobalUsings.g.csutf-8Z
+QD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\ProductDAO.csutf-8^
 UD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\OrderDetailDAO.csutf-8X
 OD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\OrderDAO.csutf-8_
 VD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\DataAcess\NotificationDAO.csutf-8\

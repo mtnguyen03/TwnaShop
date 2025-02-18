@@ -10,7 +10,13 @@ bD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Utilities\Sha
 + .
 
  1
-9 < !
+9 < !`
+RD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\SignalRServer.cs
+
+ a
+SD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\SharedResource.cs
+
+ 
 
 LD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Program.cs
 
@@ -72,13 +78,7 @@ LD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Program.cs
 ¢¢' 1
 
 ¯¯ &
-±± `
-RD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\SignalRServer.cs
-
- a
-SD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\SharedResource.cs
-
- w
+±± w
 ]D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Users\Index.cshtml.cs
 
  
@@ -850,7 +850,25 @@ WD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Error.c
  
 # 2
 
-££" -%% â
+££" -%% 
+oD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\SignalR\GetProdQuantity.cshtml.cs
+
+ %
+ -) ;
+ -! 3
+ ) /
+ *# 4' 8
+
+
+
+) 3
+  " 2
+  "
+ H QK T
+ " ,
+ ! /
+  #
+ " .â
 fD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\ProductManager.cshtml.cs
 
  $F
@@ -869,25 +887,7 @@ fD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\P
 
 22) @
 22E G44B D
-44 55 ::, 3
-oD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\SignalR\GetProdQuantity.cshtml.cs
-
- %
- -) ;
- -! 3
- ) /
- *# 4' 8
-
-
-
-) 3
-  " 2
-  "
- H QK T
- " ,
- ! /
-  #
- " .¤
+44 55 ::, 3¤
 dD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\OrderManager.cshtml.cs
 
  "j
@@ -1013,7 +1013,16 @@ cD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\O
 ) 3
  % ': <
 F I  ? B
-   !! ô
+   !! ¿
+cD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\AddCategory.cshtml.cs
+
+ !
+6 I )
+   . 6
+
+		 
+
+) 4ô
 bD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\Getproduct.cshtml.cs
 
   
@@ -1027,21 +1036,7 @@ bD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\G
  $
 
 ) 3
- " *í
-gD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\CategoryManager.cshtml.cs
-
- %<
-- @		 $ 7$ 7##! 4)) %
-8 J		" 4
- )  
-  * 48 B
-
- $
-   !
-
-!!) A
-!!F H##E G))- /
-## $$ È
+ " *È
 bD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\AddProduct.cshtml.cs
 
   
@@ -1058,16 +1053,21 @@ bD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\A
 
 ) 3
 
-) 4¿
-cD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\AddCategory.cshtml.cs
+) 4í
+gD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\CategoryManager.cshtml.cs
 
- !
-6 I )
-   . 6
+ %<
+- @		 $ 7$ 7##! 4)) %
+8 J		" 4
+ )  
+  * 48 B
 
-		 
+ $
+   !
 
-) 4…
+!!) A
+!!F H##E G))- /
+## $$ …
 iD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Accounts\AccountManager.cshtml.cs
 
  $(

@@ -48,74 +48,6 @@
         {
           "ruleId": "CS8618",
           "level": "warning",
-          "message": "Non-nullable property 'Photo' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/Dto/UserReplyDto.cs",
-                "region": {
-                  "startLine": 8,
-                  "startColumn": 23,
-                  "endLine": 8,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/Dto/UserReplyDto.cs",
-                "region": {
-                  "startLine": 8,
-                  "startColumn": 23,
-                  "endLine": 8,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8618",
-          "level": "warning",
-          "message": "Non-nullable property 'Content' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/Dto/UserReplyDto.cs",
-                "region": {
-                  "startLine": 10,
-                  "startColumn": 23,
-                  "endLine": 10,
-                  "endColumn": 30
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/Dto/UserReplyDto.cs",
-                "region": {
-                  "startLine": 10,
-                  "startColumn": 23,
-                  "endLine": 10,
-                  "endColumn": 30
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8618",
-          "level": "warning",
           "message": "Non-nullable property 'ShipAddress' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
           "locations": [
             {
@@ -182,18 +114,65 @@
           }
         },
         {
-          "ruleId": "CS8603",
+          "ruleId": "CS8618",
           "level": "warning",
-          "message": "Possible null reference return.",
+          "message": "Non-nullable property 'Photo' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/Dto/UserReplyDto.cs",
                 "region": {
-                  "startLine": 29,
-                  "startColumn": 20,
-                  "endLine": 29,
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
                   "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/Dto/UserReplyDto.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Content' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/Dto/UserReplyDto.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 23,
+                  "endLine": 10,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/Dto/UserReplyDto.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 23,
+                  "endLine": 10,
+                  "endColumn": 30
                 }
               }
             }
@@ -215,6 +194,27 @@
                   "startColumn": 20,
                   "endLine": 40,
                   "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 20,
+                  "endLine": 29,
+                  "endColumn": 28
                 }
               }
             }
@@ -279,40 +279,6 @@
           }
         },
         {
-          "ruleId": "CS8618",
-          "level": "warning",
-          "message": "Non-nullable field 'instance' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 36,
-                  "endLine": 5,
-                  "endColumn": 44
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 36,
-                  "endLine": 5,
-                  "endColumn": 44
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "CS8603",
           "level": "warning",
           "message": "Possible null reference return.",
@@ -340,12 +306,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
                 "region": {
                   "startLine": 5,
-                  "startColumn": 35,
+                  "startColumn": 36,
                   "endLine": 5,
-                  "endColumn": 43
+                  "endColumn": 44
                 }
               }
             }
@@ -353,12 +319,12 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
                 "region": {
                   "startLine": 5,
-                  "startColumn": 35,
+                  "startColumn": 36,
                   "endLine": 5,
-                  "endColumn": 43
+                  "endColumn": 44
                 }
               }
             }
@@ -380,6 +346,40 @@
                   "startColumn": 20,
                   "endLine": 56,
                   "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable field 'instance' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the field as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 35,
+                  "endLine": 5,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 35,
+                  "endLine": 5,
+                  "endColumn": 43
                 }
               }
             }
@@ -737,6 +737,27 @@
         {
           "ruleId": "S101",
           "level": "warning",
+          "message": "Rename class 'ProductDAO' to match pascal case naming rules, consider using 'ProductDao'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 18,
+                  "endLine": 3,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S101",
+          "level": "warning",
           "message": "Rename class 'OrderDAO' to match pascal case naming rules, consider using 'OrderDao'.",
           "locations": [
             {
@@ -758,16 +779,16 @@
         {
           "ruleId": "S101",
           "level": "warning",
-          "message": "Rename class 'ProductDAO' to match pascal case naming rules, consider using 'ProductDao'.",
+          "message": "Rename class 'OrderDetailDAO' to match pascal case naming rules, consider using 'OrderDetailDao'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/OrderDetailDAO.cs",
                 "region": {
                   "startLine": 3,
                   "startColumn": 18,
                   "endLine": 3,
-                  "endColumn": 28
+                  "endColumn": 32
                 }
               }
             }
@@ -819,18 +840,18 @@
           }
         },
         {
-          "ruleId": "S101",
+          "ruleId": "S2325",
           "level": "warning",
-          "message": "Rename class 'OrderDetailDAO' to match pascal case naming rules, consider using 'OrderDetailDao'.",
+          "message": "Make 'GetProducts' a static method.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/OrderDetailDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
                 "region": {
-                  "startLine": 3,
-                  "startColumn": 18,
-                  "endLine": 3,
-                  "endColumn": 32
+                  "startLine": 21,
+                  "startColumn": 49,
+                  "endLine": 21,
+                  "endColumn": 60
                 }
               }
             }
@@ -872,6 +893,48 @@
                   "startLine": 19,
                   "startColumn": 49,
                   "endLine": 19,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetCategoryAll' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 50,
+                  "endLine": 18,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetProducts' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 49,
+                  "endLine": 21,
                   "endColumn": 60
                 }
               }
@@ -926,69 +989,6 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'GetCategoryAll' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
-                "region": {
-                  "startLine": 18,
-                  "startColumn": 50,
-                  "endLine": 18,
-                  "endColumn": 64
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetCategoryById' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
-                "region": {
-                  "startLine": 25,
-                  "startColumn": 37,
-                  "endLine": 25,
-                  "endColumn": 52
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetProducts' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
-                "region": {
-                  "startLine": 21,
-                  "startColumn": 49,
-                  "endLine": 21,
-                  "endColumn": 60
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
           "message": "Member 'GetOrders' does not access instance data and can be marked as static",
           "locations": [
             {
@@ -1008,102 +1008,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetCategoryById' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
-                "region": {
-                  "startLine": 25,
-                  "startColumn": 37,
-                  "endLine": 25,
-                  "endColumn": 52
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetProducts' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
-                "region": {
-                  "startLine": 21,
-                  "startColumn": 49,
-                  "endLine": 21,
-                  "endColumn": 60
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S2325",
           "level": "warning",
-          "message": "Make 'GetAccountById' a static method.",
+          "message": "Make 'GetTotalAccountsAsync' a static method.",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/AccountDAO.cs",
                 "region": {
-                  "startLine": 36,
-                  "startColumn": 36,
-                  "endLine": 36,
-                  "endColumn": 50
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetAccountById' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/AccountDAO.cs",
-                "region": {
-                  "startLine": 36,
-                  "startColumn": 36,
-                  "endLine": 36,
-                  "endColumn": 50
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'Add' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
-                "region": {
-                  "startLine": 32,
-                  "startColumn": 27,
-                  "endLine": 32,
-                  "endColumn": 30
+                  "startLine": 27,
+                  "startColumn": 32,
+                  "endLine": 27,
+                  "endColumn": 53
                 }
               }
             }
@@ -1136,16 +1052,16 @@
         {
           "ruleId": "S2325",
           "level": "warning",
-          "message": "Make 'GetTotalAccountsAsync' a static method.",
+          "message": "Make 'GetCategoryById' a static method.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/AccountDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
                 "region": {
-                  "startLine": 27,
-                  "startColumn": 32,
-                  "endLine": 27,
-                  "endColumn": 53
+                  "startLine": 25,
+                  "startColumn": 37,
+                  "endLine": 25,
+                  "endColumn": 52
                 }
               }
             }
@@ -1157,16 +1073,16 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'Add' does not access instance data and can be marked as static",
+          "message": "Member 'GetCategoryById' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
                 "region": {
-                  "startLine": 32,
-                  "startColumn": 27,
-                  "endLine": 32,
-                  "endColumn": 30
+                  "startLine": 25,
+                  "startColumn": 37,
+                  "endLine": 25,
+                  "endColumn": 52
                 }
               }
             }
@@ -1199,16 +1115,16 @@
         {
           "ruleId": "S2325",
           "level": "warning",
-          "message": "Make 'GetNotificationsByUserIdAsync' a static method.",
+          "message": "Make 'GetAccountById' a static method.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/NotificationDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/AccountDAO.cs",
                 "region": {
-                  "startLine": 29,
-                  "startColumn": 54,
-                  "endLine": 29,
-                  "endColumn": 83
+                  "startLine": 36,
+                  "startColumn": 36,
+                  "endLine": 36,
+                  "endColumn": 50
                 }
               }
             }
@@ -1239,6 +1155,132 @@
           }
         },
         {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'Add' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 27,
+                  "endLine": 32,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetAccountById' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/AccountDAO.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 36,
+                  "endLine": 36,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'Add' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/CategoryDAO.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 27,
+                  "endLine": 32,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'GetNotificationsByUserIdAsync' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/NotificationDAO.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 54,
+                  "endLine": 29,
+                  "endColumn": 83
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetTotalAccountsAsync' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/AccountDAO.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 32,
+                  "endLine": 27,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'GetProductsAsQueryable' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 36,
+                  "endLine": 40,
+                  "endColumn": 58
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "S1117",
           "level": "warning",
           "message": "Rename '_context' which hides the field with the same name.",
@@ -1260,18 +1302,39 @@
           }
         },
         {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetTotalNotiQuantityAsync' a static method.",
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetNotificationsByUserIdAsync' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/NotificationDAO.cs",
                 "region": {
-                  "startLine": 41,
-                  "startColumn": 32,
-                  "endLine": 41,
-                  "endColumn": 57
+                  "startLine": 29,
+                  "startColumn": 54,
+                  "endLine": 29,
+                  "endColumn": 83
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetProductsAsQueryable' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 36,
+                  "endLine": 40,
+                  "endColumn": 58
                 }
               }
             }
@@ -1302,18 +1365,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetNotificationsByUserIdAsync' does not access instance data and can be marked as static",
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'GetTotalNotiQuantityAsync' a static method.",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/NotificationDAO.cs",
                 "region": {
-                  "startLine": 29,
-                  "startColumn": 54,
-                  "endLine": 29,
-                  "endColumn": 83
+                  "startLine": 41,
+                  "startColumn": 32,
+                  "endLine": 41,
+                  "endColumn": 57
                 }
               }
             }
@@ -1346,58 +1409,16 @@
         {
           "ruleId": "S2325",
           "level": "warning",
-          "message": "Make 'GetProductsAsQueryable' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
-                "region": {
-                  "startLine": 40,
-                  "startColumn": 36,
-                  "endLine": 40,
-                  "endColumn": 58
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetTotalNotiQuantityAsync' does not access instance data and can be marked as static",
+          "message": "Make 'Add' a static method.",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/NotificationDAO.cs",
                 "region": {
-                  "startLine": 41,
-                  "startColumn": 32,
-                  "endLine": 41,
-                  "endColumn": 57
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetTotalAccountsAsync' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/AccountDAO.cs",
-                "region": {
-                  "startLine": 27,
-                  "startColumn": 32,
-                  "endLine": 27,
-                  "endColumn": 53
+                  "startLine": 53,
+                  "startColumn": 27,
+                  "endLine": 53,
+                  "endColumn": 30
                 }
               }
             }
@@ -1428,18 +1449,18 @@
           }
         },
         {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'Add' a static method.",
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetTotalNotiQuantityAsync' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/NotificationDAO.cs",
                 "region": {
-                  "startLine": 53,
-                  "startColumn": 27,
-                  "endLine": 53,
-                  "endColumn": 30
+                  "startLine": 41,
+                  "startColumn": 32,
+                  "endLine": 41,
+                  "endColumn": 57
                 }
               }
             }
@@ -1470,18 +1491,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetProductsAsQueryable' does not access instance data and can be marked as static",
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'Add' a static method.",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
                 "region": {
-                  "startLine": 40,
-                  "startColumn": 36,
-                  "endLine": 40,
-                  "endColumn": 58
+                  "startLine": 56,
+                  "startColumn": 27,
+                  "endLine": 56,
+                  "endColumn": 30
                 }
               }
             }
@@ -1512,9 +1533,9 @@
           }
         },
         {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'Add' a static method.",
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'Add' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
@@ -1554,18 +1575,18 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'Add' does not access instance data and can be marked as static",
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'GetOrderById' a static method.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/ProductDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/OrderDAO.cs",
                 "region": {
-                  "startLine": 56,
-                  "startColumn": 27,
-                  "endLine": 56,
-                  "endColumn": 30
+                  "startLine": 52,
+                  "startColumn": 34,
+                  "endLine": 52,
+                  "endColumn": 46
                 }
               }
             }
@@ -1598,27 +1619,6 @@
         {
           "ruleId": "S2325",
           "level": "warning",
-          "message": "Make 'GetOrderById' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/OrderDAO.cs",
-                "region": {
-                  "startLine": 52,
-                  "startColumn": 34,
-                  "endLine": 52,
-                  "endColumn": 46
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2325",
-          "level": "warning",
           "message": "Make 'Add' a static method.",
           "locations": [
             {
@@ -1640,16 +1640,16 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'Delete' does not access instance data and can be marked as static",
+          "message": "Member 'GetOrderById' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/NotificationDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/OrderDAO.cs",
                 "region": {
-                  "startLine": 61,
-                  "startColumn": 27,
-                  "endLine": 61,
-                  "endColumn": 33
+                  "startLine": 52,
+                  "startColumn": 34,
+                  "endLine": 52,
+                  "endColumn": 46
                 }
               }
             }
@@ -1661,16 +1661,16 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'GetOrderById' does not access instance data and can be marked as static",
+          "message": "Member 'Delete' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/OrderDAO.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/NotificationDAO.cs",
                 "region": {
-                  "startLine": 52,
-                  "startColumn": 34,
-                  "endLine": 52,
-                  "endColumn": 46
+                  "startLine": 61,
+                  "startColumn": 27,
+                  "endLine": 61,
+                  "endColumn": 33
                 }
               }
             }
@@ -1809,27 +1809,6 @@
           }
         },
         {
-          "ruleId": "S2325",
-          "level": "warning",
-          "message": "Make 'GetAccountByEmail' a static method.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/AccountDAO.cs",
-                "region": {
-                  "startLine": 43,
-                  "startColumn": 36,
-                  "endLine": 43,
-                  "endColumn": 53
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S4790",
           "level": "warning",
           "message": "Make sure this weak hash algorithm is not used in a sensitive context here.",
@@ -1872,9 +1851,9 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetAccountByEmail' does not access instance data and can be marked as static",
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'GetAccountByEmail' a static method.",
           "locations": [
             {
               "resultFile": {
@@ -1905,6 +1884,27 @@
                   "startColumn": 24,
                   "endLine": 107,
                   "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetAccountByEmail' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/DataAcess/AccountDAO.cs",
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 36,
+                  "endLine": 43,
+                  "endColumn": 53
                 }
               }
             }

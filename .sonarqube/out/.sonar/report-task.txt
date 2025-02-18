@@ -1,0 +1,6 @@
+projectKey=TwnaShop
+serverUrl=http://192.168.1.13:9000
+serverVersion=25.2.0.102705
+dashboardUrl=http://192.168.1.13:9000/dashboard?id=TwnaShop
+ceTaskId=f1e6c616-023e-4828-8490-3a3a2eccf18b
+ceTaskUrl=http://192.168.1.13:9000/api/ce/task?id=f1e6c616-023e-4828-8490-3a3a2eccf18b

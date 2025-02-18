@@ -14,74 +14,6 @@
         {
           "ruleId": "CS8618",
           "level": "warning",
-          "message": "Non-nullable property 'ProductName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
-                "region": {
-                  "startLine": 68,
-                  "startColumn": 23,
-                  "endLine": 68,
-                  "endColumn": 34
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
-                "region": {
-                  "startLine": 68,
-                  "startColumn": 23,
-                  "endLine": 68,
-                  "endColumn": 34
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8618",
-          "level": "warning",
-          "message": "Non-nullable property 'Image' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
-                "region": {
-                  "startLine": 69,
-                  "startColumn": 23,
-                  "endLine": 69,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
-                "region": {
-                  "startLine": 69,
-                  "startColumn": 23,
-                  "endLine": 69,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8618",
-          "level": "warning",
           "message": "Non-nullable property 'To' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
           "locations": [
             {
@@ -182,18 +114,65 @@
           }
         },
         {
-          "ruleId": "CS8602",
+          "ruleId": "CS8618",
           "level": "warning",
-          "message": "Dereference of a possibly null reference.",
+          "message": "Non-nullable property 'ProductName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
                 "region": {
-                  "startLine": 18,
-                  "startColumn": 28,
-                  "endLine": 18,
-                  "endColumn": 37
+                  "startLine": 68,
+                  "startColumn": 23,
+                  "endLine": 68,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 23,
+                  "endLine": 68,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Image' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 23,
+                  "endLine": 69,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 23,
+                  "endLine": 69,
+                  "endColumn": 28
                 }
               }
             }
@@ -236,103 +215,6 @@
                   "startColumn": 56,
                   "endLine": 17,
                   "endColumn": 65
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8602",
-          "level": "warning",
-          "message": "Dereference of a possibly null reference.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
-                "region": {
-                  "startLine": 41,
-                  "startColumn": 20,
-                  "endLine": 41,
-                  "endColumn": 52
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8603",
-          "level": "warning",
-          "message": "Possible null reference return.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
-                "region": {
-                  "startLine": 41,
-                  "startColumn": 20,
-                  "endLine": 41,
-                  "endColumn": 78
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8618",
-          "level": "warning",
-          "message": "Non-nullable property 'hostname' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CaptChaService/CaptchaService.cs",
-                "region": {
-                  "startLine": 33,
-                  "startColumn": 23,
-                  "endLine": 33,
-                  "endColumn": 31
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CaptChaService/CaptchaService.cs",
-                "region": {
-                  "startLine": 33,
-                  "startColumn": 23,
-                  "endLine": 33,
-                  "endColumn": 31
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8602",
-          "level": "warning",
-          "message": "Dereference of a possibly null reference.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
-                "region": {
-                  "startLine": 47,
-                  "startColumn": 13,
-                  "endLine": 47,
-                  "endColumn": 45
                 }
               }
             }
@@ -469,6 +351,124 @@
                   "startColumn": 23,
                   "endLine": 8,
                   "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'hostname' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CaptChaService/CaptchaService.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 23,
+                  "endLine": 33,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CaptChaService/CaptchaService.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 23,
+                  "endLine": 33,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Dereference of a possibly null reference.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 28,
+                  "endLine": 18,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Dereference of a possibly null reference.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 20,
+                  "endLine": 41,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8603",
+          "level": "warning",
+          "message": "Possible null reference return.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 20,
+                  "endLine": 41,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Dereference of a possibly null reference.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/CartService/CartService.cs",
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 13,
+                  "endLine": 47,
+                  "endColumn": 45
                 }
               }
             }
@@ -832,27 +832,6 @@
           }
         },
         {
-          "ruleId": "S4487",
-          "level": "warning",
-          "message": "Remove this unread private field '_payOS' or refactor the code to use its value.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/PaymentService/PayProcess.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 32,
-                  "endLine": 5,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "CA1050",
           "level": "note",
           "message": "Declare types in namespaces",
@@ -895,18 +874,18 @@
           }
         },
         {
-          "ruleId": "S927",
+          "ruleId": "S4487",
           "level": "warning",
-          "message": "Rename parameter 'notificationId' to 'pro' to match the interface declaration.",
+          "message": "Remove this unread private field '_payOS' or refactor the code to use its value.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/NotificationRepository.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/PaymentService/PayProcess.cs",
                 "region": {
-                  "startLine": 35,
-                  "startColumn": 38,
-                  "endLine": 35,
-                  "endColumn": 52
+                  "startLine": 5,
+                  "startColumn": 32,
+                  "endLine": 5,
+                  "endColumn": 38
                 }
               }
             }
@@ -949,6 +928,27 @@
                   "startColumn": 19,
                   "endLine": 9,
                   "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S927",
+          "level": "warning",
+          "message": "Rename parameter 'notificationId' to 'pro' to match the interface declaration.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/NotificationRepository.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 38,
+                  "endLine": 35,
+                  "endColumn": 52
                 }
               }
             }
@@ -1086,16 +1086,16 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'GetMonthlyRevenue' does not access instance data and can be marked as static",
+          "message": "Member 'GetCurrentCulture' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/StatictisService/StatisticService.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/TranslateService/TranslateService.cs",
                 "region": {
-                  "startLine": 39,
-                  "startColumn": 52,
-                  "endLine": 39,
-                  "endColumn": 69
+                  "startLine": 34,
+                  "startColumn": 20,
+                  "endLine": 34,
+                  "endColumn": 37
                 }
               }
             }
@@ -1107,16 +1107,16 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'GetCurrentCulture' does not access instance data and can be marked as static",
+          "message": "Member 'GetMonthlyRevenue' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/TranslateService/TranslateService.cs",
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/Repository/StatictisService/StatisticService.cs",
                 "region": {
-                  "startLine": 34,
-                  "startColumn": 20,
-                  "endLine": 34,
-                  "endColumn": 37
+                  "startLine": 39,
+                  "startColumn": 52,
+                  "endLine": 39,
+                  "endColumn": 69
                 }
               }
             }

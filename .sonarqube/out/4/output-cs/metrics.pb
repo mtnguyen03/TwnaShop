@@ -60,18 +60,18 @@ dD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\O
 cD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\OrderDetail.cshtml.cs	 8
 jr'	
  !#$%&'()+-./0x‚	%&(+-¢
-]D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\Index.cshtml.cs 8r'	 !"#$&'(,-x‚ !#&'‡
+]D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\Index.cshtml.cs 8r'	 !"#$&'(,-x‚ !#&' 
+cD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\AddCategory.cshtml.cs	 8jr	
+ !"#$%x‚ !‡
 bD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\Getproduct.cshtml.cs 8r	
 ‚	
 «
-gD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\CategoryManager.cshtml.cs	 8	jr&	
-!"#$%&')+,-.x‚
-	#$&)+«
 bD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\AddProduct.cshtml.cs 8j(r(	
 !"#$%&')*+,-./x‚
-#$)*+ 
-cD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\AddCategory.cshtml.cs	 8jr	
- !"#$%x‚ !–
+#$)*+«
+gD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Admin\CategoryManager.cshtml.cs	 8	jr&	
+!"#$%&')+,-.x‚
+	#$&)+–
 iD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\Pages\Accounts\AccountManager.cshtml.cs 8r	
 x‚u
 QD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\global_using.csr 	

@@ -18,9 +18,9 @@ dD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\MailServic
 eD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\MailService\ISendGmailService.csutf-8c
 ZD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\IProductRepository.csutf-8\
 SD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\IOtpService.csutf-8a
-XD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\IOrderRepository.csutf-8h
-_D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\INotificationRepository.csutf-8g
-^D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\IOrderDetailRepository.csutf-8d
+XD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\IOrderRepository.csutf-8g
+^D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\IOrderDetailRepository.csutf-8h
+_D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\INotificationRepository.csutf-8d
 [D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\ICategoryRepository.csutf-8c
 ZD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\IAccountRepository.csutf-8]
 TD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\global_using.csutf-8o

@@ -1,4 +1,5 @@
-Õ
+S
+QD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\global_using.csÕ
 LD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\Program.cs
 	namespace 	
 ShopApi
@@ -193,8 +194,7 @@ UseSwagger   
 ;11 
 }22 	
 }33 
-}44 S
-QD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\global_using.cs 8
+}44  8
 cD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\Controllers\CommentsController.cs
 	namespace 	
 ShopApi

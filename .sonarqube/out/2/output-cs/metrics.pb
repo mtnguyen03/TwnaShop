@@ -23,15 +23,15 @@ WD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\OrderRepos
 ]D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\OrderDetailRepository.cs 8r
 ‚ 
 ^D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\NotificationRepository.cs 8j
-"#&r	 #$&'()x‚&·
+"#&r	 #$&'()x‚&s
+eD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\MailService\ISendGmailService.csr	·
 dD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\MailService\SendGmailService.cs 	8	r3	
  !"#$%&'()*+,-./013456789x‚
 "#%&*u
 `D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\MailService\MailSettings.cs 
 8
 r	
-s
-eD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\MailService\ISendGmailService.csr	m
+m
 ZD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\IProductRepository.csr	
 a
 SD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\IOtpService.csrj
