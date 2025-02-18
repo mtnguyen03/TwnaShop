@@ -1,0 +1,1 @@
+lRVD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\Repository\Repository.csproj¢net8.0òCSharp12

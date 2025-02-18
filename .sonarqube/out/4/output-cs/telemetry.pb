@@ -1,0 +1,1 @@
+fRPD:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopWeb\ShopWeb.csproj¢net8.0òCSharp12

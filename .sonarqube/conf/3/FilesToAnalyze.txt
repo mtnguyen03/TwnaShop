@@ -1,0 +1,10 @@
+﻿D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\Controllers\CommentsController.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\global_using.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\Program.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\obj\Debug\net8.0\ShopApi.GlobalUsings.g.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\obj\Debug\net8.0\ShopApi.AssemblyInfo.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\obj\Debug\net8.0\ShopApi.MvcApplicationPartsAssemblyInfo.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\ShopApi.http
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\Properties\launchSettings.json
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\ShopApi\Properties\PublishProfiles\site13116-WebDeploy.pubxml

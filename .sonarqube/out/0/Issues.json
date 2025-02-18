@@ -1,0 +1,1145 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.11.0.0",
+        "fileVersion": "4.11.0-3.24365.8 (9e9c7c1d)",
+        "semanticVersion": "4.11.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/OrderDetail.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 31,
+                  "endLine": 13,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Product.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 32,
+                  "endLine": 15,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Category.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 44,
+                  "endLine": 10,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Account.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 42,
+                  "endLine": 20,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/OrderDetail.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 29,
+                  "endLine": 14,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Product.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 48,
+                  "endLine": 16,
+                  "endColumn": 49
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Account.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 49,
+                  "endLine": 21,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Comment.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 23,
+                  "endLine": 8,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Product.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 44,
+                  "endLine": 17,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Order.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 48,
+                  "endLine": 16,
+                  "endColumn": 49
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Comment.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 23,
+                  "endLine": 11,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Comment.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 22,
+                  "endLine": 14,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8632",
+          "level": "warning",
+          "message": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Comment.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 23,
+                  "endLine": 21,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Accounts' 5 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 23,
+                  "endLine": 15,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 41,
+                  "endLine": 67,
+                  "endColumn": 51
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 41,
+                  "endLine": 92,
+                  "endColumn": 51
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 139,
+                  "startColumn": 41,
+                  "endLine": 139,
+                  "endColumn": 51
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 234,
+                  "startColumn": 23,
+                  "endLine": 234,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'SqlServer:Identity' 6 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 37,
+                  "endLine": 19,
+                  "endColumn": 57
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 37,
+                  "endLine": 40,
+                  "endColumn": 57
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 37,
+                  "endLine": 53,
+                  "endColumn": 57
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 77,
+                  "startColumn": 37,
+                  "endLine": 77,
+                  "endColumn": 57
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 101,
+                  "startColumn": 37,
+                  "endLine": 101,
+                  "endColumn": 57
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 37,
+                  "endLine": 124,
+                  "endColumn": 57
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'nvarchar(max)' 15 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 56,
+                  "endLine": 20,
+                  "endColumn": 71
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 59,
+                  "endLine": 21,
+                  "endColumn": 74
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 59,
+                  "endLine": 22,
+                  "endColumn": 74
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 59,
+                  "endLine": 23,
+                  "endColumn": 74
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 56,
+                  "endLine": 24,
+                  "endColumn": 71
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 56,
+                  "endLine": 27,
+                  "endColumn": 71
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 58,
+                  "endLine": 28,
+                  "endColumn": 73
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 63,
+                  "endLine": 41,
+                  "endColumn": 78
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 56,
+                  "endLine": 55,
+                  "endColumn": 71
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 56,
+                  "startColumn": 56,
+                  "endLine": 56,
+                  "endColumn": 71
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 65,
+                  "endLine": 57,
+                  "endColumn": 80
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 62,
+                  "endLine": 82,
+                  "endColumn": 77
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 103,
+                  "startColumn": 62,
+                  "endLine": 103,
+                  "endColumn": 77
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 104,
+                  "startColumn": 63,
+                  "endLine": 104,
+                  "endColumn": 78
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 127,
+                  "startColumn": 62,
+                  "endLine": 127,
+                  "endColumn": 77
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "10": null,
+              "11": null,
+              "12": null,
+              "13": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null,
+              "7": null,
+              "8": null,
+              "9": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'datetime2' 5 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 69,
+                  "endLine": 58,
+                  "endColumn": 80
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 62,
+                  "endLine": 79,
+                  "endColumn": 73
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 64,
+                  "endLine": 80,
+                  "endColumn": 75
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 130,
+                  "startColumn": 62,
+                  "endLine": 130,
+                  "endColumn": 73
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 131,
+                  "startColumn": 62,
+                  "endLine": 131,
+                  "endColumn": 73
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'AccountID' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 42,
+                  "endLine": 68,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 42,
+                  "endLine": 93,
+                  "endColumn": 53
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 140,
+                  "startColumn": 42,
+                  "endLine": 140,
+                  "endColumn": 53
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 207,
+                  "startColumn": 25,
+                  "endLine": 207,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Orders' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 23,
+                  "endLine": 73,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 168,
+                  "startColumn": 41,
+                  "endLine": 168,
+                  "endColumn": 49
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 24,
+                  "endLine": 206,
+                  "endColumn": 32
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 228,
+                  "startColumn": 23,
+                  "endLine": 228,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Products' 5 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 23,
+                  "endLine": 97,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 149,
+                  "startColumn": 41,
+                  "endLine": 149,
+                  "endColumn": 51
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 174,
+                  "startColumn": 41,
+                  "endLine": 174,
+                  "endColumn": 51
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 211,
+                  "startColumn": 24,
+                  "endLine": 211,
+                  "endColumn": 34
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 231,
+                  "startColumn": 23,
+                  "endLine": 231,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Comments' 6 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 23,
+                  "endLine": 120,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 41,
+                  "endLine": 144,
+                  "endColumn": 51
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 181,
+                  "startColumn": 24,
+                  "endLine": 181,
+                  "endColumn": 34
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 186,
+                  "startColumn": 24,
+                  "endLine": 186,
+                  "endColumn": 34
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 191,
+                  "startColumn": 24,
+                  "endLine": 191,
+                  "endColumn": 34
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 219,
+                  "startColumn": 23,
+                  "endLine": 219,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'ProductId' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 42,
+                  "endLine": 150,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 175,
+                  "startColumn": 42,
+                  "endLine": 175,
+                  "endColumn": 53
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 182,
+                  "startColumn": 25,
+                  "endLine": 182,
+                  "endColumn": 36
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/Migrations/20241024094942_Initial3.cs",
+                "region": {
+                  "startLine": 202,
+                  "startColumn": 25,
+                  "endLine": 202,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S3251",
+          "level": "warning",
+          "message": "Supply an implementation for this partial method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/ShopDbContext.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 9,
+                  "endLine": 34,
+                  "endColumn": 16
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3251",
+          "level": "warning",
+          "message": "Supply an implementation for the partial method, otherwise this call will be ignored.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/FPT%20Course/Summer2024/PRN221/Project/New%20folder/a/Shop/BusinessObject/ShopDbContext.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 13,
+                  "endLine": 32,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CS8632": {
+          "id": "CS8632",
+          "shortDescription": "The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8632)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "S1192": {
+          "id": "S1192",
+          "shortDescription": "String literals should not be duplicated",
+          "fullDescription": "Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all occurrences.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1192",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3251": {
+          "id": "S3251",
+          "shortDescription": "Implementations should be provided for \"partial\" methods",
+          "fullDescription": "partial methods allow an increased degree of flexibility in programming a system. Hooks can be added to generated code by invoking methods that define their signature, but might not have an implementation yet. But if the implementation is still missing when the code makes it to production, the compiler silently removes the call. In the best case scenario, such calls simply represent cruft, but in they worst case they are critical, missing functionality, the loss of which will lead to unexpected results at runtime.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3251",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

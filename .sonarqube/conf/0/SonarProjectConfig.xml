@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SonarProjectConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/analyzer/2021/1">
+  <AnalysisConfigPath>D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\.sonarqube\conf\SonarQubeAnalysisConfig.xml</AnalysisConfigPath>
+  <ProjectPath>D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\BusinessObject.csproj</ProjectPath>
+  <FilesToAnalyzePath>D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\.sonarqube\conf\0\FilesToAnalyze.txt</FilesToAnalyzePath>
+  <OutPath>D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\.sonarqube\out\0</OutPath>
+  <ProjectType>Product</ProjectType>
+  <TargetFramework>net8.0</TargetFramework>
+</SonarProjectConfig>

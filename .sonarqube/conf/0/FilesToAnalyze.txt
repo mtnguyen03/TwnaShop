@@ -1,0 +1,13 @@
+﻿D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\Account.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\Category.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\Comment.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\global_using.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\Migrations\20241024094942_Initial3.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\Migrations\20241024094942_Initial3.Designer.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\Migrations\ShopDbContextModelSnapshot.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\Notification.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\Order.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\OrderDetail.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\Product.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\ShopDbContext.cs
+D:\FPT Course\Summer2024\PRN221\Project\New folder\a\Shop\BusinessObject\ShopIdentityDbContext.cs
