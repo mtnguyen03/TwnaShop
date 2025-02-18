@@ -1,116 +1,47 @@
-# # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# # More GitHub Actions for Azure: https://github.com/Azure/actions
-
-# name: Build and deploy ASP.Net Core app to Azure Web App - twnashop21
-
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - uses: actions/checkout@v4
-
-#       - name: Set up .NET Core
-#         uses: actions/setup-dotnet@v4
-#         with:
-#           dotnet-version: '8.x'
-
-#       - name: Build with dotnet
-#         run: dotnet build --configuration Release
-
-#       - name: dotnet publish
-#         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-
-#       - name: Upload artifact for deployment job
-#         uses: actions/upload-artifact@v4
-#         with:
-#           name: .net-app
-#           path: ${{env.DOTNET_ROOT}}/myapp
-
-#   deploy:
-#     runs-on: ubuntu-latest
-#     needs: build
-#     environment:
-#       name: 'Production'
-#       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-#     permissions:
-#       id-token: write #This is required for requesting the JWT
-
-#     steps:
-#       - name: Download artifact from build job
-#         uses: actions/download-artifact@v4
-#         with:
-#           name: .net-app
-      
-#       - name: Login to Azure
-#         uses: azure/login@v2
-#         with:
-#           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6C645B458F834D5BA6B5C3D9901D8130 }}
-#           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_67FE867710D749EC8D1C5A1BFA3F5835 }}
-#           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_4C5475F41F9D484ABC194ADB7CF1B575 }}
-
-#       - name: Deploy to Azure Web App
-#         id: deploy-to-webapp
-#         uses: azure/webapps-deploy@v3
-#         with:
-#           app-name: 'twnashop21'
-#           slot-name: 'Production'
-#           package: .
-          
-
-
-name: SonarQube
+name: Build
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+
 
 jobs:
   build:
     name: Build and analyze
     runs-on: windows-latest
+    
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: 'zulu'
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Cache SonarQube Cloud packages
+          distribution: 'zulu' # Alternative distribution options are available.
+      - name: Cache SonarQube packages
         uses: actions/cache@v4
         with:
-          path: ~\sonar\cache
+          path: ~\.sonar\cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
-      - name: Cache SonarQube Cloud scanner
+      - name: Cache SonarQube scanner
         id: cache-sonar-scanner
         uses: actions/cache@v4
         with:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
-      - name: Install SonarQube Cloud scanner
+      - name: Install SonarQube scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: powershell
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       - name: Build and analyze
-        env:
-          SONAR_TOKEN: ee61576302f03f5b7ff2622f8232b3d6720a3178
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"mtnguyen03_TwnaShop" /o:"mtnguyen03" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"f" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
